@@ -1,0 +1,38 @@
+<!-- 
+    3.2. Fill an array (5 numerical values) from the user, Sort it in descending
+and ascending orders then display the output as shown in Fig.
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array 3.2</title>
+</head>
+
+<body>
+    <script>
+        document.write("<h1>Sorting</h1><hr>")
+        var array = [];
+        for (var i = 0; i < 5; i++) {
+            var element = parseInt(prompt("Enter 5 values: "));
+            array.push(element);
+        }
+        document.write("<h2 style= color:red; > array values: <span style= color:black;>" + array + "</span></h2>");
+
+        var descending = array.sort(function (a, b) {
+            return b - a;
+        });
+        document.write("<h2 style= color:red; > array in descending order: <span style= color:black;>" + descending + "</span></h2>");
+
+        var ascending = array.sort(function (a, b) {
+            return a - b;
+        });
+        document.write("<h2 style= color:red; > array in ascending order: <span style= color:black;>" + ascending + "</span></h2>");
+
+    </script>
+</body>
+
+</html>

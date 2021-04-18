@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math 4</title>
+</head>
+
+<body>
+    <script>
+        var radius = parseFloat(prompt("What is the value of your circles radius:"));
+        var number = parseFloat(prompt("What is the value you want to calculate its squar root:"));
+        var angle = parseFloat(prompt("What is the angle you want to calculate its cos values:"));
+
+
+        // area = pi*radius^2
+        var area = Math.PI * Math.pow(radius, 2);
+        var squar_root = Math.sqrt(number);
+        var cos = Math.cos(angle);
+
+        alert("Total area of circle is " + area + " m^2");
+        alert("The square root of " + number + " is " + squar_root);
+        document.write("<h2>cos " + angle + "<sup>°</sup> is " + cos.toFixed(4) + "</h2>")
+    </script>
+</body>
+
+</html>
