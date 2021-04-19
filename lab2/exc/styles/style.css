@@ -1,0 +1,19 @@
+.divs{
+margin: 10px;
+padding: 10px;
+}
+
+#first{
+    background-color: aqua;
+}
+
+#second{
+    background-color: red;
+}
+
+#third{
+    background-color:gold;
+}
+.new{
+    background-color: darkred;
+}
