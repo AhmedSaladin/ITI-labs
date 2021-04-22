@@ -82,7 +82,6 @@ function moving_backward() {
 
 
 // ---------------------------default section---------------------------------------
-
 function first_default_coordinate() {
     first_img_position = -1;
     var positionX = container_position.left - 20;
