@@ -1,154 +1,19 @@
-var first = document.getElementById("first");
-var second = document.getElementById("middle");
-var third = document.getElementById("last");
 
-var first_view = document.getElementById("first_view");
-var second_view = document.getElementById("second_view");
-var third_view = document.getElementById("third_view");
+var first_img = document.getElementById("first");
+var second_img = document.getElementById("middle");
+var third_img = document.getElementById("last");
+var button = document.getElementById("start");
+var container = document.getElementById("con");
+var container_position = container.getBoundingClientRect();
 
-var con = document.getElementById("con");
-var con_area = con.getBoundingClientRect();
+var first_img_position;
+var second_img_position;
+var third_img_position;
 
-var first_start_point = con_area.left - 20;
-var second_start_point = con_area.right - 140;
-var third_start_point = con_area.bottom - 90;
-
-var a_pos
-var b_pos
-var c_pos
-
-var a_edged;
-var b_edged;
-var c_edged;
-
+var first_img_edged;
+var second_img_edged;
+var third_img_edged;
 var timer;
-
-
-function first_element_moving() {
-
-    if (a_pos < con_area.width - 70) {
-        a_pos++;
-        update_first_cord(a_pos);
-        a_edged = false;
-    }
-
-    if (a_pos != -1) {
-        a_pos--;
-        update_first_cord(a_pos);
-        a_edged = false;
-    }
-}
-
-function start_move() {
-    timer = setInterval(moving_forward, 0);
-}
-
-function moving_forward() {
-    set_true();
-
-    if (a_pos < con_area.width - 70) {
-        a_pos++;
-        update_first_cord(a_pos);
-        a_edged = false;
-    }
-
-    if (b_pos < con_area.width + 70) {
-        b_pos++;
-        update_second_cord(b_pos)
-        b_edged = false;
-    }
-
-    if (c_pos < con_area.height + 30) {
-        c_pos++;
-        update_third_cord(c_pos);
-        c_edged = false;
-    }
-    if (c_edged||b_edged||a_edged) {
-        edged();
-        timer = setInterval(moving_backward, 0);
-    }
-}
-
-function moving_backward() {
-    set_true();
-
-    if (a_pos != -1) {
-        a_pos--;
-        update_first_cord(a_pos);
-        a_edged = false;
-    }
-
-    if (b_pos != 140) {
-        b_pos--
-        update_second_cord(b_pos);
-        b_edged = false;
-    }
-
-    if (c_pos != 90) {
-        c_pos--;
-        update_third_cord(c_pos);
-        c_edged = false;
-    }
-
-    if (c_edged||b_edged||a_edged) {
-        edged();
-        timer = setInterval(moving_forward, 0);
-    }
-}
-
-function reset_move() {
-    first_default_cord()
-    second_default_cord()
-    third_default_cord()
-    clearInterval(timer);
-}
-
-function edged() {
-    clearInterval(timer);
-}
-
-function first_default_cord() {
-    first.style.bottom = con_area.top - 250 + "px";
-    var cord = first.style.left = first_start_point + "px";
-    first_view.innerHTML = "The pic with feather: left " + cord;
-    a_pos = -1;
-}
-
-function second_default_cord() {
-    second.style.bottom = con_area.top - 250 + "px";
-    var cord = second.style.left = second_start_point + "px";
-    second_view.innerHTML = "The pic with flower: right " + cord;
-    b_pos = 140;
-}
-
-function third_default_cord() {
-    var cord = third.style.top = third_start_point + "px";
-    third.style.right = con_area.left - 130 + "px";
-    third_view.innerHTML = "The pic with triangle: top " + cord;
-    c_pos = 90;
-}
-
-function update_first_cord(position) {
-    var cordinate = first.style.left = position + "px";
-    first_view.innerHTML = "The pic with feather: left " + cordinate;
-}
-
-function update_second_cord(position) {
-    var cordinate = second.style.left = con_area.right - position + "px";
-    second_view.innerHTML = "The pic with flower: right " + cordinate;
-}
-
-function update_third_cord(position) {
-    var cordinate = third.style.top = con_area.bottom - position + "px";
-    third_view.innerHTML = "The pic with triangle: top " + cordinate;
-    
-}
-
-function set_true() {
-    a_edged = true;
-    b_edged = true;
-    c_edged = true;
-}
 
 /*
 first start_point -2 || first end_point 456
@@ -159,6 +24,186 @@ third start_point 446 || third end_point top -20
 ------------------------------------------------------
 */
 
-first_default_cord()
-second_default_cord()
-third_default_cord()
+
+// ---------------------------movement section---------------------------------------
+function moving_forward() {
+    set_edge();
+
+    if (first_img_position < container_position.width - 70) {
+        first_img_position++;
+        update_first_coordinate(first_img_position);
+        first_img_edged = false;
+    }
+
+    if (second_img_position < container_position.width + 70) {
+        second_img_position++;
+        update_second_coordinate(second_img_position)
+        second_img_edged = false;
+    }
+
+    if (third_img_position < container_position.height + 30) {
+        third_img_position++;
+        update_third_coordinate(third_img_position);
+        third_img_edged = false;
+    }
+    if (third_img_edged || second_img_edged || first_img_edged) {
+        edged();
+        timer = setInterval(moving_backward, 0);
+    }
+}
+
+function moving_backward() {
+    set_edge();
+
+    if (first_img_position != -1) {
+        first_img_position--;
+        update_first_coordinate(first_img_position);
+        first_img_edged = false;
+    }
+
+    if (second_img_position != 140) {
+        second_img_position--
+        update_second_coordinate(second_img_position);
+        second_img_edged = false;
+    }
+
+    if (third_img_position != 90) {
+        third_img_position--;
+        update_third_coordinate(third_img_position);
+        third_img_edged = false;
+    }
+
+    if (third_img_edged || second_img_edged || first_img_edged) {
+        edged();
+        timer = setInterval(moving_forward, 0);
+    }
+}
+// ---------------------------------------------------------------------------------
+
+
+// ---------------------------default section---------------------------------------
+
+function first_default_coordinate() {
+    first_img_position = -1;
+    var positionX = container_position.left - 20;
+    var positionY = container_position.bottom - 300;
+    var coordinateX = set_img_coordinateX(first_img, positionX);
+    set_img_coordinateY(first_img, positionY);
+    print_first_image_coordinate_on_screen(coordinateX);
+}
+
+function second_default_coordinate() {
+    second_img_position = 140;
+    var positionX = container_position.right - 140;
+    var positionY = container_position.bottom - 300;
+    var coordinateX = set_img_coordinateX(second_img, positionX)
+    set_img_coordinateY(second_img, positionY);
+    print_second_image_coordinate_on_screen(coordinateX);
+}
+
+function third_default_coordinate() {
+    third_img_position = 90;
+    var positionX = container_position.right - 410;
+    var positionY = container_position.bottom - third_img_position;
+    set_img_coordinateX(third_img, positionX)
+    var coordinateY = set_img_coordinateY(third_img, positionY);
+    print_third_image_coordinate_on_screen(coordinateY)
+}
+// ---------------------------------------------------------------------------------
+
+
+// ---------------------------update section---------------------------------------
+function update_first_coordinate(position) {
+    var coordinateX = set_img_coordinateX(first_img, position);
+    print_first_image_coordinate_on_screen(coordinateX);
+}
+
+function update_second_coordinate(position) {
+    var positionX = container_position.right - position;
+    var coordinateX = set_img_coordinateX(second_img, positionX)
+    print_second_image_coordinate_on_screen(coordinateX);
+
+}
+
+function update_third_coordinate(position) {
+    var positionY = container_position.bottom - position;
+    var coordinateY = set_img_coordinateY(third_img, positionY);
+    print_third_image_coordinate_on_screen(coordinateY)
+}
+// ---------------------------------------------------------------------------------
+
+
+// ---------------------------button section---------------------------------------
+function stop_button() {
+    button.value = "stop";
+    button.setAttribute("onclick", "stop_movement()");
+}
+
+function start_button() {
+    button.value = "start";
+    button.setAttribute("onclick", "start_movement()");
+}
+
+// ---------------------------------------------------------------------------------
+
+
+// ---------------------------print section-----------------------------------------
+function print_first_image_coordinate_on_screen(coordinate) {
+    var first_img_coordinate_view = document.getElementById("first_view");
+    first_img_coordinate_view.innerHTML = "The pic with feather: left " + coordinate;
+}
+
+function print_second_image_coordinate_on_screen(coordinate) {
+    var second_img_coordinate_view = document.getElementById("second_view");
+    second_img_coordinate_view.innerHTML = "The pic with flower: right " + coordinate;
+}
+
+function print_third_image_coordinate_on_screen(coordinate) {
+    var third_img_coordinate_view = document.getElementById("third_view");
+    third_img_coordinate_view.innerHTML = "The pic with triangle: top " + coordinate;
+}
+// ---------------------------------------------------------------------------------
+
+
+// ---------------------------helper section-----------------------------------------
+function set_default_positions() {
+    first_default_coordinate();
+    second_default_coordinate();
+    third_default_coordinate();
+    edged();
+    start_button();
+
+}
+
+function start_movement() {
+    timer = setInterval(moving_forward, 0);
+    stop_button();
+}
+
+function stop_movement() {
+    edged(timer);
+    start_button();
+}
+
+function edged() {
+    clearInterval(timer);
+
+}
+
+function set_edge() {
+    first_img_edged = true;
+    second_img_edged = true;
+    third_img_edged = true;
+}
+
+function set_img_coordinateX(img, point) {
+    return img.style.left = point + "px";
+}
+
+function set_img_coordinateY(img, point) {
+    return img.style.top = point + "px";
+}
+// ---------------------------------------------------------------------------------
+
+set_default_positions();
+
