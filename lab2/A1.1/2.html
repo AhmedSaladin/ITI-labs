@@ -76,6 +76,17 @@
         help@lipsum.com
         Privacy Policy
     </footer>
+
+    <script>
+        var position = 100;
+        var timer = setInterval(function () {
+            window.scroll(0, position);
+            position += 100;
+            if (position > 2500)
+                clearInterval(timer);
+        }, 500);
+
+    </script>
 </body>
 
 </html>

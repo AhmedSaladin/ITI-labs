@@ -11,7 +11,7 @@ function open_new_window() {
 };
 
 function close_new_window() {
-    for (var i; i < win.length; i++)
+    for (var i = 0; i < win.length; i++)
         win[i].close();
     clearInterval(timer);
 };
