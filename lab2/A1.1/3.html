@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Message Child</title>
+</head>
+
+<body>
+    <h1 id="txt">Hi</h1>
+
+</body>
+<script>
+    var position = 0;
+    var txt = document.getElementById("txt");
+    var text = ", I'm just writing for you to know I'm can write now in JS.";
+    var length = text.length
+    ti = setInterval(function () {
+        console.log(txt);
+        txt.innerHTML += text[position];
+        position++;
+        if (position >= length) {
+            clearInterval(ti);
+            setTimeout(window.close(), 2000)
+        }
+    }, 300);
+</script>
+
+</html>
