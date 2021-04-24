@@ -5,15 +5,15 @@ Retrieves a cookie value based on a cookie name.
 2-setCookie(cookieName,cookieValue[,expiryDate]):
     Sets a cookie based on a cookie name, cookie value, and expiration date.
     
-    3-deleteCookie(cookieName):
+3-deleteCookie(cookieName):
     Deletes a cookie based on a cookie name.
     
-    4-allCookieList():
+4-allCookieList():
     returns a list of all stored cookies.
     
-    5-hasCookie(cookieName):
+5-hasCookie(cookieName):
     Check whether a cookie exists or not.
-    */
+*/
 
 function submit() {
     set_name_cookie()
@@ -75,23 +75,8 @@ function get_all_cookie() {
     return new_arr;
 }
 
-function welcome_screen() {
-    var data = get_all_cookie();
-    var body = document.getElementById("do");
-    var new_elemwnt = document.createElement("div");
-    set_visited();
-    if (is_there_cookie()) {
-        for (i in data) {
-            new_elemwnt.innerHTML += i + ": " + data[i] + " and you visit this site:  ";
-        }
-    } else {
-        new_elemwnt.innerHTML = "You can't be here";
-    }
-    body.appendChild(new_elemwnt);
-}
 
 function is_there_cookie() {
-
     var cookies = get_all_cookie()
     console.log(cookies)
     if (cookies["username"] != 0) {
@@ -103,14 +88,12 @@ function is_there_cookie() {
 
 function log_out() {
     delete_cookie()
-    var confirmed = confirm();
-    console.log(confirmed);
-    location.assign("index.html")
+    var confirmed = confirm("Are you sure you want logout?");
+    if (confirmed) {
+        location.assign("index.html")
+    }
 }
 
-function screen() {
-
-}
 
 function set_visited() {
     var cookies = get_all_cookie();
@@ -120,5 +103,37 @@ function set_visited() {
         document.cookie = "visited=" + new_value + ";expires=" + set_date() + ";";
     else
         document.cookie = "visited=1;expires=" + set_date() + ";";
+}
 
+function create_span(data, color) {
+    var span = document.createElement("span");
+    span.style.color = color;
+    span.innerText = data;
+    return span;
+}
+
+function create_img(gender) {
+    var img = document.createElement("img");
+    img.height = "150";
+    if (gender == "male") {
+        img.src = "imgs/1.jpg";
+    } else {
+        img.src = "imgs/2.jpg";
+    }
+    return img;
+}
+
+function welcome_screen() {
+    var data = get_all_cookie();
+    var body = document.getElementById("do");
+    var new_div = document.createElement("div");
+    new_div.className = "container";
+    body.appendChild(new_div);
+    set_visited();
+    new_div.appendChild(create_img(data["usergender"]));
+    new_div.innerHTML += "Welcome, ";
+    new_div.appendChild(create_span(data["username"], data["color"]));
+    new_div.innerHTML += " you have visit this page ";
+    new_div.appendChild(create_span(data["visited"], data["color"]));
+    new_div.innerHTML += " times.";
 }
