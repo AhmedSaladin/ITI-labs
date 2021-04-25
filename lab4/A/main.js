@@ -26,21 +26,20 @@ function submit() {
 
 function set_name_cookie() {
     var get_name = document.getElementById("name").value;
+    valid_name(get_name);
     document.cookie = "username=" + get_name + ";expires=" + set_date() + ";";
 }
 
 function set_age_cookie() {
     var get_age = document.getElementById("age").value;
+    valid_age(get_age);
     document.cookie = "userage=" + get_age + ";expires=" + set_date() + ";";
 }
 
 function set_gender_cookie() {
     var get_gender = document.getElementsByClassName("gender");
-    for (var i = 0; i < get_gender.length; i++) {
-        if (get_gender[i].checked) {
-            document.cookie = "usergender=" + get_gender[i].value + ";expires=" + set_date() + ";";
-        }
-    }
+    valid_gender(get_gender);
+    document.cookie = "usergender=" + get_gender_value(get_gender) + ";expires=" + set_date() + ";";
 }
 
 function set_get_color() {
@@ -48,7 +47,6 @@ function set_get_color() {
     var idx = color.selectedIndex;
     var clrval = color.options[idx].value;
     document.cookie = "color=" + clrval + ";expires=" + set_date() + ";";
-
 }
 
 function set_date() {
@@ -116,9 +114,9 @@ function create_img(gender) {
     var img = document.createElement("img");
     img.height = "150";
     if (gender == "male") {
-        img.src = "../";
+        img.src = "../../lab3/A/imgs/1.jpg";
     } else {
-        img.src = "imgs/2.jpg";
+        img.src = "../../lab3/A/imgs/2.jpg";
     }
     return img;
 }
@@ -130,10 +128,44 @@ function welcome_screen() {
     new_div.className = "container";
     body.appendChild(new_div);
     set_visited();
+    is_empty(data["usergender"]);
     new_div.appendChild(create_img(data["usergender"]));
     new_div.innerHTML += "Welcome, ";
     new_div.appendChild(create_span(data["username"], data["color"]));
     new_div.innerHTML += " you have visit this page ";
     new_div.appendChild(create_span(data["visited"], data["color"]));
     new_div.innerHTML += " times.";
+}
+
+
+function valid_name(name) {
+    if (name == "")
+        throw Error("Name can't be empty string");
+}
+
+
+function valid_age(age) {
+    if (isNaN(parseInt(age)))
+        throw Error("Age is not valid, age must be a number.");
+}
+
+function valid_gender(gender) {
+    var is_valid = get_gender_value(gender);
+    if (is_valid == undefined)
+        throw Error("Gender is not valid, it can't be empty")
+}
+
+function get_gender_value(gender) {
+    var value;
+    for (var i = 0; i < gender.length; i++) {
+        console.log(gender[i])
+        if (gender[i].checked)
+            value = gender[i].value;
+    }
+    return value;
+}
+
+function is_empty(data) {
+    if (data == "" || data == 0)
+        throw Error("Cookies not valid")
 }
