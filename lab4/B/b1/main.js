@@ -3,20 +3,21 @@ Make your own simulation for a simple linked list custom Object,
 that accepts objects with a single numeric property value in an ascending order.
 
 
-4- Remove an item from specific place with the required value,
-if the value is not added return a message with “data not found”.
 
 7- Ensure that there is no duplication in your entered values. 
 
-8- You can add any property you need.
 
-    1- Enqueue a value as long as the value is in the sequence otherwise through
-        an exception(push an item at the end of the list with the passed value). 
-    2- Insert an item in specific place as long as the value 
-        is missing from the sequence otherwise through an exception.
-    3- Pop a value (remove an item from the end of the list). --done
-    5- Dequeue a value (remove an item from the beginning of the list). --done
-    6- Display the content of the list. --done
+1- Enqueue a value as long as the value is in the sequence otherwise through
+    an exception(push an item at the end of the list with the passed value). --done 
+2- Insert an item in specific place as long as the value 
+    is missing from the sequence otherwise through an exception. --done
+3- Pop a value (remove an item from the end of the list). --done
+4- Remove an item from specific place with the required value,
+    if the value is not added return a message with “data not found”. --done
+5- Dequeue a value (remove an item from the beginning of the list). --done
+6- Display the content of the list. --done
+8- You can add any property you need. --done
+
 */
 
 
@@ -43,7 +44,7 @@ function LinkedList() {
                 new_node.previous = this.tail;
                 this.tail = new_node;
             }
-            this.length++;
+            this.increase_length();
         },
         dequeue: function () {
             if (this.head == null) throw "List is empty.";
@@ -56,7 +57,7 @@ function LinkedList() {
                 this.head.previous = null;
                 old_head.next = null;
             }
-            this.length--;
+            this.decrease_length();
             return old_head;
         },
         get: function (index) {
@@ -81,7 +82,7 @@ function LinkedList() {
             // now the old element in this position
             // point to new node added to list in his position
             current_position.previous = new_node;
-            this.length++;
+            this.increase_length();
         },
         remove: function (value) {
             if (this.head == null) throw "List is empty.";
@@ -94,10 +95,10 @@ function LinkedList() {
                     current.previous.next = tmp.next;
                     current.next = null;
                     current.previous = null;
-                    return current;
+                    this.decrease_length();
                 } else {
                     current = current.next;
-                    if (current == null) throw "Not found in list.";
+                    if (current == null) throw "Data not found";
                 }
             }
         },
@@ -112,12 +113,19 @@ function LinkedList() {
                 this.tail.next = null;
                 popped_node.previous = null;
             }
-            this.length--;
+            this.decrease_length();
             return popped_node;
         },
         displayInfo: function () {
             return this.head;
+        },
+        increase_length: function () {
+            this.length++;
+        },
+        decrease_length: function () {
+            this.length--;
         }
+
     }
 }
 var list = new LinkedList();
@@ -127,7 +135,7 @@ list.enqueue(11);
 list.enqueue(19);
 list.enqueue(20);
 list.insert(3, 4);
-list.remove(30);
+// list.remove(30);
 var ll = list.displayInfo()
 console.log(ll);
 
