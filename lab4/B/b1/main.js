@@ -128,8 +128,18 @@ function LinkedList() {
         },
         is_head_null: function () {
             if (this.head == null) throw "List is empty.";
+        },
+        search: function (value) {
+            if (this.length <= 0) return null;
+            current = this.head;
+            var counter = 1;
+            while (current.value != value) {
+                counter++;
+                current = current.next;
+                if (current == null) return null;
+            }
+            return current;
         }
-
     }
 }
 var list = new LinkedList();
