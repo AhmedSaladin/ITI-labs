@@ -5,6 +5,7 @@ that accepts objects with a single numeric property value in an ascending order.
 
 
 7- Ensure that there is no duplication in your entered values. 
+    -- list must be sorted
 
 
 1- Enqueue a value as long as the value is in the sequence otherwise through
@@ -47,7 +48,7 @@ function LinkedList() {
             this.increase_length();
         },
         dequeue: function () {
-            if (this.head == null) throw "List is empty.";
+            this.is_head_null();
             var old_head = this.head;
             if (this.length == 1) {
                 this.head = null;
@@ -85,7 +86,7 @@ function LinkedList() {
             this.increase_length();
         },
         remove: function (value) {
-            if (this.head == null) throw "List is empty.";
+            this.is_head_null();
             var current = this.head;
             for (var i = 1; i <= this.length; i++) {
                 if (value == current.value) {
@@ -103,7 +104,7 @@ function LinkedList() {
             }
         },
         pop: function () {
-            if (this.head == null) throw "List is empty.";
+            this.is_head_null();
             var popped_node = this.tail;
             if (this.length == 1) {
                 this.head = null;
@@ -124,6 +125,9 @@ function LinkedList() {
         },
         decrease_length: function () {
             this.length--;
+        },
+        is_head_null: function () {
+            if (this.head == null) throw "List is empty.";
         }
 
     }
