@@ -2,12 +2,6 @@
 Make your own simulation for a simple linked list custom Object,
 that accepts objects with a single numeric property value in an ascending order.
 
-
-
-7- Ensure that there is no duplication in your entered values. 
-    -- list must be sorted
-
-
 1- Enqueue a value as long as the value is in the sequence otherwise through
     an exception(push an item at the end of the list with the passed value). --done 
 2- Insert an item in specific place as long as the value 
@@ -17,6 +11,7 @@ that accepts objects with a single numeric property value in an ascending order.
     if the value is not added return a message with “data not found”. --done
 5- Dequeue a value (remove an item from the beginning of the list). --done
 6- Display the content of the list. --done
+7- Ensure that there is no duplication in your entered values. --done
 8- You can add any property you need. --done
 
 */
@@ -36,16 +31,19 @@ function LinkedList() {
         tail: null,
         length: 0,
         enqueue: function (value) {
-            var new_node = new Node(value);
-            if (this.length < 1) {
-                this.head = new_node;
-                this.tail = new_node;
-            } else {
-                this.tail.next = new_node;
-                new_node.previous = this.tail;
-                this.tail = new_node;
-            }
-            this.increase_length();
+            if (isNaN(parseInt(value))) throw "Enter only numeric values.";
+            if (this.search(value) == null) {
+                var new_node = new Node(value);
+                if (this.length < 1) {
+                    this.head = new_node;
+                    this.tail = new_node;
+                } else {
+                    this.tail.next = new_node;
+                    new_node.previous = this.tail;
+                    this.tail = new_node;
+                }
+                this.increase_length();
+            } else throw `This value: ${value} numericin the list you can't add it again.`;
         },
         dequeue: function () {
             this.is_head_null();
@@ -87,21 +85,21 @@ function LinkedList() {
         },
         remove: function (value) {
             this.is_head_null();
-            var current = this.head;
-            for (var i = 1; i <= this.length; i++) {
-                if (value == current.value) {
-                    var tmp = current;
-                    if (current.next != null)
-                        current.next.previous = tmp.previous;
-                    current.previous.next = tmp.next;
-                    current.next = null;
-                    current.previous = null;
-                    this.decrease_length();
-                } else {
-                    current = current.next;
-                    if (current == null) throw "Data not found";
-                }
-            }
+            var founded = this.search(value);
+            if (founded != null) {
+                var tmp = founded;
+                // tail case
+                (founded.next != null) ?
+                    founded.next.previous = tmp.previous :
+                    this.tail = founded.previous;
+                // head case
+                (founded.previous != null) ?
+                    founded.previous.next = tmp.next :
+                    this.head = founded.next;
+
+                founded = null;
+                this.decrease_length();
+            } else throw "Data not found."
         },
         pop: function () {
             this.is_head_null();
@@ -120,12 +118,8 @@ function LinkedList() {
         displayInfo: function () {
             return this.head;
         },
-        increase_length: function () {
-            this.length++;
-        },
-        decrease_length: function () {
-            this.length--;
-        },
+        increase_length: function () { this.length++; },
+        decrease_length: function () { this.length--; },
         is_head_null: function () {
             if (this.head == null) throw "List is empty.";
         },
@@ -142,14 +136,26 @@ function LinkedList() {
         }
     }
 }
-var list = new LinkedList();
-list.enqueue(15);
-list.enqueue(12);
-list.enqueue(11);
-list.enqueue(19);
-list.enqueue(20);
-list.insert(3, 4);
-// list.remove(30);
-var ll = list.displayInfo()
-console.log(ll);
+try {
+
+    var list = new LinkedList();
+    list.enqueue(15);
+    list.enqueue(12);
+    list.enqueue(11);
+    list.enqueue(19);
+    list.enqueue(20);
+    list.insert(3, 4);
+    list.remove(15);
+    list.remove(20);
+
+    var tail = list.get_tail();
+    var head = list.get_head();
+
+    console.log(tail);
+    console.log(head);
+
+    list.enqueue(20);
+} catch (err) {
+    console.error(err);
+}
 
