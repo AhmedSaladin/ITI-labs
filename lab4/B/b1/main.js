@@ -81,25 +81,24 @@ function LinkedList() {
             // now the old element in this position
             // point to new node added to list in his position
             current_position.previous = new_node;
+            this.length++;
         },
         remove: function (value) {
             if (this.head == null) throw "List is empty.";
-            var counter = 0;
-            var node = this.head;
-            while (counter < this.length) {
-                if (value == node.value) {
-                    var target_node = node;
-                    console.log(target_node.previous)
-                    // target_node.previous = node.next;
-                    console.log(target_node.next);
-
-                    target_node.next = node.previous;
-                    // node.next = null;
-                    node.previous = null;
-                    return "found it";
+            var current = this.head;
+            for (var i = 1; i <= this.length; i++) {
+                if (value == current.value) {
+                    var tmp = current;
+                    if (current.next != null)
+                        current.next.previous = tmp.previous;
+                    current.previous.next = tmp.next;
+                    current.next = null;
+                    current.previous = null;
+                    return current;
+                } else {
+                    current = current.next;
+                    if (current == null) throw "Not found in list.";
                 }
-                node = node.next;
-                counter++;
             }
         },
         pop: function () {
@@ -122,18 +121,13 @@ function LinkedList() {
     }
 }
 var list = new LinkedList();
-list.enqueue(15);//1
+list.enqueue(15);
 list.enqueue(12);
-list.enqueue(11);//3
+list.enqueue(11);
 list.enqueue(19);
-list.enqueue(20);//5
+list.enqueue(20);
 list.insert(3, 4);
+list.remove(30);
 var ll = list.displayInfo()
 console.log(ll);
-// list.remove(19);
-// var r = list.get(3);
-// var rr = list.get(1);
-// var rrr = list.get(5);
-// console.log(r);
-// console.log(rr);
-// console.log(rrr);
+
