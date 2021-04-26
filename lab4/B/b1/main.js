@@ -2,8 +2,6 @@
 Make your own simulation for a simple linked list custom Object,
 that accepts objects with a single numeric property value in an ascending order.
 
-2- Insertan item in specific place as long as the value 
-is missing from the sequence otherwise through an exception.
 
 4- Remove an item from specific place with the required value,
 if the value is not added return a message with “data not found”.
@@ -12,11 +10,13 @@ if the value is not added return a message with “data not found”.
 
 8- You can add any property you need.
 
-1- Enqueue a value as long as the value is in the sequence otherwise through
-            an exception(push an item at the end of the list with the passed value). 
+    1- Enqueue a value as long as the value is in the sequence otherwise through
+        an exception(push an item at the end of the list with the passed value). 
+    2- Insert an item in specific place as long as the value 
+        is missing from the sequence otherwise through an exception.
     3- Pop a value (remove an item from the end of the list). --done
     5- Dequeue a value (remove an item from the beginning of the list). --done
-    6- Display the contentof the list. --done
+    6- Display the content of the list. --done
 */
 
 
@@ -69,7 +69,19 @@ function LinkedList() {
             }
             return current;
         },
-        insert: function () { },
+        insert: function (value, position) {
+            var current_position = this.get(position);
+            var new_node = new Node(value);
+            new_node.next = current_position;
+            new_node.previous = current_position.previous;
+
+            // previous element in chain point to new node.
+            current_position.previous.next = new_node;
+
+            // now the old element in this position
+            // point to new node added to list in his position
+            current_position.previous = new_node;
+        },
         remove: function (value) {
             if (this.head == null) throw "List is empty.";
             var counter = 0;
@@ -115,10 +127,13 @@ list.enqueue(12);
 list.enqueue(11);//3
 list.enqueue(19);
 list.enqueue(20);//5
+list.insert(3, 4);
+var ll = list.displayInfo()
+console.log(ll);
 // list.remove(19);
-var r = list.get(3);
-var rr = list.get(1);
-var rrr = list.get(5);
-console.log(r);
-console.log(rr);
-console.log(rrr);
+// var r = list.get(3);
+// var rr = list.get(1);
+// var rrr = list.get(5);
+// console.log(r);
+// console.log(rr);
+// console.log(rrr);
