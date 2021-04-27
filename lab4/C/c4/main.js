@@ -7,7 +7,6 @@
 */
 // ---- adding more test cases.
 function getSetGen(obj) {
-
     for (var i in obj) {
         (function (value) {
             obj['get_' + value] = function () {
