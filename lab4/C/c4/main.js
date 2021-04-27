@@ -6,18 +6,17 @@
 5- Avoid generating getters or setters for property of function value. 
 */
 // ---- adding more test cases.
-function getSetGen() {
-    var object = arguments[0]; //get object keys
-    for (var i in object) {
-        (function (i) { //passing i to save state
-            object['get_' + i] = function () {
-                return object[i];
+function getSetGen(obj) {
+
+    for (var i in obj) {
+        (function (value) {
+            obj['get_' + value] = function () {
+                return obj[value];
             };
-            object['set_' + i] = function (val) {
-                object[i] = val;
+            obj['set_' + value] = function (val) {
+                obj[value] = val;
             }
         })(i);
-
     }
 }
 
