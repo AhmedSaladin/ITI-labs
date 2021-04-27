@@ -5,35 +5,24 @@
 4- any other object can use this function property.
 5- Avoid generating getters or setters for property of function value. 
 */
-// function created but there is bug -------> set and get is a stand alone function
 function getSetGen() {
-    var object = arguments[0]; //get object.
-    var mykeys = Object.keys(object); // get keys of object.
-    console.log(mykeys);
-console.log()
-    for (var i = 0; i < mykeys.length; i++) {
-        (function (i) {
-            object['get_' + mykeys[i]] = function () {
-                return mykeys[i];
+    var object = arguments[0]; //get object keys
+    for (var i in object) {
+        (function (i) { //passing i to save state
+            object['get_' + i] = function () {
+                return object[i];
             };
-            object['set_' + mykeys[i]] = function (val) {
-                mykeys[i] = val;
+            object['set_' + i] = function (val) {
+                object[i] = val;
             }
         })(i);
+
     }
 }
 
 var user = { name: "ali", age: 10 };
 var obj = { id: 'sd-10', location: "sv", addr: '123st' }
-
 var oj = { id: 'sd-10' }
-getSetGen(oj);
-getSetGen(obj);
-getSetGen(user);
-user.setname("memo");
-user.setage(35);
-console.log(user);
-console.log(oj)
-console.log(obj)
+
 
 
