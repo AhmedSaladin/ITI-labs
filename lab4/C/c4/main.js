@@ -5,6 +5,7 @@
 4- any other object can use this function property.
 5- Avoid generating getters or setters for property of function value. 
 */
+// ---- adding more test cases.
 function getSetGen() {
     var object = arguments[0]; //get object keys
     for (var i in object) {
