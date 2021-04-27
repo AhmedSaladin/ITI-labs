@@ -10,24 +10,26 @@ function LinkedList() {
 }
 
 // 1- Enqueue a value as long as the value is in the sequence otherwise through --need to modifiy
-//    an exception(push an item at the end of the list with the passed value). --done
+//    an exception(push an item at the end of the list with the passed value).
 LinkedList.prototype.enqueue = function (item) {
   var list = this.get_list();
-  if (this.is_in_list(item))
+  if (this.search(item))
     throw "Push an item at the end of the list with the passed value";
   list.unshift(item);
 };
 
 // 2- Insert an item in specific place as long as the value
-//    is missing from the sequence otherwise through an exception.
+//    is missing from the sequence otherwise through an exception.--done
 LinkedList.prototype.insert = function (item, position) {
   var list = this.get_list();
+  this.is_in_list(item);
+  list.splice(position - 1, 0, item);
 };
 
 // 3- Pop a value (remove an item from the end of the list).--done
 LinkedList.prototype.pop = function () {
   var list = this.get_list();
-  if (list.length < 1) throw "Can't pop from empty list";
+  this.is_empty();
   return list.pop();
 };
 
@@ -35,8 +37,8 @@ LinkedList.prototype.pop = function () {
 //    if the value is not added return a message with “data not found”. --done
 LinkedList.prototype.remove = function (value) {
   var list = this.get_list();
-  if (list.length < 1) throw "Can't remove from empty list";
-  var position = this.is_in_list(value);
+  this.is_empty();
+  var position = this.search(value);
   if (!position[0]) throw "Data not found";
   list.splice(position[1], 1);
 };
@@ -44,22 +46,30 @@ LinkedList.prototype.remove = function (value) {
 // 5- Dequeue a value (remove an item from the beginning of the list). --done
 LinkedList.prototype.dequeue = function () {
   var list = this.get_list();
-  if (list.length < 1) throw "Can't dequeue from empty list";
+  this.is_empty();
   return list.shift();
 };
 
 LinkedList.prototype.push = function (item) {
   var list = this.get_list();
-  if (this.is_in_list(item)[0]) throw "This element in list";
+  this.is_in_list(item);
   list.push(item);
 };
 
-LinkedList.prototype.is_in_list = function (item) {
+LinkedList.prototype.search = function (item) {
   var list = this.get_list();
   for (var i in list) {
     if (item == list[i]) return [true, i];
   }
   return [false];
+};
+
+LinkedList.prototype.is_in_list = function (item) {
+  if (this.search(item)[0]) throw "This element in list";
+};
+
+LinkedList.prototype.is_empty = function () {
+  if (this.get_list.length < 1) throw "List is empty";
 };
 
 var list = new LinkedList();
@@ -73,6 +83,9 @@ try {
   list.push(3);
   list.push(2);
   list.push(1);
+  list.push(1);
+  list.insert(30, 1);
+  // list.dequeue()
 } catch (err) {
   console.error(err);
 } finally {
