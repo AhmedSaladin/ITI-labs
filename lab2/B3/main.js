@@ -180,7 +180,7 @@ function start_movement() {
 }
 
 function stop_movement() {
-    edged(timer);
+    edged();
     start_button();
 }
 
