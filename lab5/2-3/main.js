@@ -17,6 +17,7 @@ function Shape(width, height) {
   this.height = height;
   Shape.count++;
 }
+
 Shape.count = 0;
 Shape.get_objects_numbers = function () {
   console.log(`Total created shapes : ${this.count} shape.`);
@@ -70,12 +71,14 @@ Square.prototype.perimeter = function () {
   var perimeter = 4 * this.width;
   return perimeter;
 };
+
 Square.prototype.toString = function () {
   var msg = `Your shape width: ${
     this.width
   }, area: ${this.area()}, perimeter: ${this.perimeter()}`;
   console.log(msg);
 };
+
 try {
   var r = new Rectangle(2, 3);
   var h = new Square(2);
