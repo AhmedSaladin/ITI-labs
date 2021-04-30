@@ -3,11 +3,11 @@
 ----> box object has the following properties:height, width, length, numOfBooks, volume, material, content. --done
 ----> book object has the following properties:title, numofChapters, author, numofPages, publisher, numofCopies --done
 ----> count # of books inside box --done
-----> delete any of these books in box according to book name or type.
+----> delete any of these books in box according to book name or type. --done
 ----> create book object and add it to box object content property --done
 ----> The content property contains an array books --done
 ----> use .toString() to tell its dimensions and how books are stored in it --done
-----> implement .valueof() so that if there is more than one box object we can get total books in these boxes 
+----> implement .valueof() so that if there is more than one box object we can get total books in these boxes --need to ask eng omnia about it 
       by adding thei.e. box1 has 5 books while box2 has 2 books, box1 + box2 should return 7 --done
 */
 function Box(height, width, length, volume, material) {
