@@ -6,7 +6,7 @@
 ----> delete any of these books in box according to book name or type.
 ----> create book object and add it to box object content property --done
 ----> The content property contains an array books --done
-----> use .toString() to tell its dimensions and how books are stored in it
+----> use .toString() to tell its dimensions and how books are stored in it --done
 ----> implement .valueof() so that if there is more than one box object we can get total books in these boxes 
       by adding thei.e. box1 has 5 books while box2 has 2 books, box1 + box2 should return 7
 */
@@ -24,10 +24,18 @@ function Box(height, width, length, volume, material) {
       this.numOfBooks++;
     },
     toString: function () {
-      return `This box dimensions is height: ${this.height}cm, width: ${
-          this.width}cm, length: ${this.length}cm, have a ${this.numOfBooks} books`;
+      return `This box dimensions is height: ${this.height}cm, width: ${this.width}cm, length: ${this.length}cm, it have a ${this.numOfBooks} books`;
     },
     valueof: function () {},
+    delete: function (title) {
+      var books = this.content;
+      for (var i in books)
+        if (books[i].title == title) {
+          var index = i;
+          books.splice(index, 1);
+          this.numOfBooks--;
+        }
+    },
   };
 }
 
@@ -51,7 +59,10 @@ function Book(
 try {
   var bx = Box(30, 20, 33, 25, "plastic");
   var bk = Book("the true story", 36, "the man", 366, "book pub", 3);
+  bx.add(bk);
+  bx.add(bk);
   console.log(bx.toString());
+  bx.delete("the true story");
 } catch (err) {
   console.error(err);
 }
