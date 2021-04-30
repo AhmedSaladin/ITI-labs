@@ -60,10 +60,9 @@ function Book(
 function valueOf() {
   var sum = 0;
   for (var i in arguments) {
-    console.log(arguments[i].numOfBooks);
     sum += arguments[i].numOfBooks;
   }
-  if (isNaN(sum)) throw "Enter valid box";
+  if (isNaN(sum)) throw "Enter a valid box";
   return `The total content of boxes is ${sum}`;
 }
 
@@ -73,6 +72,7 @@ try {
   bx.add(bk);
   bx.add(bk);
   console.log(bx.toString());
+  console.log(valueOf(bx, bx));
   bx.delete("the true story");
 } catch (err) {
   console.error(err);
