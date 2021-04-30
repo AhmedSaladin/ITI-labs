@@ -26,44 +26,6 @@ function Sequence(step, start, end) {
   fill();
 }
 
-// Sequence.prototype.append = function (item) {
-//   var list = this.is_in_list(item);
-//   var sequential = item - list[list.length - 1];
-//   if (sequential != this.step) throw "Not sequential value";
-//   list.push(item);
-// };
-
-// Sequence.prototype.prepend = function (item) {
-//   var list = this.is_in_list();
-//   var sequential = list[0] - item;
-//   if (sequential != this.step) throw "Not sequential value";
-//   list.unshift(item);
-// };
-
-// Sequence.prototype.dequeue = function () {
-//   var list = this.is_empty();
-//   return list.shift();
-// };
-
-// Sequence.prototype.pop = function () {
-//   var list = this.is_empty();
-//   return list.pop();
-// };
-
-// Sequence.prototype.is_empty = function () {
-//   var list = this.getList();
-//   if (list.length < 1) throw "List is empty";
-//   return list;
-// };
-
-// Sequence.prototype.is_in_list = function (value) {
-//   var list = this.getList();
-//   for (var i in list) {
-//     if (list[i] === value) throw `item in list`;
-//   }
-//   return list;
-// };
-
 Object.defineProperty(Sequence.prototype, "append", {
   value: function (item) {
     var list = this.is_in_list(item);
@@ -131,7 +93,7 @@ Object.defineProperty(Sequence.prototype, "is_in_list", {
   writable: false,
   configurable: false,
 });
-Sequence.prototype.is_empty = 12;
+
 try {
   var list = new Sequence(2, 3, 20);
   console.log(list.getList());
