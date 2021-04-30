@@ -29,6 +29,7 @@ function Box(height, width, length, volume, material) {
     valueof: function () {},
     delete: function (title) {
       var books = this.content;
+      if (books.length < 1) throw "Content of box in empty";
       for (var i in books)
         if (books[i].title == title) {
           var index = i;
@@ -56,6 +57,7 @@ function Book(
     numofCopies: numofCopies,
   };
 }
+
 try {
   var bx = Box(30, 20, 33, 25, "plastic");
   var bk = Book("the true story", 36, "the man", 366, "book pub", 3);
