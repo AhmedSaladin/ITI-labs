@@ -8,7 +8,7 @@
 ----> The content property contains an array books --done
 ----> use .toString() to tell its dimensions and how books are stored in it --done
 ----> implement .valueof() so that if there is more than one box object we can get total books in these boxes 
-      by adding thei.e. box1 has 5 books while box2 has 2 books, box1 + box2 should return 7
+      by adding thei.e. box1 has 5 books while box2 has 2 books, box1 + box2 should return 7 --done
 */
 function Box(height, width, length, volume, material) {
   return {
@@ -26,7 +26,6 @@ function Box(height, width, length, volume, material) {
     toString: function () {
       return `This box dimensions is height: ${this.height}cm, width: ${this.width}cm, length: ${this.length}cm, it have a ${this.numOfBooks} books`;
     },
-    valueof: function () {},
     delete: function (title) {
       var books = this.content;
       if (books.length < 1) throw "Content of box in empty";
@@ -56,6 +55,16 @@ function Book(
     publisher: publisher,
     numofCopies: numofCopies,
   };
+}
+
+function valueOf() {
+  var sum = 0;
+  for (var i in arguments) {
+    console.log(arguments[i].numOfBooks);
+    sum += arguments[i].numOfBooks;
+  }
+  if (isNaN(sum)) throw "Enter valid box";
+  return `The total content of boxes is ${sum}`;
 }
 
 try {
