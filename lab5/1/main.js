@@ -26,73 +26,135 @@ function Sequence(step, start, end) {
   fill();
 }
 
-Object.defineProperty(Sequence.prototype, "append", {
-  value: function (item) {
-    var list = this.is_in_list(item);
-    var sequential = item - list[list.length - 1];
-    if (sequential != this.step) throw "Not a sequential value";
-    list.push(item);
+Object.defineProperties(Sequence.prototype, {
+  append: {
+    value: function (item) {
+      var list = this.is_in_list(item);
+      var sequential = item - list[list.length - 1];
+      if (sequential != this.step) throw "Not a sequential value";
+      list.push(item);
+    },
+    enumerable: false,
+    writable: false,
+    configurable: false,
   },
-  enumerable: false,
-  writable: false,
-  configurable: false,
-});
+  prepend: {
+    value: function (item) {
+      var list = this.is_in_list(item);
+      var sequential = item - list[list.length - 1];
+      if (sequential != this.step) throw "Not a sequential value";
+      list.push(item);
+    },
+    enumerable: false,
+    writable: false,
+    configurable: false,
+  },
+  dequeue: {
+    value: function () {
+      var list = this.is_empty();
+      return list.shift();
+    },
+    enumerable: false,
+    writable: false,
+    configurable: false,
+  },
+  pop: {
+    value: function () {
+      var list = this.is_empty();
+      return list.pop();
+    },
+    enumerable: false,
+    writable: false,
+    configurable: false,
+  },
+  is_empty: {
+    value: function () {
+      var list = this.getList();
+      if (list.length < 1) throw "List is empty";
+      return list;
+    },
+    enumerable: false,
+    writable: false,
+    configurable: false,
+  },
+  is_in_list: {
+    value: function (item) {
+      var list = this.getList();
+      for (var i in list) {
+        if (list[i] === item) throw `item in list`;
+      }
+      return list;
+    },
 
-Object.defineProperty(Sequence.prototype, "prepend", {
-  value: function (item) {
-    var list = this.is_in_list();
-    var sequential = list[0] - item;
-    if (sequential != this.step) throw "Not a sequential value";
-    list.unshift(item);
   },
-  enumerable: false,
-  writable: false,
-  configurable: false,
 });
+// Object.defineProperty(Sequence.prototype, "append", {
+//   value: function (item) {
+//     var list = this.is_in_list(item);
+//     var sequential = item - list[list.length - 1];
+//     if (sequential != this.step) throw "Not a sequential value";
+//     list.push(item);
+//   },
+//   enumerable: false,
+//   writable: false,
+//   configurable: false,
+// });
 
-Object.defineProperty(Sequence.prototype, "dequeue", {
-  value: function () {
-    var list = this.is_empty();
-    return list.shift();
-  },
-  enumerable: false,
-  writable: false,
-  configurable: false,
-});
+// Object.defineProperty(Sequence.prototype, "prepend", {
+//   value: function (item) {
+//     var list = this.is_in_list();
+//     var sequential = list[0] - item;
+//     if (sequential != this.step) throw "Not a sequential value";
+//     list.unshift(item);
+//   },
+//   enumerable: false,
+//   writable: false,
+//   configurable: false,
+// });
 
-Object.defineProperty(Sequence.prototype, "pop", {
-  value: function () {
-    var list = this.is_empty();
-    return list.pop();
-  },
-  enumerable: false,
-  writable: false,
-  configurable: false,
-});
+// Object.defineProperty(Sequence.prototype, "dequeue", {
+//   value: function () {
+//     var list = this.is_empty();
+//     return list.shift();
+//   },
+//   enumerable: false,
+//   writable: false,
+//   configurable: false,
+// });
 
-Object.defineProperty(Sequence.prototype, "is_empty", {
-  value: function () {
-    var list = this.getList();
-    if (list.length < 1) throw "List is empty";
-    return list;
-  },
-  enumerable: false,
-  writable: false,
-  configurable: false,
-});
+// Object.defineProperty(Sequence.prototype, "pop", {
+//   value: function () {
+//     var list = this.is_empty();
+//     return list.pop();
+//   },
+//   enumerable: false,
+//   writable: false,
+//   configurable: false,
+// });
 
-Object.defineProperty(Sequence.prototype, "is_in_list", {
-  value: function (item) {
-    var list = this.getList();
-    for (var i in list) {
-      if (list[i] === item) throw `item in list`;
-    }
-    return list;
-  },
-  enumerable: false,
-  writable: false,
-  configurable: false,
-});
+// Object.defineProperty(Sequence.prototype, "is_empty", {
+//   value: function () {
+//     var list = this.getList();
+//     if (list.length < 1) throw "List is empty";
+//     return list;
+//   },
+//   enumerable: false,
+//   writable: false,
+//   configurable: false,
+// });
+
+// Object.defineProperty(Sequence.prototype, "is_in_list", {
+//   value: function (item) {
+//     var list = this.getList();
+//     for (var i in list) {
+//       if (list[i] === item) throw `item in list`;
+//     }
+//     return list;
+//   },
+//   enumerable: false,
+//   writable: false,
+//   configurable: false,
+// });
 
 try {
   var list = new Sequence(2, 3, 20);
