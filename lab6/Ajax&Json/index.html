@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ajax&json</title>
     <label for="bands">Choose a band:</label>
-    <select name="bands" id="bands" onchange="get_selected_band()">
+    <select name="bands" id="bands" onchange="get_selected_option(this.id)">
       <option value="">Choose a band</option>
     </select>
     <label for="bands">Choose a member:</label>
-    <select name="members" id="members" onchange="get_selected_member()">
+    <select name="members" id="members" onchange="get_selected_option(this.id)">
       <option value="">Choose a member</option>
     </select>
   </head>

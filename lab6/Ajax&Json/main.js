@@ -49,3 +49,13 @@ function get_selected_member() {
   location.assign(member);
 }
 set_bands_option();
+
+function get_selected_option(id) {
+  var tag = document.getElementById(id);
+  var index = tag.selectedIndex;
+  var value = tag[index].value;
+  if (id == "members") location.assign(value);
+  var data = send_request();
+  var team = data[value];
+  set_members_option(team);
+}
