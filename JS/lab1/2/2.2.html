@@ -1,0 +1,42 @@
+<!-- 
+    2.2. Write a script to determine whether the entered string is
+palindrome or not. Request the string to be entered via prompt, ask the
+user whether to consider case sensitivity of the entered string or not via
+confirm, handle both cases in your script
+i.e. RADAR NOON MOOM are palindrome.
+Note: raDaR is not a palindrome if user requested considering case of
+entered string, it will be palindrome if user requested ignoring case
+sensitivity
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String 2.2</title>
+</head>
+
+<body>
+    <script>
+        var word = prompt("Enter word.");
+        var senstive = confirm("Apply senstive-case");
+        var reversed_word = word.split("").reverse().join("");
+        var ispalindrome = false;
+
+        if (senstive) {
+            (word.match(reversed_word)) ? ispalindrome = true : ispalindrome = false;
+        } else {
+            (word.toLowerCase() == reversed_word) ? ispalindrome = true : ispalindrome = false;
+        }
+
+        if (ispalindrome) {
+            alert(word + " is palindrome.");
+        } else {
+            alert(word + " is not palindrome.");
+        }
+    </script>
+</body>
+
+</html>

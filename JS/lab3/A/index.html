@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-in form</title>
+    <style>
+        #fo {
+            margin: 10px;
+            padding: 10px;
+            size: 50%;
+        }
+
+        .fo {
+            display: grid;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <label for="name">name:</label>
+        <input type="text" id="name" name="name" class="fo">
+        <label for="">age: </label>
+        <input type="text" id="age" name="age" class="fo">
+        <label for="gender" class="fo"> Please select your gender: </label>
+
+        <label for="male">Male
+            <input type="radio" id="male" name="gender" value="male" class="gender">
+            <img src="imgs/1.jpg" alt="male" height="150px">
+        </label>
+
+        <label for="female">Female
+            <input type="radio" id="female" name="gender" value="female" class="gender">
+            <img src="imgs/2.jpg" alt="female" height="150px">
+        </label>
+        <br>
+        <select name="color" id="color">
+            <option value="">select color</option>
+            <option value="red">red</option>
+            <option value="blue">blue</option>
+            <option value="green">green</option>
+        </select>
+        <input type="button" value="submit" id="btn" onclick="submit()">
+    </div>
+</body>
+<script src="main.js"></script>
+
+</html>

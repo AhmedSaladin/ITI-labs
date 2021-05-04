@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>registration form</title>
+    <style>
+        #fo {
+            margin: 10px;
+            padding: 10px;
+            size: 50%;
+        }
+
+        .fo {
+            display: grid;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Sign-up</h1>
+    <hr>
+    <form id="fo" action="welcome.html">
+        <label for="name">name:</label>
+        <input type="text" id="name" name="name" class=" fo">
+
+        <label for="">email:</label>
+        <input type="email" id="email"name="email" class="fo">
+
+        <label for="">password:</label>
+        <input type="password" id="password" class="fo">
+
+        <label>job title:</label>
+        <input type="text" id="title"name="title" class="fo">
+
+        <label for="">mobile: </label>
+        <input type="text" id="mobile"name="mobile" class="fo">
+
+        <label for="">address: </label>
+        <input type="text" id="address"name="address" class="fo">
+
+        <label for="" class="fo"> Please select your gender: </label>
+        <input type="radio" id="male" name="gender" value="male" class="gender">
+        <label for="male">Male</label><br>
+        <input type="radio" id="female" name="gender" value="female" class="gender">
+        <label for="female">Female</label><br>
+        <hr>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+
+</html>

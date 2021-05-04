@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Window Object</title>
+    <script src="./src/window.js"></script>
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+
+    <div class="divs">
+        <input type="button" value="open win" onclick="open_new_window()">
+        <input type="button" value="close win" onclick="close_new_window()">
+        <input type="button" value="change background color" onclick="change_background_color()">
+        <input type="button" value="interval timer" onclick="interval()">
+        <input type="button" value="time out" onclick="time_out()">
+        <input type="button" value="clear interval" onclick="clear_interval()">
+    </div>
+
+    <div class="divs" id="cont">
+        <div id="first" class="divs"> I the First tag in page.</div>
+        <div id="second" class="divs"> I the second tag in page.</div>
+        <div id="third" class="divs"> I the last tag in page.</div>
+    </div>
+
+    <div class="divs">
+        <input type="button" value="change document color" onclick="change_all_colors()">
+        <input type="button" value="change the first color" onclick="change_color('first')">
+        <input type="button" value="change the second color" onclick="change_color('second')">
+        <input type="button" value="change the third color" onclick="change_color('third')">
+        <input type="button" value="create new element" onclick="new_element()">
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!-- 
+   2.1. Write a script that accepts a string from user through prompt and
+count the number of ‘e’ characters in it. 
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String 2.1</title>
+</head>
+
+<body>
+    <script>
+        var paragraph = prompt("Enter your paragraph.");
+        var character = "e";
+        var senstive = confirm("Apply senstive-case search");
+        var count = 0;
+        for (var i = 0; i < paragraph.length; i++) {
+            if (senstive) {
+                if (paragraph[i] == character)
+                    count++;
+            } else {
+                if (paragraph[i].toLowerCase() == character)
+                    count++;
+            }
+        }
+        alert("the count is:" + count);
+    </script>
+</body>
+
+</html>

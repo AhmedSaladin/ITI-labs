@@ -1,0 +1,73 @@
+<!-- 
+    2.3. Write a script that reads from the user his info; validates and
+displays it with a welcoming message with today’s date
+ -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String 2.3</title>
+</head>
+
+<body>
+    <script>
+        var name;
+        var phone_number;
+        var mobile_number;
+        var email;
+        var today = new Date().toDateString();
+
+        do {
+            name = prompt("Enter your name:");
+            console.log(name.match(/^([a-z" "A-Z]\D+)+/));
+        } while (!name.match(/^([a-z" "A-Z]\D+)+/));
+
+        do {
+            mobile_number = prompt("Enter your mobile number:");
+        } while (!mobile_number.match(/^(011|012|010)(\d{8,})/));
+
+        do {
+            phone_number = prompt("Enter your phone number");
+        } while (!phone_number.match(/(\d{8,})/));
+
+        do {
+            email = prompt("Enter your email address:");
+        } while (!email.match(/(\S+@\S+)/));
+
+        var color = prompt("Enter a valid color name [red, green, blue]:");
+
+        switch (color) {
+            case "red":
+            case "RED":
+            case "Red":
+                color = "red";
+                break;
+            case "green":
+            case "GREEN":
+            case "Green":
+                color = "green";
+                break;
+            case "Blue":
+            case "blue":
+            case "BULE":
+                color = "blue";
+                break;
+            default:
+                alert("Enter a valid color name.")
+                color = "aqua";
+                break;
+        }
+
+        document.write("<h2>Entering User Info <hr>");
+        document.write("<h2 style= color:" + color + ";>Welcom dear guest " + "<span style= color:black;>" + name + "<span>" + "</h2>");
+        document.write("<h2 style= color:" + color + ";>Your phone number is " + "<span style= color:black;>" + phone_number + "<span>" + "</h2>");
+        document.write("<h2 style= color:" + color + ";>Your mobile number is " + "<span style= color:black;>" + mobile_number + "<span>" + "</h2>");
+        document.write("<h2 style= color:" + color + ";>Your email address is " + "<span style= color:black;>" + email + "<span>" + "</h2>");
+        document.write("<h2 style= color:" + color + ";>Today is " + "<span style= color:black;>" + today + "<span>" + "</h2>");
+   </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>moving pic</title>
+
+    <style>
+        #con {
+            margin: 10px;
+            padding: 10px;
+            border: 3px solid red;
+            width: 500px;
+            height: 500px;
+        }
+
+        .con {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="con">
+        <img src="img/icon1.gif" alt="first" id="first" class="con">
+        <img src="img/icon2.gif" alt="second" id="middle" class="con">
+        <img src="img/TOP.JPG" alt="third" id="last" class="con">
+    </div>
+
+    <div class="con buttons">
+        <input type="button" id="start" value="start" onclick="start_movement()">
+        <input type="button" value="reset" onclick="set_default_positions()">
+    </div>
+
+    <div>
+        <div id="first_view"></div>
+        <div id="second_view"></div>
+        <div id="third_view"></div>
+
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
