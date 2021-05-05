@@ -1,0 +1,97 @@
+<html lang="en">
+
+<head>
+    <title>Document</title>
+    <script src="./jquery-3.6.0.js">
+
+    </script>
+    <style>
+        .myClass{
+            background-color: red;
+            border: 2px solid grey;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Hello</h2>
+    <div>
+        <p>this is p inside div</p>
+        <p style="width:100px">this is p inside div</p>
+        <section>
+            <p>
+                this is p inside section inside a div
+            </p>
+        </section>
+
+        <p style="width:100px">this is p inside div</p>
+        <p id="myp" class="myClass">this is p inside div</p>
+        <p>this is p inside div</p>
+        <p>this is p inside div</p>
+        <span>
+            this is <span></span>
+        </span>
+    </div>
+    <section>
+
+        <p>p after div</p>
+        <span>
+            test
+        </span>
+    </section>
+    <form>
+        <input type="text" />
+        <input type="number" />
+        <input type="button" value="check" />
+    </form>
+    <ul>
+        <li>Coffee </li>
+        <li>Dark Coffee </li>
+        <li>Press Coffee </li>
+    </ul>
+    <script>
+        $(function(){
+            // $('#myp').append('<p>this is appended by JQ</p>')      
+            // $('#myp').prepend('<p>this is appended by JQ</p>')      
+            // $('#myp').before('<p>this is appended by JQ</p>')      
+            // $('#myp').after('<p>this is appended by JQ</p>')      
+            // $('<p>appended to </p>').appendTo('#myp')
+            // $('div:eq(0)').remove()
+            // $('#myp').clone().appendTo('#myp')
+            // var clonedmyp = $('#myp').clone()
+            // $('#myp').remove()
+            // $('div:eq(0)').append(clonedmyp)
+            //--------------------------------------------
+            // events
+            // $('[value=check]').click(function(e){
+            //     // console.log(e)
+
+            //     $('#myp').toggleClass('myClass')
+            // })
+            // $('[value=check]').one('click',function(){
+            //     $('#myp').toggleClass('myClass')
+            // })
+            // $('p').on('click',function(){
+            //     console.log('clicked')
+            // })
+            // $('[value=check]').on('click',function(){
+            //     $('p:eq(0)').off()
+            // })
+
+           $('[value=check]').on('click',function(){
+            //    $('p').slideUp(1500,function(){
+            //        console.log('fade Done')
+            //    }).delay(2000).slideDown(2000)
+            // $('#myp').hide(5000)
+            // $('p').fadeTo(2000,0.1)
+            
+           })
+            
+        })
+    </script>
+</body>
+
+</html>

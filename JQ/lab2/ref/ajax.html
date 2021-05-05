@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jquery-3.6.0.js">
+
+    </script>
+</head>
+
+<body>
+    <input type="button" value="get data" />
+    <script>
+        $(function () {
+            $('[type=button]').click(function () {
+                $.ajax({
+                    url: 'https://jsonplaceholder.typicode.com/users',
+                    method: 'GET',
+                    success: function (data, status, jqxhr) {
+                        // console.log(arguments)
+                        // console.log(jqxhr)
+                        data.forEach(function (item, index) {
+                            $('body').append('<p> UesrName: ' + item.username + '</p>')
+                        });
+                    },
+                    error: function (jqxhr, status) {
+                        console.log(arguments)
+                    }
+                })
+
+            })
+        })
+    </script>
+</body>
+
+</html>
