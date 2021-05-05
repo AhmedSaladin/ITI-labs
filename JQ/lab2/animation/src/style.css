@@ -1,6 +1,6 @@
 #main{
     width: 700px;
-    height: 600px;
+    height: 900px;
     border: 3px solid black;
     position: relative;
     padding: 10px;
@@ -9,10 +9,13 @@
 .car{
     width: 100px;
     position: relative;
-    top:501px
+    top:780px
+}
+#p1{
+    left: 12px;
 }
 #p2{
-    left: 400px;
+    left: 345px;
 }
 .panal{
 position: relative;
@@ -23,4 +26,11 @@ height: 550px;
 padding: 10px;
 margin: 10px;
 background-color: rgba(14, 20, 20, 0.555);
+}
+.finish{
+    position: relative;
+    width: 600px;
+    height: auto;
+    border: 3px solid black;
+    top: 50px;
 }
