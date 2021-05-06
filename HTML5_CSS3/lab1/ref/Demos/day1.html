@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            display: table;
+        }
+        aside{
+            display: table-row;
+        }
+        header{
+            display: table-column;
+        }
+        ul{
+            display: table-column;
+        }
+        p{
+            display: table-row;
+            width: 500px;
+        }
+        footer{
+            position: absolute;
+            top:1000px;
+            left: 0;
+            width: 100%;
+            background: #222;
+        }
+        [data-color="r"]{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value="Get Location" onclick="DisplayLocation()">
+    <audio src="audio/Muppet Show.mp3" controls></audio>
+    <video src="video/frozen.mp4" controls width="400" height="auto"></video>
+    <h1 data-color="r">Heading #1</h1>
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum et, culpa odit perferendis eos excepturi dolore aliquid id laboriosam sunt, illo dignissimos quasi omnis asperiores quam autem cumque, dolorum mollitia.</p>
+    <aside>
+        <section>
+            <header>
+                <h3>
+                    Categories</h3>
+            </header>
+            <ul>
+                <li><a href="#">Lorem ipsum dolor</a></li>
+                <li><a href="#">Sit amet consectetur</a></li>
+                <li><a href="#">Adipisicing elit sed</a></li>
+                <li><a href="#">Do eiusmod tempor</a></li>
+                <li><a href="#">Incididunt ut labore</a></li>
+            </ul>
+        </section>
+        <section>
+            <header>
+                <h3>
+                    Archives</h3>
+            </header>
+            <ul>
+                <li><a href="#">December 2008</a></li>
+                <li><a href="#">January 2009</a></li>
+                <li><a href="#">February 2009</a></li>
+                <li><a href="#">March 2009</a></li>
+                <li><a href="#">April 2009</a></li>
+                <li><a href="#">May 2009</a></li>
+                <li><a href="#">June 2009</a></li>
+            </ul>
+        </section>
+    </aside>
+</div>
+    <meter low="51" high="80" max="100" value="30"></meter>
+    <meter low="69" high="80" max="100" value="84"></meter>
+
+    <progress max="100" value="20"></progress>
+
+    <pre>
+        <!--<code>-->
+            var <var>i</var>:Integer;
+            begin:
+               <i>i</i>=<mark>5</mark>;
+            End
+        <!--</code>-->
+    </pre>
+
+    <form autocomplete="on">
+        Email: <input type="email" placeholder="Enter your mail" autocomplete="on">
+        Color: <input type="color">
+        age: <input type="number" min="18" max="60" step="2">
+        Date: <input type="date" min="2020-01-10">
+        <input type="text" list="data1">
+        <datalist id="data1">
+            <option value="red"></option>
+            <option value="blue"></option>
+            <option value="green"></option>
+        </datalist>
+        <input type="submit">
+    </form>
+    <footer>
+        <div>
+            <section id="about">
+                <header>
+                    <h3>
+                        About</h3>
+                </header>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+                    exercitation ullamco <a href="#">laboris nisi ut aliquip</a> ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                    fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                    qui officia deserunt mollit anim id est laborum.</p>
+            </section>
+        </div>
+        </footer>
+        <script>
+            var options={
+                timeout:4000
+            }
+            window.onload=function(){
+                document.querySelector("[data-color='r']").onclick=function(){
+                    document.querySelector("[data-color='r']").style="color:yellow";
+                }
+            }
+
+            function DisplayLocation(){
+                navigator.geolocation.getCurrentPosition(ShowPosition,PositionError,options);
+            }
+
+            function ShowPosition(position){
+                var coords=position.coords;
+                console.log(coords.latitude)
+                console.log(coords.longitude)
+                location.replace("http://maps.google.com/maps?q="+coords.latitude+",+"+
+                coords.longitude);
+
+            }
+            function PositionError(error){
+                switch(error.code){
+                    /*case 0:
+                        break;
+                    case 1:
+                        console.log("permission denied")
+                        break;
+                    case 2:
+                        break;*/
+                    case 3:
+                        console.log("TimeOut");
+                        break;
+                }
+            }
+        </script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="txt1" type="text" placeholder="Enter your Name">
+    <input type="button" value="Save Data" onclick="Save()">
+    <script>
+        function Save(){
+            var val = document.getElementById("txt1").value;
+            localStorage.setItem("username",val);
+            localStorage.setItem("age",10);
+            localStorage["count"]=5;
+        }
+    </script>
+</body>
+</html>

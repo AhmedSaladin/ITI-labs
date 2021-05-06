@@ -1,0 +1,29 @@
+<html>
+	<head>
+		<title>Microdata</title>
+	</head>
+	<body>
+		<div itemscope itemtype="https://schema.org/Organization">
+			<h2 itemprop="name">SD & Gaming CoE , ITI.</h2>
+			<p>This text will be displayed on the web page but won't be machine 
+			processed because its parent tag doesn't have a specific itemprop.</p>
+			<div itemprop="address" itemscope itemtype="http://schema.org/Address">
+				<span itemprop="street-address">km 28 Cairo-Alexandria Desert Road</span>, 
+				<span itemprop="locality">Smart Village</span>, 
+				<span itemprop="region">Giza</span>, 
+				<span itemprop="country-name">Egypt</span>
+				<span itemprop="postal-code">11371</span>
+			</div><br/>
+			<span itemprop="geo" itemscope itemtype="https://schema.org/Geo"style="display:none">
+				<!--Don�t display in UI-->    
+				<span itemprop="latitude">38.5323 N</span>
+				<span itemprop="longitude">77.0040 W</span>
+			</span>
+			Call us at: 
+			<span itemprop="tel">35355695</span><br/><br/>
+			<div>
+				<a href="http://www.iti.gov.eg" itemprop="url"> <mark>http://www.iti.gov.eg</mark></a>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        footer{
+            position: relative;
+            bottom: 0;
+            background-color: black;
+            color: blanchedalmond;
+        }
+    </style>
+</head>
+<body>
+    <meter min="0" max="10" value="3" low="3" high="5"> </meter>
+    <meter min="0" max="100" low="69" high="80" value="84"></meter>
+
+    <progress id="p1" max="100" value="20"></progress>
+    <button onclick="AddNew()"></button>
+
+    <pre>
+        <code>
+            var <var>i</var>:integer
+            begin
+                i=<mark>5</mark>;
+            end
+        </code>
+    </pre>
+    <form>
+        EMail: <input type="email" placeholder="Enter your mail">
+        <br/>
+        Age: <input type="number" min="18" max="60" step="2">
+        <input type="submit" value="Submit">
+        <br/>
+        Date <input type="date" min="2020-01-10">
+        <br>
+        COlor <input type="color">
+        Phone <input type="text" pattern="[0-9]{8}">
+
+        <input type="range" min="0" max="10" step="1" value="5">
+
+        <input type="text" placeholder="Hello" required>
+    </form>
+    <header>Helllo</header>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat atque, adipisci cumque totam neque nemo amet placeat nulla eveniet. Voluptatem facere deleniti rerum est, excepturi repudiandae eos voluptatibus voluptate placeat.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Reprehenderit illo deleniti, quibusdam dolore voluptatem nesciunt omnis soluta, maxime rem a obcaecati laudantium minima quia laborum, ut optio sunt labore nisi.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ducimus recusandae provident, culpa dolor, ut quidem accusantium dicta quo nobis sunt explicabo nemo sint cum tenetur praesentium fugiat sapiente vitae.
+    </p>
+    <footer>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia at libero quae iusto porro quidem numquam, tempora corporis fugit quisquam aspernatur soluta nulla natus esse perferendis, beatae cum voluptatem laboriosam.</p>
+    </footer>
+    <script>
+        function AddNew(){
+            document.querySelector("#p1").value+=10;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<html>
+
+<head></head>
+
+<body>
+    <input type="button" id="btn" value="getLocation">
+    <script>
+        var options={
+            enableHighAccurracy:true
+        };
+        document.getElementById("btn").addEventListener("click", function () {
+            navigator.geolocation.getCurrentPosition(showPos, showErr,options);
+        });
+
+        function showPos(position) {
+            var long=position.coords.longitude;
+            var lat=position.coords.latitude;
+            
+            location.replace("http://maps.google.com/maps?q=" +lat + "," + long);
+            
+            
+        }
+        
+        function showErr(){
+            
+        }
+
+        function Testcase(x,y,z){
+            var _z={
+                "enableHighAccurracy":"false",
+                "timeout":"1214155418485478",
+                "maximumAge":"0"
+            }
+            if(z=='undefined')
+            z=_z;
+        }
+    </script>
+</body>
+
+</html>

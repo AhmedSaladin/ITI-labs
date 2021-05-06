@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        [data-color="r"]{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    
+    <div itemprop="address" itemscope itemtype="http://schema.org/Address">
+        <span itemprop="street-address">4</span>
+        <span itemprop="locality">new cairo</span>
+        <span itemprop="country-name">egypt</span>
+        <span itemprop="postal-code">11744</span>
+    </div>
+    <button value="" onclick="DisplayLocation()">Get Location</button>
+    <h1 data-color="r">Heading #1</h1>
+
+    <audio src="audio/Muppet Show.mp3" controls></audio>
+    <video src="video/frozen.mp4" controls width="400" height="auto"></video>
+    <script>
+        var options={
+            enableHighAccuracy:true,
+            timeout:4000
+        }
+    function DisplayLocation(){
+        navigator.geolocation.getCurrentPosition(showPosition,ErrorHandle,options);
+    }
+
+    function showPosition(position){
+        var lat= position.coords.latitude;
+        var long= position.coords.longitude;
+        console.log(lat+":"+long);
+        location.replace("http://maps.google.com/maps?q="+lat+",+"
+        +long);
+    }
+
+    function ErrorHandle(error){
+        switch(error.code){
+            case 0://unkown
+            break;
+            case 1:
+            console.log("Permission denied")
+            break;
+            case 2://permission            
+            break;
+            case 3:
+            //TimeOut
+            break;
+        }
+    }
+
+        document.querySelector("[data-color='r']").onclick=function(){
+            document.querySelector("[data-color='r']").style="color:yellow";
+        }
+    </script>
+</body>
+</html>
