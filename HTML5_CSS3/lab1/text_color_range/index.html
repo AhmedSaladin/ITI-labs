@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Color Range</title>
+  </head>
+
+  <body>
+    <div>
+      <strong style="color: red">Red:</strong>
+      <br />
+      <input
+        type="range"
+        id="red"
+        name="red"
+        min="0"
+        max="254"
+        onchange="change_color()"
+      />
+    </div>
+    <br />
+    <div>
+      <strong style="color: green">Green:</strong>
+      <br />
+      <input
+        type="range"
+        id="green"
+        name="green"
+        min="0"
+        max="254"
+        onchange="change_color()"
+      />
+    </div>
+    <br />
+    <div>
+      <strong style="color: blue">Blue:</strong>
+      <br />
+      <input
+        type="range"
+        id="blue"
+        name="blue"
+        min="0"
+        max="254"
+        onchange="change_color()"
+      />
+    </div>
+    <br />
+    <div>
+      <p id="txt" style="font-size: 22px">
+        Optimism is not just a philosophical viewpoint. It’s not irrational
+        cheerfulness, and it’s not “blind” positivity. Optimism is a powerful
+        and pragmatic strategy for accomplishing goals and living a fulfilling
+        life. By acknowledging obstacles and opportunities, but focusing on the
+        opportunities, optimism enables us to explore the world with open arms
+        and an eye toward solutions, progress, and growth. It also makes life a
+        hell of a lot more fun
+      </p>
+    </div>
+  </body>
+  <script src="./main.js"></script>
+</html>
