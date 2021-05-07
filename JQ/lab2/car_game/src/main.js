@@ -1,5 +1,5 @@
-var winner = "";
 $("#start").click(function () {
+  win(" ");
   $("#p1").animate(
     {
       top: "-=750px",
@@ -7,8 +7,7 @@ $("#start").click(function () {
     ran(),
     function () {
       $("#p2").stop();
-      winner = "Player 1";
-      win();
+      win("Player 1");
     }
   );
   $("#p2").animate(
@@ -18,8 +17,7 @@ $("#start").click(function () {
     ran(),
     function () {
       $("#p1").stop();
-      winner = "Player 2";
-      win();
+      win("Player 2");
     }
   );
 });
@@ -27,7 +25,14 @@ $("#start").click(function () {
 function ran() {
   return Math.floor(Math.random() * 5000);
 }
-function win() {
-  console.log(winner);
+
+function win(winner) {
   $("#win").val(winner);
 }
+
+$("#reset").click(function () {
+  $("#p1").css("left", "158px");
+  $("#p2").css("left", "339px");
+  $(".car").css("top", "780px");
+  win(" ");
+});

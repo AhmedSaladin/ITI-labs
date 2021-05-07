@@ -5,6 +5,7 @@
   position: relative;
   padding: 10px;
   margin: 10px;
+  background: whitesmoke;
 }
 .car {
   width: 100px;
@@ -12,10 +13,10 @@
   top: 780px;
 }
 #p1 {
-  left: 30px;
+  left: 158px;
 }
 #p2 {
-  left: 480px;
+  left: 339px;
 }
 .panal {
   position: fixed;
@@ -29,28 +30,24 @@
 }
 .finish {
   position: fixed;
-  width: 569px;
+  width: 250px;
   height: 45px;
   top: 13px;
-  left: 21px;
+  left: 173px;
 }
-#road_bg {
-  background: green;
-  position: fixed;
-  top: 56px;
-  width: 569px;
-  height: 877px;
-  left: 21px;
-}
+
 .road {
   position: fixed;
-  width: 164px;
+  width: 250px;
   height: 877px;
   background: black;
+  border-color: yellow;
+  border-style: solid;
+  border-top: 2px;
+  border-bottom: 2px;
+  left: 170px;
+  top: 56px;
 }
-#p1-road {
-  left: 426px;
-}
-#p2-road {
-  left: 21px;
+#win{
+  width: 60px;
 }
