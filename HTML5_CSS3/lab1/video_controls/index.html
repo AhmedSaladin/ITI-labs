@@ -5,7 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Video Player</title>
-    <video src="../ref/Demos/video/frozen.mp4" id="vid" width="500px"></video>
   </head>
-  <body></body>
+  <body>
+    <video src="../ref/Demos/video/frozen.mp4" id="vid" width="500px"></video>
+    <div>
+      <input type="range" name="duration" id="du" />
+      <br />
+      <input type="button" value="<" id="backward" />
+      <input type="button" value="<<" id="backward--" />
+      <input type="button" value="Play" id="pl" onclick="play_video()" />
+      <input type="button" value=">" id="forward" />
+      <input type="button" value=">>" id="forward++" />
+      <input type="button" value="Full Screen" />
+    </div>
+    <div>
+      <input type="range" name="volume" id="vol" />
+      <input type="button" value="Mute" />
+    </div>
+    <script src="./main.js"></script>
+  </body>
 </html>
