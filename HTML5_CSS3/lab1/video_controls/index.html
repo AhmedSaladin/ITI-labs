@@ -9,19 +9,48 @@
   <body>
     <video src="../ref/Demos/video/frozen.mp4" id="vid" width="500px"></video>
     <div>
-      <input type="range" name="duration" id="du" />
+      <input
+        type="range"
+        name="duration"
+        id="du"
+        style="width: 500px"
+        onclick="bar(this.value)"
+      />
       <br />
-      <input type="button" value="<" id="backward" />
-      <input type="button" value="<<" id="backward--" />
+      <input type="button" value="<<" onclick="video_seek('--1')" />
+      <input type="button" value="<" onclick="video_seek('-1')" />
       <input type="button" value="Play" id="pl" onclick="play_video()" />
-      <input type="button" value=">" id="forward" />
-      <input type="button" value=">>" id="forward++" />
-      <input type="button" value="Full Screen" />
+      <input type="button" value=">" onclick="video_seek('1')" />
+      <input type="button" value=">>" onclick="video_seek('1+')" />
+      <input type="button" value="Full Screen" onclick="video_full()" />
+    </div>
+    <br />
+    <div>
+      <label for=""> Volume:</label>
+      <br />
+      <input
+        type="range"
+        name="volume"
+        id="vol"
+        min="0"
+        max="100"
+        onchange="video_volume(this.value)"
+      />
+      <input type="button" value="Mute" onclick="mute_video_volume()" />
     </div>
     <div>
-      <input type="range" name="volume" id="vol" />
-      <input type="button" value="Mute" />
-    </div>
+        <label for=""> Speed:</label>
+        <br />
+        <input
+          type="range"
+          name="speed"
+          id="sp"
+          min="0.5"
+          step="0.5"
+          max="2"
+          onchange="video_speed(this.value)"
+          style="width: 100px;"
+        />
     <script src="./main.js"></script>
   </body>
 </html>
