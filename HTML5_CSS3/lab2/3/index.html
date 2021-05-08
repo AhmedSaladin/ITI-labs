@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pythagoras theorem</title>
+    <style>
+      .t {
+        font-size: 25px;
+      }
+      .eq {
+        color: red;
+      }
+    </style>
+    <script src="../ref/Assignments/mspace.js"></script>
+  </head>
+  <body>
+    <!-- 
+          1- create svg triangle --done
+        2- add mathmatic equation --done
+        3- make it work in chrome --done
+    -->
+    <svg width="300" height="400">
+      <path
+        d="m 200,60
+        v 250
+        h -100
+        z"
+        fill="red"
+        stroke="black"
+        stroke-width="2"
+      />
+      <text x="210" y="230" class="t">b</text>
+      <text x="110" y="230" class="t">c</text>
+      <text x="150" y="330" class="t">a</text>
+    </svg>
+    <h2>According to pythagoras theorem</h2>
+    <br />
+    <br />
+    <math class="t eq">
+      <mrow>
+        <mi> c </mi>
+        <mo> = </mo>
+        <msqrt>
+          <msup>
+            <mi> a </mi>
+            <mn>2</mn>
+          </msup>
+          <mo> + </mo>
+          <msup>
+            <mi> b </mi>
+            <mn>2</mn>
+          </msup>
+        </msqrt>
+      </mrow>
+    </math>
+  </body>
+</html>
