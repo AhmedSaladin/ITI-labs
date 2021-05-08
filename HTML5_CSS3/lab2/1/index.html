@@ -11,12 +11,32 @@
       width="500"
       height="500"
       style="border: 5px solid black"
-      id="canv"
+      id="canvas"
     ></canvas>
   </body>
   <script>
-    var can = /** @type {HTMLCanvasElement} */ document.getElementById("canv");
-    var context = can.getContext("2d");
-    
+    var canvas = document.getElementById("canvas");
+    var ctx = canvas.getContext("2d");
+    //                                (x,y, width,height )
+    var b = ctx.createLinearGradient(50, 100, 50, 400);
+    b.addColorStop(0, "blue");
+    b.addColorStop(1, "white");
+    ctx.fillStyle = b;
+    //          (x,y, width,height )
+    ctx.fillRect(50, 100, 400, 100);
+
+    var d = ctx.createLinearGradient(160, 170, 160, 200);
+    d.addColorStop(0, "red");
+    d.addColorStop(1, "white");
+    ctx.lineWidth=3;
+    ctx.strokeStyle=d
+    ctx.strokeRect(160, 170, 200, 40);
+
+    var g = ctx.createLinearGradient(50, 200, 50, 400);
+    g.addColorStop(0, "green");
+    g.addColorStop(1, "white");
+    ctx.fillStyle = g;
+    ctx.fillRect(50, 200, 400, 100);
+
   </script>
 </html>
