@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled Document</title>
+    <style>
+        canvas {
+            border: 5px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas width="800" height="575" id="canvas"></canvas>
+    <script>
+        var canvas = document.getElementById("canvas");
+        var ctx = canvas.getContext("2d");
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.lineTo(450, 50);
+        ctx.lineTo(350,300);
+        ctx.lineTo(450, 100);
+       
+        ctx.closePath();
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 5;        
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+        ctx.stroke();//border
+        
+      /*  ctx.rect(190,50,200,100);
+        ctx.strokeStyle = "blue";  
+        ctx.lineWidth=5;      
+        ctx.strokeRect(190, 50, 200, 100);
+        ctx.fillStyle = "yellow";        
+        ctx.fillRect(190, 50, 200, 100);
+*/
+        //ctx.fillStyle = "yellow";        
+        //ctx.fillRect(0, 0, 300, 300);
+        
+        /*ctx.font = "26pt Georgia";
+        ctx.strokeText("this is canvas Demo", 20, 110);
+        ctx.fillStyle = "red";
+        ctx.fillText("this is canvas Demo", 20, 110);
+    */
+        var lgrad = ctx.createLinearGradient(20, 20, 200, 280);
+        lgrad.addColorStop(0, "#FFFFFF")
+        lgrad.addColorStop(0.5, "red")
+        lgrad.addColorStop(1, "#004CB3")
+        ctx.fillStyle = lgrad;
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+       
+       // var rect = new rect(0,0,20,20);
+        //ctx.rect = rect;
+        //ctx.fill();
+       // canvas
+        /*var rgrad = ctx.createRadialGradient(525, 150, 20, 525, 150, 100);
+        rgrad.addColorStop(0, "#ffffff")
+        rgrad.addColorStop(0.5, "yellow")
+        rgrad.addColorStop(1, "red")
+        ctx.fillStyle = rgrad;
+        ctx.arc(525, 150, 50, 0, 2 * Math.PI);
+        //ctx.fill();*/
+    </script>
+</body>
+
+</html>
