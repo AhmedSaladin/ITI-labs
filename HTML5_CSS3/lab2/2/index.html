@@ -17,10 +17,25 @@
   <script>
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
+
+    var c1 = ctx.createRadialGradient(450, 150, 10, 370, 50, 400);
+    c1.addColorStop(0, "white");
+    c1.addColorStop(1, "blue");
+    ctx.fillStyle = c1;
     ctx.arc(250, 250, 200, 0, 2 * Math.PI);
-    ctx.fillStyle = "black";
     ctx.fill();
-    ctx.font = "50px serif";
-    ctx.strokeText("A", 100, 250, 250);
+
+    ctx.beginPath();
+    var c2 = ctx.createRadialGradient(250,250,150,150,150,190); //(250,250,120,150,150,220);
+    c2.addColorStop(0, "white");
+    c2.addColorStop(1, "blue");
+    ctx.fillStyle = c2;
+    ctx.arc(250, 250, 120, 0, 2 * Math.PI);
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.font = "150px arial";
+    ctx.fillStyle = "white";
+    ctx.fillText("A", 200, 300);
   </script>
 </html>
