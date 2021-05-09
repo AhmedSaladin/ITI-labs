@@ -18,7 +18,7 @@
     var canvas = document.getElementById("canvas");
     var ctx = canvas.getContext("2d");
     //                                (x,y, width,height )
-    var b = ctx.createLinearGradient(50, 100, 50, 400);
+    var b = ctx.createLinearGradient(50, 100, 50, 200); //play with height add x + height.
     b.addColorStop(0, "blue");
     b.addColorStop(1, "white");
     ctx.fillStyle = b;
@@ -32,7 +32,7 @@
     ctx.strokeStyle=d
     ctx.strokeRect(160, 170, 200, 40);
 
-    var g = ctx.createLinearGradient(50, 200, 50, 400);
+    var g = ctx.createLinearGradient(50, 200, 50, 300);
     g.addColorStop(0, "green");
     g.addColorStop(1, "white");
     ctx.fillStyle = g;
