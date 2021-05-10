@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="800" height="800" style="border: 1px solid red;">
+
+    </canvas>
+    <script>
+        function draw() {
+            var canvas = document.getElementById('myCanvas')
+            var ctx = canvas.getContext('2d');
+
+            // draw a simple rectangle, but scale it.
+            ctx.save();
+            ctx.scale(10, 3);
+            ctx.fillRect(1, 10, 10, 10);
+            ctx.restore();
+
+            // mirror horizontally
+            ctx.translate(canvas.width/2,canvas.height/2)
+            ctx.scale(-1, 1);
+            ctx.font = '48px serif';
+            ctx.fillText('Hello', 0, 0);
+           // ctx.fillRect(135,-120,100,100)
+        }
+        draw();
+    </script>
+    
+</body>
+</html>

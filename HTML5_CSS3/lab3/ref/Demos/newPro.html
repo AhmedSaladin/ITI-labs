@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Untitled Document</title>
+    <style>
+       
+        @import url("style2.css");
+        @keyframes myAnimation {
+            from {
+                color: aliceblue;
+            }
+            to {
+                color: red;
+            }
+        }
+        
+        
+        p{
+            color:red;
+            font-size: 36pt;
+            animation-name: myAnimation;
+            animation-duration: 5s;
+            animation-direction:alternate-reverse; 
+            animation-iteration-count:5;
+            animation-timing-function:linear;
+            
+        }
+
+         @keyframes myAnimation2 {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        /*img{
+            opacity: 0.5;
+        }*/
+        img:hover{
+            animation: myAnimation2 2s ease 0s infinite alternate-reverse;
+            /*animation-name: myAnimation;
+            animation-duration: 2s;
+            animation-direction: alternate-reverse;
+            animation-iteration-count:5;
+            animation-timing-function: linear;*/
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Simple Header</h1>
+    <div id="d1"></div>
+    <p>simple text</p>
+    <img src="images/img.jpg">
+</body>
+
+</html>

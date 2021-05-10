@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--<link href="abc">-->
+    <link href="https://fonts.googleapis.com/css?family=Srisakdi" rel="stylesheet">
+    <style>
+        @font-face{
+            font-family: "myFont";
+            src: url("fonts/WOFF/3Dumb-webfont.woff") format("woff");
+        }
+        /*h1{
+            font-family:"Srisakdi" ;
+        }
+        h1:active{
+            background-color: blue;
+            color: white;
+        }
+        h1:hover{
+            background-color: brown;
+        }*/
+        #txt1:focus{
+            background-color: chartreuse;
+        }
+        p:target{
+            font-size: 30pt;
+            color: coral;
+        }
+        a:link{
+            color: darkblue;
+        }
+        a:visited{
+            color: darkred;
+        }
+        input:enabled{
+            background-color: darksalmon;
+        }
+        input:disabled{
+            background-color: grey;
+        }
+        ul li:nth-child(2n){
+            color: hotpink;
+        }
+        ul li:first-child{
+            color: lawngreen;
+        }
+        p::first-letter{
+            font-size: 40pt;
+        }
+        p::first-line{
+            color: lawngreen;
+        }
+        p::before{
+            content: "Before";
+        }
+        p::after{
+            content: "After";
+        }
+        div#test span{
+            color: green;
+        }
+        div span{
+            color: blue;
+        }
+        span{
+            color: red;
+        }
+        img{
+            opacity: 1;
+        }
+        img:hover{
+            animation-name: MyAnimation;
+            animation-duration: 2s;
+            animation-timing-function: linear;
+            animation-iteration-count: 3;
+
+            animation-direction:alternate-reverse ;
+            /*animation: name duration timing-function delay iteration-count direction fill-mode;*/
+        }
+        @keyframes MyAnimation{
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        /*h1{
+            text-shadow: 2px -8px 8px yellow;
+        }*/
+        div{
+            border: 1px solid blue;
+            width: 400px;
+            font-size: 20pt;
+            padding: 10px;
+            box-shadow: 5px 5px 20px 50px gray,4px 4px 20px 50px yellow;
+            transition: all 5s linear 0s;
+        }
+
+        div:hover{
+            width: 600px;
+            font-size: 40pt;
+        }
+        
+        @keyframes myAnimation2 {
+            from{
+                color: yellow;
+            }
+            to{
+                color: red;
+            }
+        }
+        
+        h1{
+            color: yellow;
+            transform: scale(1,2) rotate(5deg);
+            animation: myAnimation2 3s linear 0s 5 alternate;
+        }
+    </style>
+</head>
+<body>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <h1 id="myText">
+        Hello World!
+    </h1>
+    <img src="images/img.jpg">
+    <div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla soluta quia aliquid, provident impedit, natus quos repellendus expedita, tenetur iste magni dolores molestiae tempore ullam dolore quibusdam dicta! Iusto, officia?</p>
+    </div>
+    
+    <div id="test">
+        <span>
+            Text
+        </span>
+    </div>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique pariatur omnis eveniet? Ratione laboriosam architecto, harum explicabo asperiores veritatis dolores consectetur tempora quos cupiditate, accusantium, nobis dolore enim? Omnis, cupiditate!</p>
+    <ul>
+<li>#item#1</li>
+<li>#item#2</li>
+<li>#item#3</li>
+       <li>#item#4</li> 
+    </ul>
+    <h1>Heading#1</h1>
+    <input type="text" id="txt1">
+    <p id="p1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia, repudiandae magnam tempora quam obcaecati, vitae reiciendis ipsa quod earum voluptatem blanditiis cupiditate sequi, tenetur placeat eius ut quibusdam deleniti facere!</p>
+    <a href="#p1">Click</a>
+    <a href="">visited</a>
+    <a href="#p1">test</a>
+    <input type="text">
+    <input type="text" disabled="disabled">
+    <!--<img id="img1" src="images/img.jpg" width="300" height="auto">-->
+    <!--<canvas id="myCanvas" width="600" height="500" style="border: 1px solid red;">
+
+    </canvas>-->
+    <script>
+       /* window.onload=function(){
+            var context=document.getElementById("myCanvas").getContext("2d");
+            var img = document.getElementById("img1")
+            context.drawImage(img,10,10)
+        }*/
+        /*var context=document.getElementById("myCanvas").getContext("2d");
+        var myImage = new Image();
+        myImage.src="images/imgq.jpg";        
+        myImage.onload = function(){
+            //console.log("test")
+            context.drawImage(myImage,10,10)
+        }*/
+
+        //context.fontFamily="abc"
+
+       // var context=document.getElementById("myCanvas").getContext("2d");
+  /*      context.fillRect(0,0,150,150)
+        context.save()//State1//black
+
+        context.fillStyle="red"
+        context.fillRect(10,10,120,120)
+        context.save()//State2//red
+
+        context.fillStyle="yellow"
+        context.globalAlpha = 0.5;
+        context.fillRect(30,30,90,90)
+
+        context.restore()//red
+        context.fillRect(45,45,60,60)
+
+        context.restore()//black
+        context.fillRect(60,60,30,30)
+
+        context.restore()        
+        context.fillRect(40,60,20,20)
+*/
+
+        
+        /*context.fillStyle="red";
+        context.fillRect(0,0,25,25)
+        
+        context.translate(30,0)
+        context.fillRect(0,0,25,25)
+
+        context.translate(30,0)        
+        context.fillRect(0,0,25,25)*/
+
+
+        /*for(var i=0;i<3;i++){
+            for(var j=0;j<3;j++){
+                context.save()
+                context.translate(30*j,30*i)
+                context.fillRect(0,0,25,25)
+                context.restore()
+            }            
+        }*/
+        /*context.save()
+        context.rotate((Math.PI/180)*25)
+        context.fillRect(30,30,100,100)
+        context.restore()
+        context.fillRect(30,30,100,100) 
+        
+        context.fillStyle="red"
+        context.translate(80,80)
+        context.rotate((Math.PI/180)*45)
+        context.translate(-80,-80)
+        context.fillRect(30,30,100,100)
+*/
+
+        /*context.scale(10,3)
+        context.fillRect(1,10,10,10)
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

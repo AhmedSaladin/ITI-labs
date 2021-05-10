@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1:active{
+            background-color: black !important;
+            color: blanchedalmond !important;
+            font-size: 36pt;
+        }
+        h1:hover{
+            background-color: blue;
+            color: chartreuse;
+        }
+        #txt1:focus{
+            background-color: red;
+            color: white;
+        }
+
+        p:target{
+            color: violet;
+        }
+        a:link {
+            background-color: gold;
+            color: green;
+        }
+        a:visited{
+            color: brown;
+        }
+
+        input:enabled{
+            background-color: cadetblue;
+        }
+        input:disabled{
+            background-color: chartreuse;
+        }
+        ul li:nth-child(2n+1){
+            color: blue;
+        }
+        p::first-letter{
+            font-family: fantasy;
+            font-size: 36pt;
+            color: red;
+        }
+        div::first-line{
+            color: blue;
+        }
+        #p2::before{
+            content: "before text";
+            color: chartreuse;
+        }
+        #p2::after{
+            content: "after text";
+            color: chartreuse;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Heading#1</h1>
+    <input type="text" id="txt1">
+    <p id="p1">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam est aliquam velit voluptates, quasi perspiciatis eum non, veritatis, laudantium dicta vero voluptatem porro. Possimus ipsam atque praesentium doloribus facilis delectus.
+    </p>
+
+    <a href="#p1">Go TO</a>
+
+
+
+    <a href="#ordinary-target">This is an ordinary link.</a><br>
+    <a href="">You've already visited this link.</a><br>
+    <a>Placeholder link (won't get styled)</a>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <input type="text">
+    <input type="text" disabled="disabled">
+
+    <br>
+    <ul>
+        <li>item#1</li>
+        <li>item#2</li>
+        <li>item#3</li>
+        <li>item#4</li>
+    </ul>
+    <br>
+    <br>
+    <br>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quaerat perferendis similique animi at eaque facilis rerum, quo veniam officia quia reiciendis deserunt, modi repellendus sed optio et, placeat repudiandae quam!
+    </p>
+    <div>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Excepturi numquam quia tenetur, ducimus enim totam corporis beatae in tempore at dolor praesentium rem inventore ipsam, ratione aut! Consequuntur, sint unde.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis facilis nulla, porro vitae distinctio sint nam magni dolore aspernatur accusamus neque laboriosam molestiae vel! Excepturi nihil reiciendis voluptas officiis tempora!
+    </div>
+
+    <p id="p2">hellooooooooooooooooooooooooo</p>
+</body>
+</html>

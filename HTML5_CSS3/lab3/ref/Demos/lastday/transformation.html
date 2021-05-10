@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>    
+    <title>Document</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="300" style="border:2px solid blue"></canvas>
+    <script>
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    var angle = 0;
+    function rotation(){
+        //ctx.clear();
+    ctx.save();
+    angle+=10;
+    ctx.rotate(angle*Math.PI/180);
+    ctx.translate(70,70);
+    ctx.strokeRect(150,140,50,50);
+    ctx.restore();
+    }
+    /*ctx.save();
+    ctx.scale(2,2);
+    ctx.strokeRect(0,0,50,50);
+    ctx.restore();
+    ctx.save();
+    ctx.scale(2,2);
+    ctx.strokeRect(0,0,50,50);
+    ctx.restore();
+    ctx.save();
+    ctx.scale(3,2);
+    ctx.strokeRect(0,0,50,50);*/
+
+    function Start(){
+        setInterval(rotation,"1000");
+    }
+    </script>
+    <input type="button" value="Click" onclick="Start()">
+</body>
+</html>

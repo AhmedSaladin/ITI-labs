@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css?family=Srisakdi" rel="stylesheet">
+    <style>
+        @keyframes myAnimation{
+            from{
+                opacity: 0;
+            }
+            to{
+                opacity: 1;
+            }
+        }
+        img:hover{
+            animation-name: myAnimation;
+            animation-duration: 2s;
+            animation-direction: alternate-reverse;
+            animation-iteration-count: 5;
+            animation-timing-function: linear;
+            /*animation-fill-mode: backwards;
+            animation: myAnimation 2s linear 0 5 alternate-reverse backwards;*/
+        }
+        img{
+            opacity: 0.5;
+        }
+        h1{
+            font-family: "Srisakdi";
+            text-shadow: 2px 2px 5px red;
+            font-size: 36pt;
+            letter-spacing: 3px;
+            transition: transform 5s ease-in 0s;
+            
+        }
+        h1:hover{
+            transform:scale(1,2) ;  
+        }
+        #example1{
+            border: 1px solid;
+            padding: 10px;
+            box-shadow: 20px 20px 50px 15px grey,-20px 20px 50px 15px yellow;
+            opacity: 1;
+            width: 150px;
+            transition: all 5s;
+        }
+        #example1:hover{
+            opacity: 0.2;
+            width: 400px;
+            
+        }
+        @font-face {
+            font-family: "myFont";
+            src: url("fonts/WOFF/3Dumb-webfont.woff") format('woff');
+        }
+    </style>
+</head>
+<body>
+    <img src="images/img.jpg">
+    <h1>the text shadow</h1>
+    <div id="example1">
+        <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nemo et error enim, sint commodi facere culpa fugit placeat, fugiat beatae aspernatur voluptates voluptatem expedita quos magni aliquam quod distinctio. Quisquam?</p>
+    </div>
+</body>
+</html>
