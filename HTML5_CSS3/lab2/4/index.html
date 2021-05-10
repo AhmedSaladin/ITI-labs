@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moving Line</title>
+  </head>
+  <body>
+    <canvas
+      width="400"
+      height="400"
+      style="border: 5px solid black"
+      id="canvas"
+    ></canvas>
+  </body>
+  <script>
+    var ctx = document.getElementById("canvas").getContext("2d");
+    ctx.lineWidth = 10;
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    var timer;
+    var p = 0;
+    timer = setInterval(start, 200);
+    function start() {
+      ctx.lineTo(p, p);
+      ctx.stroke();
+      p++;
+      console.log(p);
+      if (p > 400) {
+        clearInterval(timer);
+        alert("animation ended");
+      }
+    }
+  </script>
+</html>
