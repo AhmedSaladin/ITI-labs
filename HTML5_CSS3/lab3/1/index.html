@@ -6,5 +6,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Validation</title>
   </head>
-  <body></body>
+  <style>
+    input {
+      margin: 10px;
+      padding: 1px;
+    }
+    .ge:invalid {
+      border: 2px solid red;
+    }
+    .ge:valid {
+      border: 2px solid green;
+    }
+    #uname:invalid + .uname::after {
+      content: "Enter valid name alphbatic only";
+    }
+    #email:invalid + .email::after {
+      content: "Enter valid email address";
+    }
+  </style>
+  <body>
+    <div>
+      <h2>Change Email Address</h2>
+      <form action="#">
+        <input
+          id="uname"
+          class="ge uname"
+          type="text"
+          placeholder="Username"
+          pattern="^[a-zA-Z]+"
+          required
+        />
+        <span class="uname"></span>
+        <br />
+        <input
+          id="email"
+          class="ge email"
+          type="email"
+          placeholder="Email"
+          required
+        />
+        <span class="email"></span>
+        <br />
+        <input type="submit" value="Change" />
+      </form>
+    </div>
+  </body>
 </html>
