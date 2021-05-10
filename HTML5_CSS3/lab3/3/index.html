@@ -1,12 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Piper</title>
-</head>
-<body>
-    
-</body>
+  </head>
+  <body>
+    <canvas
+      id="canv"
+      width="600"
+      height="600"
+      style="border: 5px solid black"
+    ></canvas>
+  </body>
+  <script>
+    var ctx = document.getElementById("canv").getContext("2d");
+    var img = new Image();
+    img.src = "The_Scream.jpg";
+    img.onload = function () {
+      ctx.drawImage(img, 250, 10, 350, 350);
+      text();
+    };
+
+    function text() {
+      ctx.shadowOffsetX = 10;
+      ctx.shadowOffsetY = 10;
+      ctx.shadowBlur = 5;
+      ctx.shadowColor = "grey";
+      ctx.fillStyle = "#black";
+      ctx.font = "bold 50px Arial";
+      ctx.fillText("Mathmatics", 20, 400);
+    }
+  </script>
 </html>
