@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas</title>
+  </head>
+  <body>
+    <canvas
+      id="canv"
+      width="600"
+      height="600"
+      style="border: 5px solid black"
+    ></canvas>
+    <br />
+    <button onclick="draw_with_clock_wise()">clockWise</button>
+    <button onclick="draw_with_anti_clock_wise()">anticlockWise</button>
+  </body>
+  <script>
+    var ctx = document.getElementById("canv").getContext("2d");
+    ctx.translate(300, 300);
+    var sin = Math.sin(Math.PI / 6);
+    var cos = Math.cos(Math.PI / 6);
+    var timer = setInterval(draw, 200);
+    var counter = 0;
+
+    function draw() {
+      counter++;
+      ctx.fillStyle = "#0095DD";
+      ctx.fillRect(10, 5, 150, 30);
+      // ctx.save()
+      ctx.transform(cos, sin, -sin, cos, 0, 0);
+      if (counter > 11) {
+        for (var i = 0; i < 12; i++) {
+          // ctx.restore()
+          ctx.clearRect(10, 5, 150, 30);
+          ctx.transform(cos, -sin, sin, cos, 0, 0);
+        }
+        clearInterval(timer);
+      }
+    }
+
+    function draw_with_clock_wise() {
+      ctx.fillStyle = "#0095DD";
+      ctx.fillRect(10, 5, 150, 30);
+      ctx.transform(cos, sin, -sin, cos, 0, 0);
+    }
+
+    function draw_with_anti_clock_wise() {
+      ctx.fillStyle = "red";
+      ctx.fillRect(10, 5, 100, 30);
+      ctx.transform(cos, -sin, sin, cos, 0, 0);
+    }
+  </script>
+</html>
