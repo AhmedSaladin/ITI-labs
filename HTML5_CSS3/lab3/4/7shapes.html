@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>7Shapes</title>
+  </head>
+  <style>
+    .cont {
+      border: 5px solid red;
+      border-radius: 15px;
+      width: 250px;
+      height: 400px;
+    }
+    #heart {
+      position: relative;
+      width: 100px;
+      height: 90px;
+    }
+    #heart:before,
+    #heart:after {
+      position: absolute;
+      content: "";
+      left: 122px;
+      top: 78px;
+      width: 50px;
+      height: 80px;
+      background: red;
+      border-radius: 50px 50px 0 0;
+      transform: rotate(136deg);
+      transform-origin: 0 100%;
+    }
+    #heart:after {
+      left: 71px;
+      transform: rotate(226deg);
+      transform-origin: 100% 100%;
+    }
+    #triangle {
+      width: 0;
+      height: 0;
+      border-left: 21px solid transparent;
+      border-right: 21px solid transparent;
+      border-bottom: 53px solid red;
+      position: absolute;
+      left: 114px;
+      top: 222px;
+    }
+    .a {
+      font-size: 50px;
+      position: absolute;
+    }
+    #top {
+      top: 5px;
+      left: 21px;
+    }
+    #bottom {
+      left: 220px;
+      top: 352px;
+    }
+  </style>
+  <body>
+    <div class="cont">
+      <div id="heart"></div>
+      <div id="triangle"></div>
+      <div class="a" id="top">A</div>
+      <div class="a" id="bottom">A</div>
+    </div>
+  </body>
+</html>
