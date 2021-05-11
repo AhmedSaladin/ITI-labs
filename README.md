@@ -8,20 +8,10 @@
 - [HTML5 & CSS3][html5]
 - [BootStrap][BS]
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Elective courses
+- [Deep Learning][DL]
+- [Software Testing][ST]
+- [Blockchain][BN]
 
 
 
@@ -32,3 +22,6 @@
 [JQ]:https://drive.google.com/drive/folders/1at--WInJc5jj5XYoB3XNVUaYcAnTRoca
 [html5]:https://drive.google.com/drive/folders/1Qnkm7zzED9Q5EOb3qwPzPKeY1f8uT-IK
 [BS]:https://drive.google.com/drive/folders/1lXNKA7wt1YQPLXytcTc09UF8Xf5cOv37
+[DL]:https://maharatech.gov.eg/course/view.php?id=1006
+[BN]:https://maharatech.gov.eg/course/view.php?id=996
+[ST]:https://maharatech.gov.eg/course/view.php?id=990
