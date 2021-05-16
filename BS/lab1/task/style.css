@@ -1,0 +1,190 @@
+header {
+  margin-top: 3em;
+  margin-bottom: 2em;
+}
+
+h1,
+h2 {
+  font-weight: bold;
+}
+h3 {
+  font-weight: bold;
+}
+p {
+  padding-bottom: 1em;
+}
+/*------------------------------NAVIGATION------------------------------*/
+
+.nav-item {
+  margin-right: 2rem;
+  margin-left: 2rem;
+  text-align: center;
+}
+
+.nav-link:hover,
+.nav-item.active {
+  color: #fff;
+}
+
+.nav-link {
+  color: #777;
+}
+
+.bi-rss-fill {
+  font-size: 1.2em;
+  color: #f59629;
+  margin-right: 0.5em;
+}
+
+/*------------------------------INTRODUCTION------------------------------*/
+
+#intro {
+  margin: -1em auto;
+  border-radius: 1em;
+  /* background-color: #467612; */
+  /* background-image: url("images/intro_flower.png"),
+    url("images/intro_background.png");
+  background-repeat: no-repeat, repeat-x; */
+  /* background-position: right bottom ,left top ; */
+  background-image: url("images/intro_flower.png");
+
+  background-size: cover, contain;
+}
+
+#intro h2 {
+padding: 1em 0 0 1em ;  color: #fff;
+}
+
+#intro p {
+  padding: 0 0 3em 2em;
+  color: #d9f499;
+}
+
+#intro img {
+  border-radius: 1em;
+}
+
+body {
+  font: 14px/22px Helvetica, Arial, sans-serif;
+  background: #f0f0f0;
+}
+
+/*------------------------------SIDEBAR------------------------------*/
+
+aside {
+  background: url("images/sidebar_background.png");
+}
+
+aside section header h3 {
+  font-size: 1.5em;
+  padding: 0.5em 0 0 0.5em;
+}
+
+aside section {
+  background: url("images/sidebar_section_background.png") repeat-x;
+  border-radius: 0.5em;
+}
+
+aside section ul {
+  list-style: none;
+}
+
+aside section ul li a {
+  text-decoration: none;
+  color: #000;
+}
+
+aside section ul li a:hover {
+  text-decoration: underline;
+}
+
+/*------------------------------BLOG POST------------------------------*/
+
+.blogPost header p,
+.blogPost header p a {
+  font-size: 1em;
+  font-style: italic;
+  color: #777;
+}
+
+.blogPost header p a:hover {
+  text-decoration: none;
+  color: #000;
+}
+
+.blogPost img {
+  box-shadow: 3px 3px 7px #777;
+}
+
+/*------------------------------COMMENTS---------------------------------*/
+
+#comments,
+form {
+  padding: 2em 0 2em 0;
+  border-top: 1px solid #d7d7d7;
+}
+
+#comments article {
+  margin: 1em;
+  padding: 1em 1em 1em 0;
+}
+
+#comments article:nth-child(odd) {
+  background: #e3e3e3;
+  border: 0.1em solid #d7d7d7;
+  border-radius: 0.5em;
+}
+
+#comments article header {
+  padding-left: 1em;
+}
+
+#comments article header a {
+  display: block;
+  font-weight: bold;
+  color: #000;
+}
+
+#comments article header a:hover {
+  text-decoration: none;
+}
+
+form p {
+  padding-left: 2.5em;
+}
+
+.btn-primary {
+  width: 9em;
+}
+
+.form-control {
+  width: 15em;
+}
+
+/*------------------------------FOOTER-----------------------------------*/
+
+footer {
+  background: #222;
+}
+
+footer ul {
+  list-style: square;
+  color: #565656;
+}
+
+footer h3 {
+  color: #fff;
+}
+
+footer a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+
+footer a {
+  color: #999;
+}
+
+footer div {
+  color: #777;
+}
