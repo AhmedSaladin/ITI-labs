@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+var obj3={
+    name:"ES6",
+    main:"JavaScript",
+    born:2015
+};
+var {main:x,name:y,born}=obj3;
+console.log(x);
+
+/*
+var arr2=["kiwi","banana"];
+var arr=["Mango","orange","Apple",...arr2];
+console.log(arr);
+
+
+var arr=[1,2,3,4,5,6];
+/*var x=arr[0]
+var y=arr[1]
+var z=arr[2]*/
+/*function fun(){
+    return;
+}
+
+var [x, , y,...z]=[4,5]//arr;
+console.log(x)
+console.log(y)
+console.log(z)
+
+var arr2 =arr;
+arr2[0]=50;
+console.log(arr)
+console.log(arr2)
+for(i in arr)
+{
+    arr2[i]=arr[i]
+    
+}
+var arr3 = new Array(...arr);
+arr3[0]=100;
+console.log(arr)
+console.log(arr3);
+
+function fullnm(firstnm,lastnm){
+    return firstnm+' '+lastnm ;
+}
+
+var usrnm=["ali","kareem","gfgds","dgfdg"];
+console.log(fullnm(usrnm[0],usrnm[1]));
+console.log(fullnm(...usrnm));
+*//*
+function adding(x,y,...z){
+    //return x+y+z;//6
+    //x=1
+    //y=2
+    //z = [3,4,5,6,7,"ab","a",true]
+    console.log(z);
+    //for(var i=0;i<z.length;i++)
+    //return arguments[0]+arguments[1]+arguments[2]+arguments[3];
+}
+
+console.log( adding(1,2,3,5,6));
+
+*/
+//Lambda Expression
+//Arrow Function
+//Fat Arrow
+/*var fun = (x,y)=>{
+console.log(x);
+console.log(y);
+}
+fun(5,2);
+
+var obj={
+    usrnm:"Ali",
+    display:function(){
+        //var that= this;//obj
+        setTimeout(()=>{
+            console.log(this.usrnm);
+        },2000);
+    }
+}
+
+obj.display();
+*/
+/*var usrnm="ABC";
+var newFun=()=>{
+    return this.usrnm;
+}
+
+var obj2={
+    usrnm:"AHmed",
+    objFun:newFun
+}
+
+console.log( obj2.objFun());
+
+*/
+    /*    (function (){
+        //    return 110;
+        console.log(110);
+        })()
+console.log((function(){return 100})());
+
+var fun=function(){
+
+}
+fun();
+const pi =3.14;
+var x = 5;
+console.log("Outer"+x);
+function f(){
+    let x = 4;
+    x++;
+    console.log(x);
+}
+f();
+//let x =4;
+//pi=5;*/
+      /* function outerFun(){
+           var arr=[];
+           //console.log(i);//undefined
+           for(let i=0;i<3;i++){
+               arr.push(function(){
+                   console.log(i);
+               });
+               arr.push((function(){
+                   console.log(i);
+               })());
+           }
+           //console.log(i);
+           return arr;
+       } 
+       var result=outerFun();
+       console.log(result);
+       console.log(result[0]());//0
+       console.log(result[1]());//1
+       console.log(result[2]());//2*/
+    </script>
+</body>
+</html>

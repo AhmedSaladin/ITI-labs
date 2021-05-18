@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    /*function adding(x,y,z){
+        return x+y+z;
+    }*/
+
+    function adding(x,y,...z){
+        console.log(x);
+        console.log(y);
+        console.log(z);//array[3,4,5,6]
+        console.log(arguments);//collection
+        console.log(arguments[0]);
+        console.log(arguments[1]);
+        console.log(arguments[2]);
+    }
+    adding(1,2,3,4,5,6);
+
+    var arr=["Mango","orange","Apple"];
+    var arr2=["Kiwi","banana",...arr];
+    console.log(arr2);
+
+    function FullName(firstnm,lastnm){
+        return firstnm+' '+lastnm;
+    }
+
+    var usrnm=["ali","kareem"];
+    console.log(FullName(...usrnm));
+
+
+    var array1=[1,2,3,4,5];    
+    var array2=[];//=array1;
+    //console.log(array1);
+    //console.log(array2);    
+    //array2[0]=50;
+    //console.log(array1);
+    //console.log(array2);
+    //two arrays are updated
+//to solve this issue 
+for(i in array1)
+    array2[i]=array1[i];
+    console.log(array1);
+    console.log(array2); 
+    array2[0]=100;
+    console.log(array1);
+    console.log(array2); 
+
+
+    var obj={name:"ali",age:10}
+    var obj2={...obj};
+    obj2.name="ahmed";
+    console.log(obj.name);
+    console.log(obj2.name);
+</script>    
+</body>
+</html>

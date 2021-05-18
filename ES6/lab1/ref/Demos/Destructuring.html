@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[1,2,3,4,5,6,"a","b","c"];
+        //var x=arr[0];
+        //var y=arr[1];
+        //var z=arr[2];
+        //var[x,y,z]=arr;//x=1,y=2,z=3
+       /* var[x, ,y, , , ,z]=arr;
+        console.log(x);
+        console.log(y);
+        console.log(z);*/
+        /*var[x, ,y, , , ,,,,z=10]=arr;//z=10
+        console.log(x);
+        console.log(y);
+        console.log(z);
+*/
+
+        /*var[x, ,y, , , ,...z]=arr;
+        console.log(x);
+        console.log(y);
+        console.log(z);//["a","b","c"]
+        */
+
+        function fun(){
+            //return [1,2,3,4,5,6,"a","b","c"];
+            var obj={
+                name:"ahmed",
+                age:10,
+                add:"123"
+            };
+            return obj;
+        }
+
+        var[x, ,y, , , ,z]=fun();//not an iterable objects
+        console.log(x);
+        console.log(y);
+        console.log(z);
+    </script>
+</body>
+</html>

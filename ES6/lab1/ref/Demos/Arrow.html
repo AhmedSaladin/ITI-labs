@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fun(){
+            console.log("this is a function");
+        }
+
+        var fun2=function(){
+            console.log("this is a function");
+        }
+
+        //Arrow Function
+        //Fat Arrow
+        //Lambda Expression
+        var fun3=()=>{
+            console.log("this is a function");
+        }
+
+        fun3();
+
+var usrnm="Window variable";
+var myfun=()=>{
+            return this.usrnm;
+       }
+        var obj={
+            usrnm:"Ali",
+            /*display:function(){
+                setTimeout(function() {
+                    console.log(this.usrnm);
+                }, 2000);
+            }*/
+            disp:function(){
+                setTimeout(() => {
+                    console.log(this.usrnm);
+                }, 2000);
+            },
+            testfun:myfun
+        }
+       // obj.display();//undefined
+       //obj.disp();
+
+      
+       console.log(obj.testfun());
+    </script>
+</body>
+</html>

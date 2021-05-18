@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       /* //IIFE Pattern
+        (function(){
+            //return 110;
+            console.log(110);
+        })();
+*/
+
+        /*var b=2;
+        function outerFun(x,y){
+            var z=10;
+            var a =1;
+            var innerFun = function(a,b){
+                var w = 20;
+                return x+y+z+a+b+w;
+            }
+            return innerFun;
+        }
+
+        var result = outerFun(5,6);
+        console.log(result);
+        console.log(result(3,4));
+*/
+
+        /*//using for IIFE Pattern
+        function outerFun(){
+            var arr=[];
+
+            for(var i=0;i<3;i++){
+               // arr.push(function(){
+               //     console.log(i);
+               // });
+                arr.push((function(){
+                    console.log(i);
+                })());
+            }
+
+            return arr;
+        }
+
+        var result = outerFun();
+        console.log(result);
+        //result[0]();
+        //result[1]();
+        //result[2]();
+*/
+
+      /*  //Scoping
+        function getval(){
+            var val = 3;
+            console.log(i);//using let for declaration will generate error for this line
+            //console.log(i);//undefined
+            //for(var i=0;i<3;i++){
+                for(let i=0;i<3;i++){
+
+            }
+            console.log(i);//3 only with var declaration
+        }
+        getval();
+//console.log(val);//error out of function scope
+*/
+
+        /*const pi=3.14;
+        //pi=10;//invalid assignment to const
+        //can not change const value    
+*/
+
+        function outerFun(){
+            var arr=[];
+            for(let i=0;i<3;i++){
+                arr.push(function(){
+                    console.log(i);
+                });
+            }
+            return arr;
+        }
+        var result = outerFun();
+        result[0]();
+        result[1]();
+        result[2]();
+    </script>
+</body>
+</html>

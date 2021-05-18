@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //console.log(i)
+  /*      for(let i =0;i<5;i++){}
+        //console.log(i)
+        var i =5;
+        console.log(i)
+
+        var fun =function(){
+           //private
+            let x=function(){//inner function privilage 
+                return val;
+            }
+            let val=110;
+            return x;
+        }
+        //console.log(val)
+        const pi=3.14;
+        pi=5;
+        var result =fun();
+        console.log(result())
+*/
+        /*function outer(){
+            var arr=[];
+            for(let i=0;i<3;i++){
+                arr.push(function(){
+                    console.log(i);
+                });
+            }
+            return arr;
+        }
+
+        var result = outer();
+        result[0]()//i=0
+        result[1]()//i=1
+
+        result[2]()//i=2*/
+
+       /* usrnm="ahmed"
+        var fun = (x,y)=>{ return x+10 ;}
+        //////////////////////
+        let newfun=()=>{
+            console.log(this)
+            return this.usrnm;
+        }
+        var obj2={
+                print:function(){
+                //var that=this;
+
+                setTimeout(()=>{
+                    console.log(this);
+                    console.log(this.usrnm)
+                },2000)
+            }
+            }
+        var obj={
+            usrnm:"Ali",
+            age:10,
+            display:obj2/*function(){
+                //var that=this;
+
+                setTimeout(()=>{
+                    console.log(this.usrnm)
+                },2000)
+            }*/
+       /* }
+       console.log( obj.display.print());
+*/
+function fun(x,y,...rest){
+    console.log(rest);
+    return x+y+rest[0]
+}
+console.log(fun(1,2,3,4,"5",6))
+        
+var arr=["mango","banana","apple"]
+var arr2=["kiwi","orange",...arr]
+console.log(arr2)
+
+function fullName(firstName,lastName,...third){
+    return firstName+' '+lastName+' '+third[0]
+}
+
+var usrnm=["ali","kareem","dsfdsf","sadfgd"]
+console.log(fullName(...usrnm))
+
+var arr3=[1,2,3,4,5];
+var arr4=[]//arr3;
+console.log(arr3)
+console.log(arr4)
+//
+
+/*for(i in arr3)
+    arr4[i]=arr3[i]
+*//*
+arr4=[...arr3]
+    arr4[2]=50;
+console.log(arr3)
+console.log(arr4)   
+
+var obj={
+    usrnm:"ahmed",
+    age:10
+}
+var obj2={...obj}
+console.log(obj2)
+
+var arr=[1,2,3,4,5,6,7,8,9]
+/*var x =arr[0]
+var y = arr[1]
+var z=arr[2]
+*/
+var [x,,,y=5,,...z]=arr;
+console.log(x)
+console.log(y)
+
+console.log(z)
+
+function ff(){
+    return {name:"ali",
+            age:10,
+            usr:"sdf"}
+    //"abcdefg"//[1,2,3,4]
+}
+//var[a,b,c]=ff();
+var obj={
+    name:"Es6",
+    main:"JavaScript",
+    //born:2015
+}
+var x,y;
+({
+    name:x,main:y,born="ahmed"
+}=obj);
+obj.name="c#"
+console.log(x)
+console.log(y)
+console.log(born)
+//for(){}="ahemd"
+
+var myStr="          Welcome to Js World     ";
+var newStr=new String("javascript string object")
+
+console.log(`hello      ${newStr}`);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+</body>
+</html>

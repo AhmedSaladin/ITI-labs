@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+           // console.log(i)//undefined
+
+           /*function outerfun(){
+               var x=0;
+               (function innerfun(){
+                   return x;
+               })()
+           }
+            outerfun()*/
+           //innerfun()
+       /* for(var i=0;i<3;i++)
+        {
+            console.log(i)
+        }
+        console.log(i)//
+*/
+
+/*function outerfun(x,y){
+    var z=10
+    var a=5;
+    var innerfun=function(c,d){
+        return z+a+c+d
+    }
+    return innerfun;
+}
+
+var result = outerfun(3,4)
+console.log(result)
+console.log(result(1,2))
+*/
+
+/*
+function outerfun(){
+    var arr=[];
+    for(let i=0;i<3;i++){
+        arr.push(function(){
+            console.log(i)
+        })
+    }
+    return arr;
+}
+//Block Scope i=0//////
+//Block Scope i =1
+var result = outerfun();
+ result[0]()
+ result[1]()
+ result[2]()*/
+
+const pi=3.14;
+//pi=5;
+
+function fun(){
+
+}
+var fun2=function(){
+
+}
+//Arrow Function
+//Fat Arrow
+//Lambda Expession
+//var fun3 = x =>{x+y;}
+/*var newFun =()=>{
+    console.log(this)
+    return this.usrname;
+}
+let obj={//Lexical Binding
+    usrname:"Ali",
+    display(){
+        //that = this
+        setTimeout(function(){
+            console.log(this.usrname)
+        },2000)
+    }
+}
+console.log( obj.display())//////window*/
+
+//rest Parameter
+/*var fun = function (firstname,lastname,...mohamed){
+    return mohamed
+}
+
+console.log( fun(1,2,3,4,5,6,7,8))
+
+//x+y+...z
+var arr=["Mango","Orange"]
+var arr2=["kiwi","banana","Mango",...arr]
+
+console.log(arr2)
+
+function fullName(fsName,ltName,...w){
+    return fsName+" "+ltName;
+}
+var arr=["ali","ahmed","dsggds","fsdfdsg"]
+console.log(fullName(...arr))
+
+var arr1=[1,2,3,4,5,6]
+var arr2=[...arr1];
+console.log(arr1)
+console.log(arr2)
+arr2[0]=50;
+console.log(arr1)
+console.log(arr2)
+*/
+var arr=[1,2,3,4,5,6,7,"a","b","c"];
+/*var x = arr[0]
+var y = arr[1]
+var z = arr[2]
+*/
+/*var[x,,y,,,,z=10]=arr;
+
+function fun(){
+    return {name:"ahmed",
+            age:23}
+    //"abcdefgh"
+    //[1,2,3,4,5,6,7]
+}*/
+//var[x,y,z]=fun()
+//var x="Es6"
+var obj={
+    name:"Es6",
+    main:"JavaScript",
+    born:2015
+}
+//console.log(val_t)
+/*var x = obj.name
+var y = obj.main
+var z = obj.born*/
+
+//var{born:y,main:z,name:x,instructo:w}=obj;
+//console.log(obj.x)
+//console.log(x)
+/*var x,y,z;
+ ({born:y,main:z,name:x}=obj)
+
+console.log(obj)
+ */
+
+ var myStr="            welcome JavaScript            ";
+ var newStr=new String("JavaScript Object");
+
+ console.log(myStr.trim()+"::")
+ console.log(myStr.trimRight()+"::")
+ console.log(myStr.trimLeft())
+ console.log(newStr.repeat(3))
+console.log(newStr.includes("Ja"))
+console.log(newStr.startsWith("Ja"))
+
+console.log(newStr.endsWith("Ja"))
+
+var x=10
+console.log("Hello World"+x+"next day")
+
+console.log(`Hello World ${x} msg as
+
+
+ it`)
+
+
+var fruits=["apple","astrawberry"]
+var flag = true;
+for(var i=0;i<fruits.length;i++){
+    if(fruits[i][0]!="a"){
+        console.log("False")
+        flag=false;
+    }
+}
+if(flag){
+    console.log("all start with a")
+}
+
+console.log( fruits.every(function(val,indx,arr){
+    return val[0]==="a"
+}));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*fun()///////
+function fun(){
+    console.log("Hello")
+}*/
+    </script>
+</body>
+</html>
