@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fun(x="10",y=5,z){
+
+        }
+        function fun2(x=10,y=7,obj={nm:"ali",age:10}){
+            var z = x+ y;
+            return `username is ${obj.nm} age ${obj.age} total = ${z}`
+        }
+
+        //console.log(fun2(1,2,{nm:"ahmed"}))
+
+
+        function xyz(x,y,obj){
+            var defaultObj={
+                nm:"ali",
+                age:10
+            }
+            var z = x+ y
+            var settings = Object.assign({},defaultObj,obj);
+            console.log(settings)
+            return `username is ${settings.nm} age ${settings.age} total = ${z}`
+        }
+        //console.log(xyz(1,2,{username:"ahmed",nm:"mona"}))
+
+        var mySet = new Set()
+        mySet.add(1)
+        mySet.add("abc")
+        mySet.add([1,2])
+
+
+        function *gen(){
+            console.log("Hello")
+            ///
+            //
+            //
+            //
+            yield 10;
+            console.log("next step")
+            yield "abc"
+            console.log("mid of operation")
+            yield [1,2,3]
+            console.log("end")
+            return "end"
+        }
+    
+ //        iter = gen()
+        //for(var i =0;i<iter.length)
+
+"Hello World".replace(obj)
+
+
+/*obj={
+    [Symbol.iterator]:function(){
+        return {
+            ///
+            next:function(){
+                return {
+                    value:
+                    done:
+                }
+            }
+        }
+    }
+}*/
+
+
+
+starting 0,1
+next: 1
+next:2
+next: 3
+next: 5
+next: 8
+next: 13
+//function *gen1(max)//largest number = 10
+//function *gen2(Count of elements)//5
+for(i of obj)
+
+        function *evenGen(arr){
+            for(var i =0;i<arr.length;i++){
+                if(arr[i]%2==0)
+                    yield arr[i]
+            }
+
+            
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </script>
+</body>
+</html>

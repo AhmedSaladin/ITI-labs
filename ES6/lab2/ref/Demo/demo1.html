@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Untitled Document</title>
+
+</head>
+
+<body>
+    <script>
+        function fun(x = 10, y = 7, obj = {
+            nm: "ali",
+            age: 10
+        }) {
+
+            var z = x + y;
+
+            return `username ${obj.nm} and ange ${obj.age} total is ${z}`;
+
+
+
+        }
+
+        fun(1, 2, {
+            username: "kareem"
+        });
+        ///////////////////////////////////////
+        function fun(x = 10, y = 7, {nm,age} = {
+            nm: "ali",
+            age: 10
+        }) {
+
+            var z = x + y;
+
+            return `username ${nm} and ange ${age} total is ${z}`;
+
+
+
+        }
+
+        fun(1, 2, {
+            username: "kareem"
+        });
+        /////////////////////////////////
+        function fun(x, y, obj) {
+            //check obj prop
+
+            var defaultObj = {
+                nm: "ali",
+                age: 10
+            }
+
+            var setting = Object.assign({}, defaultObj, obj)
+            var z=10;
+            return `username ${setting.nm} and ange ${setting.age} total is ${z}`;
+
+        }
+
+        fun(1, 2, {
+            username: "kareem",
+            nm: "mostafa",
+            age: 20,
+            salary: 1000
+        });
+
+////////////////////////////////////////////////
+    var mySet=new Set();
+    mySet.add(1)
+    mySet.add("abc")
+    mySet.add([1,2])
+    mySet.add([1,2])
+var arr=[1,2]
+mySet.add(arr)
+mySet.add(arr)//will not be added duplicate values
+    var newSet = new Set([1,2,4,"as",1])
+        newSet.has(1)
+        newSet[0]//undefined
+        newSet["add"](20)
+
+        var myMap=new Map()
+        myMap.set("abc",10)
+        myMap.set("xyz","str")
+        myMap.set(10,"x")
+
+        var newMap=new Map([[1,2],["abc",12],[1,"d"]])
+        newMap.get("abc")
+
+        for(i of newMap){
+            console.log(i)
+        }
+
+        for([k,v] of newMap){
+            console.log(`key : ${k}, value : ${v}`)
+        }
+        ////////////////////////////////////
+
+
+        var arr = [1, 2, 3, 4, 5, 6, 7]
+
+        for (i = 0; i < arr.length; i++)
+            console.log(arr[i]);
+
+
+        for (i in arr) {
+
+            console.log(i);
+        }
+
+
+        var arr = [1, 2, 3, 4, 5, 6, 7]
+
+        for (i of arr)
+            console.log(i);
+
+            /*
+            obj={
+                nm:"ali",
+                age:10
+            }
+            for(i of obj){
+                console.log(i)
+            }
+            
+            */
+       /* obj = {
+            nm: "",
+            [Symbol.iterator]() {
+
+
+                return {
+
+                    next() {
+
+
+                        return {
+                            value: ,
+                            done:
+                        }
+                    }
+                }
+
+
+            }
+        }*/
+
+       // @ @iterator
+
+        /////////////////////////////////////////////////
+
+
+       
+
+
+
+
+        function *gen() {
+            console.log("start of iter")
+            yield 10;
+            console.log("10 was released, wait for next val");
+            console.log("waiting");
+            console.log("waiting");
+            console.log("waiting");
+            console.log("waiting");
+            yield *"abc"
+            console.log("another value will be displayed");
+            yield *[1, 2, 3,"fdghj"];
+            console.log("done");
+        }
+
+
+        for (i of gen()){
+            console.log(i);
+        }
+        
+        
+        
+        function * evenGen(arr){
+        
+            for( let i=0; i<arr.length;i++){
+                
+                if(arr[i]%2==0)
+                    yield arr[i]
+            }
+            
+            
+            
+            
+        }
+        
+        
+        
+        
+        
+        for(i of evenGen([1,2,22,3,21,4,6,8]))
+            console.log(i);
+        
+        
+        
+        
+        for(i=0;i<mySet.size;i++)
+        console.log("value of mySet"+ mySet[i]);//undefined
+        mySet.has(1)
+        
+        
+        //////////////////////////////
+        var x =Symbol("abc")
+        var y =Symbol("abc")
+        x==y//false
+        x
+        y
+        var xx =Symbol.for("10")
+        var yy =Symbol.for("10")
+        xx===yy
+        typeof xx
+        Symbol.keyFor(xx)//10
+        xx.description//10
+
+        /*var obj={
+            username:"ali",
+            Symbol("info"):"abc"////error
+        }*/
+
+        var obj={
+            username:"ali",
+            [Symbol("info")]:"abc"////error
+        }
+        console.log(obj[Symbol("info")])//undefined
+        obj[Symbol.for("info")]="xyz"//"xyz"
+        obj[Symbol.for("info")]="aaa"
+        obj[Symbol.for("info")]//"aaa"
+
+        var x=Symbol("abc")
+        obj[x]="new Prop"
+
+        for(i in obj){
+            console.log(i)///only properties ,Symbol will not printed
+        }
+        /*
+        var obj={
+            [Symbol.iterator](){}
+            [Symbol.replace](str,i){
+                
+                
+                return str.substring(0,i)+" test";
+                
+                
+                
+            }
+            
+        }
+        
+        
+        
+        "str".replace(obj,2)
+        
+        "str".replace()
+        
+        
+        
+        
+        String.prototype.relpace=function(){}
+        
+        
+        "".replace(regexp,"")
+        
+        */
+        
+        
+        //////////////////
+        
+        function emp(usrnm,age,salary){
+            
+            return {
+                
+                usrnm,
+                age,
+                salary,
+            }
+            
+            
+        }
+        
+        
+        var me= emp("ali",10,1000)
+        me.usrnm
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        var x= new Symbol(10)
+        
+        var str=new String("abc")
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    </script>
+
+</body>
+
+</html>
