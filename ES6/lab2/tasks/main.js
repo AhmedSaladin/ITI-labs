@@ -61,3 +61,35 @@ let string1 = "one two three four five six seven".replace(replace_obj);
 let string2 = "one two three".replace(replace_obj);
 
 // 4- Create an iterable object by implementing @@iterator
+iterator_obj = {
+  name: "ali",
+  age: 25,
+  fav_color: "yellow",
+  born: 1993,
+  dis() {
+    "ay 7aga ";
+  },
+  [Symbol.iterator]() {
+    const o = Object.keys(this);
+    const length = o.length;
+    let i = -1;
+    return {
+      next: () => {
+        i++;
+        if (i < length) {
+          return {
+            value: [o[i], this[o[i]]],
+            done: false,
+          };
+        }
+        return {
+          value: "3agwa",
+          done: true,
+        };
+      },
+    };
+  },
+};
+
+console.log(...iterator_obj);
+for (let k of iterator_obj) console.log(k);
