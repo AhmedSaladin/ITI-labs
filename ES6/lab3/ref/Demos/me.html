@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Untitled Document</title>
+        
+    </head>
+    
+    <body>
+           <script>
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "std.json");
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4)
+                if (xhr.status == 200) {
+                    dataObj = JSON.parse(xhr.responseText);
+                    console.log(dataObj);
+                }
+        }
+        xhr.send('');
+        
+        </script> 
+    </body>
+</html>
