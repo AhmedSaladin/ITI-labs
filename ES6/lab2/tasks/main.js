@@ -11,6 +11,7 @@ const course_information = (obj) => {
     courseOwner: "JavaScript",
   };
   const new_obj = Object.assign({}, default_obj, obj);
+  // console.log(new_obj);
   if (Object.keys(new_obj).toString() == Object.keys(default_obj).toString())
     return new_obj;
   else throw "Error object not valid";
@@ -18,8 +19,10 @@ const course_information = (obj) => {
 const course_obj = {
   courseDuration: "50min",
   courseName: "Ali",
+  // zaki: 12,
 };
-course_information(course_obj);
+const result = course_information(course_obj);
+console.log(result);
 
 // 2- Create a generator that returns fibonacci series that takes only one parameter.
 //   a. the parameter passed determines the number of elements displayed from the series.
@@ -70,15 +73,16 @@ iterator_obj = {
     "ay 7aga ";
   },
   [Symbol.iterator]() {
-    const o = Object.keys(this);
+    const o = Object.entries(this);
     const length = o.length;
-    let i = -1;
+    let i = 0;
     return {
       next: () => {
-        i++;
         if (i < length) {
+          let values = o[i];
+          i++;
           return {
-            value: [o[i], this[o[i]]],
+            value: values,
             done: false,
           };
         }
