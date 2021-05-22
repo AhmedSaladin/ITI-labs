@@ -1,0 +1,188 @@
+To specify the DBs path (and run server):
+	>mongod.exe --dbpath "Current Partition:\data\db"
+To run Mongo:
+	>mongo.exe
+-----------------
+To Create DB (select DB or create it if not exist):
+	>use mydb
+To check your currently selected database use the command db
+	>db
+If you want to check your databases list, then use the command show dbs.
+	>show dbs
+To drop the selected DB
+	>db.dropDatabase()
+------------------------
+Create collection:
+Basic Syntax:
+db.createCollection(name)
+
+Example:
+>db.createCollection("mycollection")
+
+Show Collections:
+>show collections
+
+Drop Collection:
+Syntax
+db.COLLECTION_NAME.drop()
+
+Example:
+>db.mycollection.drop()
+
+------------------------
+Also, In MongoDB, you don't need to create collection. MongoDB creates collection automatically, when you insert some document.
+
+To insert Document (and create the collection on the fly):
+Basic syntax of insert() command is as follows ?
+	>db.COLLECTION_NAME.insert(document) 
+
+Example 1:
+	>db.mycol.insert({title: 'MongoDB Overview', 
+   description: 'MongoDB is no sql database',
+   by: 'tutorials point',
+   url: 'http://www.tutorialspoint.com',
+   tags: ['mongodb', 'database', 'NoSQL'],
+   likes: 100})
+
+Example2:
+	>db.post.insert([
+   {
+      title: 'MongoDB Overview', 
+      description: 'MongoDB is no sql database',
+      by: 'tutorials point',
+      url: 'http://www.tutorialspoint.com',
+      tags: ['mongodb', 'database', 'NoSQL'],
+      likes: 100
+   },
+
+   {
+      title: 'NoSQL Database', 
+      description: "NoSQL database doesn't have tables",
+      by: 'tutorials point',
+      url: 'http://www.tutorialspoint.com',
+      tags: ['mongodb', 'database', 'NoSQL'],
+      likes: 20, 
+      comments: [ 
+         {
+            user:'user1',
+            message: 'My first comment',
+            dateCreated: new Date(2013,11,10,2,35),
+            like: 0 
+         }
+      ]
+   }
+])
+
+-------------------------
+Query Document:
+Basic syntax of find() method is as follows
+	>db.COLLECTION_NAME.find()
+	>db.mycol.find({key1:value1, key2:value2})
+
+The pretty() Method
+	To display the results in a formatted way, you can use pretty() method.
+
+Example1 (Display all):
+	>db.mycol.find().pretty()
+
+
+Example2 (Conditions):
+	>db.post.find({"by":"tutorials 
+{
+dpoint"}).pretty()
+
+Conditions:
+Equality:
+	db.mycol.find({"by":"tutorials point"}).pretty()
+
+Less Than:
+	db.mycol.find({"likes":{$lt:50}}).pretty()
+
+Less Than Equals:
+	db.mycol.find({"likes":{$lte:50}}).pretty()
+
+Greater Than
+	db.mycol.find({"likes":{$gt:50}}).pretty()
+
+Greater Than Equals 	
+	db.mycol.find({"likes":{$gte:50}}).pretty()
+
+Not Equals 	
+	db.mycol.find({"likes":{$ne:50}}).pretty()
+
+And Condition:
+>db.mycol.find(
+   {
+      $and: [
+         {key1: value1}, {key2:value2}
+      ]
+   }
+).pretty()
+
+OR Condition:
+>db.mycol.find(
+   {
+      $or: [
+         {key1: value1}, {key2:value2}
+      ]
+   }
+).pretty()
+
+-----
+findOne: 
+Returns one document that satisfies the specified query criteria. If multiple documents satisfy the query, this method returns the first document according to the natural order which reflects the order of documents on the disk. 
+
+Syntax:
+ db.collection.findOne(query, projection)
+	- query: Optional. Specifies query selection criteria.
+	- projection:Optional. Specifies the fields to return using projection operators. Omit this parameter to return all fields in the matching document.
+-----
+Filtering results:
+>db.COLLECTION_NAME.find().limit(NUMBER)
+
+>db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER)
+----
+Sorting:
+>db.COLLECTION_NAME.find().sort({KEY:1})
+
+-----------------------
+Update Document:
+Basic syntax of update() method is as follows
+	>db.COLLECTION_NAME.update(SELECTIOIN_CRITERIA, UPDATED_DATA)
+
+OR
+The save() method replaces the existing document with the new document passed in save() method
+Syntax
+Basic syntax of mongodb save() method is shown below ?
+	>db.COLLECTION_NAME.save({_id:ObjectId(),NEW_DATA})
+
+
+Example1:
+	>db.mycol.update({'title':'MongoDB Overview'},{$set:{'title':'New MongoDB Tutorial'}})
+
+Example2:
+	By default mongodb will update only single document, to update multiple you need to set a paramter 'multi' to true.
+	>db.mycol.update({'title':'MongoDB Overview'},
+   {$set:{'title':'New MongoDB Tutorial'}},{multi:true})
+
+Example3 (Save):
+	>db.mycol.save(
+   {
+      "_id" : ObjectId(5983548781331adf45ec7), "title":"Tutorials Point Overview",
+         "by":"Tutorials Point"
+   }
+)
+
+------------------
+Delete Document:
+Basic syntax of remove() method is as follows
+	>db.COLLECTION_NAME.remove(DELLETION_CRITTERIA)
+To remove all (like truncate in SQL)
+	>db.NAME.remove()
+
+Example1(Remove only one):
+	>db.mycol.remove({'title':'New MongoDB Tutorial'})
+
+Example2 (Remove all):
+	>db.mycol.remove({})
+	

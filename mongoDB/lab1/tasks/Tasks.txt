@@ -1,0 +1,44 @@
+1- use FacultySystemDB
+-------------------------------------------------------------------------------------------------------------------------------------------------
+2- db.createCollection("student")
+-------------------------------------------------------------------------------------------------------------------------------------------------
+----One
+3- db.student.insert({
+FirstName:"ali",
+LastName:"zaki",
+Age:"15",
+Faculty:{Name:"asu",Address:"13 st - 6october, giza"},
+Grade:[{CourseName:"algorithms",Grade:"A",Pass:true},{CourseName:"C++",Grade:"A",Pass:true},{CourseName:"Opertating System",Grade:"A",Pass:true}],
+isFired:false
+})
+-------Many
+db.student.insert([{
+FirstName:"mahmoud",
+LastName:"nasser",
+Age:"23",
+Faculty:{Name:"asu",Address:"13 st - 6october, giza"},
+Grade:[{CourseName:"algorithms",Grade:"C",Pass:true},{CourseName:"C++",Grade:"D",Pass:true},{CourseName:"Opertating System",Grade:"F",Pass:false}],
+isFired:false
+},{
+FirstName:"zatona",
+LastName:"alabed",
+Age:"26",
+Faculty:{Name:"asu",Address:"13 st - 6october, giza"},
+Grade:[{CourseName:"algorithms",Grade:"F",Pass:false },{CourseName:"C++",Grade:"A+",Pass:true},{CourseName:"Opertating System",Grade:"D",Pass:true}],
+isFired:false
+}])
+
+-------------------------------------------------------------------------------------------------------------------------------------------------
+4-	1. db.student.find().pretty()
+ 	2.db.student.findOne({FirstName:"zatona"})
+	3.db.student.find({$or:[FirstName:"ali",LastName:"nasser"]}).pretty()
+	4.db.student.find({FirstName:{"$ne":"ali"}}).pretty()
+	5.db.student.find({Age:{"$lt":"21"}}).pretty()
+	6.db.student.find({isFired:true}).pretty()
+	7.db.student.find({$and:[{Age:{$gte:21}},{Faculty:{$exists:true}}]}).pretty()
+	8.db.student.find({},{FirstName:1,LastName:1,isFired:1,_id:0})
+-------------------------------------------------------------------------------------------------------------------------------------------------
+5- 	
+	1.db.student.update({"FirstName":"zatona"},{$set:{"FirstName":"aliko"})
+	2.db.student.update({"isFired":false},[{$set:{"FirstName":"loki"}},{$set:{"LastName":"geni"}}],{multi:true})
+	3.db.student.save({"_id":ObjectId("60a90366f539d034500b19b3"),"FirstName":"loki","LastName":"Za3ter"})
