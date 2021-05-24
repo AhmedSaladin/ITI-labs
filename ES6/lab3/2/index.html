@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proxy</title>
+  </head>
+  <body>
+    <h2>Look at console :)</h2>
+  </body>
+  <script>
+    const obj = {
+      name: "ahmed",
+      age: 36,
+      address: "Cairo",
+    };
+    const obj_handler = {
+      set(obj, prop, val) {
+        if (!obj.hasOwnProperty(prop))
+          throw `This object doesn't have this ${prop} property please check docs.`;
+
+        if (prop === "name" && !(typeof val == typeof "ss" && val.length == 7))
+          throw `name property accepts only string of 7 characters`;
+
+        if (prop === "address" && typeof val != typeof "ss")
+          throw "address property accepts only string value";
+
+        if (prop === "age" && !(isFinite(val) && val > 25 && val < 60))
+          throw "age property accepts numerical value between 25 and 60";
+
+        obj[prop] = val;
+      },
+    };
+    const p1 = new Proxy(obj, obj_handler);
+  </script>
+</html>
