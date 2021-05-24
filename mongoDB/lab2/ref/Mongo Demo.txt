@@ -1,0 +1,73 @@
+Indexing:
+Syntax:
+	>db.COLLECTION_NAME.createIndex({KEY:1})
+	1 for ascending order,  -1 for descending order.
+Example:
+	>db.post.createIndex({"title":1});
+
+-----------------------------------
+Aggregation:
+Syntax:
+	>db.COLLECTION_NAME.aggregate(AGGREGATE_OPERATION)
+Example:
+	>db.post.aggregate([{$group : {_id : "$by", num_likes : {$sum : "$likes"}}}])
+-----------------------------------
+Relationships:
+(1)Embeded:
+ >db.FBPost.insert({
+      title: 'post1', 
+      description: "NoSQL database doesn't have tables",
+      likes: 20, 
+      comments: [ 
+         {
+            _id:ObjectId("58dca4d90d7e78161180f45c"),
+			user:'user1',
+            message: 'My first comment',
+            dateCreated: new Date(2013,11,10,2,35),
+            like: 0 
+         },
+	{
+            user:'user2',
+            message: 'My first comment',
+            dateCreated: new Date(2013,11,10,2,35),
+            like: 0 
+         }
+
+      ]
+   });
+
+	>db.FBPost.find({"title":"post1"},{"comments":1});
+
+
+(2)Referenced:
+	>db.FBPost.insert({
+    "_id" : ObjectId("58dca41d0d7e78161180f45b"),
+    "PostText" : "this is post text11111",
+    "PostLikes" : 100
+});
+
+	>db.FBPost.insert({
+    "_id" : ObjectId("58dca6030d7e78161180f45d"),
+    "PostText" : "this is post text2222",
+    "PostLikes" : 200
+});
+
+	>db.User.insert({"Name":"user1", "Email":"test@test.com", user_Posts:[
+ ObjectId("58dca41d0d7e78161180f45b"),
+ ObjectId("58dca6030d7e78161180f45d")
+]});
+
+	>var userObj= db.User.findOne({"Name":"user1"},{"user_Posts":1});
+	db.FBPost.find({"_id":{"$in":userObj.user_Posts}});
+	
+------------------------------
+(3) DBRef:
+	>db.FBPost.insert({"PostText" : "this is post text333 from DBREf",
+    "PostLikes" : 300, "PostUser":
+	{
+		"$ref":"User", "$id":ObjectId("58dca4d90d7e78161180f45c")
+	}});
+	
+	>var userObj=db.FBPost.find({"PostText":"this is post text333 from DBREf"},{"PostUser":1});
+	var userDBRef=userObj.PostUser;
+	db[userDBRef.$ref].find({"_id":userDBRef.$id});
