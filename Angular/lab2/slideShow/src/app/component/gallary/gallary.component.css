@@ -1,0 +1,15 @@
+
+img{
+    width: 50em;
+    display: block;
+}
+input{
+    width: 10em;
+    display: inline-block;
+    margin: 1em;
+    padding: 1em;
+}
+section{
+    position: relative;
+    left: 4em;
+}
