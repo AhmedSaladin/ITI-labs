@@ -1,1 +1,31 @@
-<p>second works!</p>
+<div class="screen">
+  <input type="text" placeholder="Name" class="name" [(ngModel)]="name" />
+  <input type="number" placeholder="Age" class="age" [(ngModel)]="age" />
+  <input
+    type="text"
+    placeholder="Address"
+    class="address"
+    [(ngModel)]="address"
+  />
+  <input type="button" value="Add Member" class="btn" (click)="add_member()" />
+  <div
+    *ngIf="!is_above_18_year && !is_name_valid && !is_address_valid"
+    style="color: red; grid-column: 1; grid-row: 2"
+  >
+    Invalid data
+  </div>
+  <table>
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Address</th>
+    </tr>
+    <tr *ngFor="let member of members; index as i">
+      <td>{{ i + 1 }}</td>
+      <td>{{ member.name }}</td>
+      <td>{{ member.age }}</td>
+      <td>{{ member.address }}</td>
+    </tr>
+  </table>
+</div>

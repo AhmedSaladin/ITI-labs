@@ -3,13 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-first',
   templateUrl: './first.component.html',
-  styleUrls: ['./first.component.css']
+  styleUrls: ['./first.component.css'],
 })
-export class FirstComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class FirstComponent {
+  write: string = '';
+  show_me() {
+    this.write = 'You look great.';
   }
-
 }

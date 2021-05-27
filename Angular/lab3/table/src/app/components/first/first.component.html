@@ -1,1 +1,5 @@
-<p>first works!</p>
+<div class="screen">
+  <input type="text" placeholder="Enter your data here" [(ngModel)]="write" class="show" />
+  <input type="button" value="My secret" (click)="show_me()" class="show" />
+  <div class="show">{{ write }}</div>
+</div>
