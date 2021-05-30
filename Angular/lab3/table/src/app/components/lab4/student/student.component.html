@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <div class="row mb-3 w-50">
+        <label for="name" class="col-2 w-5">Name</label>
+        <input
+          type="text"
+          placeholder="Name"
+          class="col-4"
+          [formControl]="name"
+        />
+        <div *ngIf="!is_name_valid()" class="col-4 w-50 mr-1">
+          Name is Not Valid
+        </div>
+      </div>
+      <div class="row mb-3 w-50">
+        <label for="Age" class="col-2 w-5">Age</label>
+        <input
+          type="number"
+          placeholder="Age"
+          class="col-4"
+          [formControl]="age"
+        />
+        <div *ngIf="!is_age_valid()" class="col-4 w-50 mr-1">
+          Age is Not Valid
+        </div>
+      </div>
+      <div class="row mb-3 w-50 justify-content-end">
+        <input
+          type="button"
+          value="Add Student"
+          (click)="student()"
+          class="btn btn-primary col-3"
+        />
+      </div>
+    </div>
+  </div>
+</div>
