@@ -1,13 +1,11 @@
 <div class="container">
   <table class="table">
-    <thead>
+    <thead appHeader>
       <tr>
         <th scope="col">#</th>
         <th scope="col">Name</th>
         <th scope="col">Username</th>
         <th scope="col">E-mail</th>
-        <th scope="col">Zipcode</th>
-        <th scope="col">Street</th>
         <th scope="col">City</th>
         <th scope="col">Phone</th>
         <th scope="col">Details</th>
@@ -16,11 +14,9 @@
     <tbody>
       <tr *ngFor="let user of users_list">
         <th scope="row">{{ user.id }}</th>
-        <td>{{ user.name }}</td>
+        <td>{{ user.name | upper }}</td>
         <td>{{ user.username }}</td>
         <td>{{ user.email }}</td>
-        <td>{{ user.address.zipcode }}</td>
-        <td>{{ user.address.street }}</td>
         <td>{{ user.address.city }}</td>
         <td>{{ user.phone }}</td>
         <td><a routerLink="./{{ user.id }}">details</a></td>

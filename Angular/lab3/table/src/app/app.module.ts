@@ -14,6 +14,8 @@ import { AllUsersComponent } from './components/lab5/all-users/all-users.compone
 import { UserDetailsComponent } from './components/lab5/user-details/user-details.component';
 import { UsersService } from './services/users.service';
 import { ErrorComponent } from './components/error/error.component';
+import { HeaderDirective } from './directives/header.directive';
+import { UpperPipe } from './pipes/upper.pipe';
 
 const routes: any = [
   {
@@ -40,6 +42,8 @@ const routes: any = [
     AllUsersComponent,
     UserDetailsComponent,
     ErrorComponent,
+    HeaderDirective,
+    UpperPipe,
   ],
   imports: [
     BrowserModule,
