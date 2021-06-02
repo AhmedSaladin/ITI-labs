@@ -40,12 +40,24 @@
             >Me</a
           >
         </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLink="/users"
+            routerLinkActive="active"
+            [routerLinkActiveOptions]="{ exact: true }"
+            >All Users</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/users/{:id}" routerLinkActive="active"
+            >User Details</a
+          >
+        </li>
       </ul>
     </div>
   </div>
 </nav>
 <div class="container mt-5">
   <router-outlet></router-outlet>
-  <!-- <app-student (send_data)="add_new_student($event)"></app-student>
-  <app-table [list]="students"></app-table> -->
 </div>

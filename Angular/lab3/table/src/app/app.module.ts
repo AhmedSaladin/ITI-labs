@@ -1,6 +1,7 @@
-import { Input, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { FirstComponent } from './components/first/first.component';
@@ -9,11 +10,24 @@ import { StudentComponent } from './components/lab4/student/student.component';
 import { TableComponent } from './components/lab4/table/table.component';
 import { RouterModule } from '@angular/router';
 import { NewStudentComponent } from './components/lab4/new-student/new-student.component';
+import { AllUsersComponent } from './components/lab5/all-users/all-users.component';
+import { UserDetailsComponent } from './components/lab5/user-details/user-details.component';
+import { UsersService } from './services/users.service';
+import { ErrorComponent } from './components/error/error.component';
 
 const routes: any = [
-  { path: '', component: TableComponent },
+  {
+    path: '',
+    component: TableComponent,
+  },
   { path: 'add-student', component: StudentComponent },
   { path: 'students/:id', component: NewStudentComponent },
+  {
+    path: 'users',
+    component: AllUsersComponent,
+  },
+  { path: 'users/:id', component: UserDetailsComponent },
+  { path: '**', component: ErrorComponent },
 ];
 @NgModule({
   declarations: [
@@ -23,14 +37,18 @@ const routes: any = [
     StudentComponent,
     TableComponent,
     NewStudentComponent,
+    AllUsersComponent,
+    UserDetailsComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
+    HttpClientModule,
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
