@@ -1,0 +1,33 @@
+<div class="contanier w-50 mx-auto">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Details</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody *ngFor="let user of users">
+      <tr>
+        <td>{{ user.id }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.email }}</td>
+        <td>{{ user.phone }}</td>
+        <td><a routerLink="./{{ user.id }}">Details</a></td>
+        <td><a routerLink="./edit/{{ user.id }}">edit</a></td>
+        <td>
+          <input
+            type="button"
+            value="Delete"
+            class="btn btn-danger"
+            (click)="delete_user(user.id)"
+          />
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

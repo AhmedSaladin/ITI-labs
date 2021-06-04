@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="card m-3" style="width: 25rem" *ngIf="user; else noData">
+    <div class="card-body">
+      <h5 class="card-title">Name: {{ user.name }}</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">Email: {{ user.email }}</li>
+      <li class="list-group-item">Phone: {{ user.phone }}</li>
+    </ul>
+    <div class="card-body">
+      <input
+        type="button"
+        value="Edit"
+        class="btn btn-primary m-2"
+        (click)="edit_user_info(user.id)"
+      />
+      <input
+        type="button"
+        value="Delete"
+        class="btn btn-danger m-2"
+        (click)="delete_user()"
+      />
+    </div>
+  </div>
+</div>
+<ng-template #noData>
+  <div class="spinner-border text-primary text-center" role="status"></div>
+</ng-template>

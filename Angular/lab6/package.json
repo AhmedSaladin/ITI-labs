@@ -1,13 +1,13 @@
 {
-  "name": "table",
+  "name": "lab6",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve -o",
+    "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "s-json-server":"json-server --watch db.json"
+    "json-server": "json-server --watch db.json"
   },
   "private": true,
   "dependencies": {

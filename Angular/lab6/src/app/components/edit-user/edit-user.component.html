@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="card m-3 g-3" style="width: 25rem" *ngIf="user; else noData">
+    <li class="list-group-item">
+      Name:
+      <input type="text" name="name" value="{{ user.name }}" #name />
+    </li>
+    <ul class="list-group list-group-flush">
+      <li class="list-group-item">
+        Email:
+        <input type="text" name="email" value="{{ user.email }}" #email />
+      </li>
+      <li class="list-group-item">
+        Phone:
+        <input type="text" name="phone" value="{{ user.phone }}" #phone />
+      </li>
+    </ul>
+    <div class="card-body">
+      <input
+        type="button"
+        value="Save"
+        class="btn btn-primary m-2"
+        (click)="save_user_updates(name.value, email.value, phone.value)"
+      />
+    </div>
+  </div>
+  <ng-template #noData>
+    <div class="spinner-border text-primary" role="status"></div>
+  </ng-template>
+</div>
