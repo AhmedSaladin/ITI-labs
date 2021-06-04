@@ -9,8 +9,11 @@ It's to record all labs and solutions and track my learning path at ITI intensiv
 - [BootStrap][BS]
 - [ES6][ES]
   - [Recorded Sessions][RecES]
-- [MongoDB][DB]
+- [MongoDB][MDB]
   - [Recorded Sessions][RecMDB]
+- [TypeScript][TS]
+  - [Recorded Sessions][RecTS]
+- [Angular][AGLR]
 ## Elective courses
 - [Deep Learning][DL]
 - [Software Testing][ST]
@@ -30,6 +33,10 @@ It's to record all labs and solutions and track my learning path at ITI intensiv
 [ST]:https://maharatech.gov.eg/course/view.php?id=990
 [ES]:https://maharatech.gov.eg/enrol/index.php?id=791
 [RecES]:https://drive.google.com/drive/folders/1i01pyMoST5XCb4LhMMph6SYwoLgQned_
-[DB]:https://maharatech.gov.eg/enrol/index.php?id=975
+[MDB]:https://maharatech.gov.eg/enrol/index.php?id=975
 [RecMDB]:https://drive.google.com/drive/folders/1eyRlNs31P6bJmxexNGHtC7wf0gOCd7Ex
+[TS]:https://maharatech.gov.eg/course/view.php?id=976
+[RecTS]:https://drive.google.com/drive/folders/18HXiAmugynVB8i4QKthESU1_mxLm6maS
+[AGLR]:https://drive.google.com/drive/folders/1P9oh_Tv0SghI5zfAUe9neJLQKdzbaRMh
+
 
