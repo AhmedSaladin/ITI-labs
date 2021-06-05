@@ -9,7 +9,6 @@ import { UserDetailsComponent } from './components/user-details/user-details.com
 import { UserInfoComponent } from './components/user-info/user-info.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { ErrorComponent } from './components/error/error.component';
-import { DeleteUserComponent } from './components/delete-user/delete-user.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 @NgModule({
@@ -20,7 +19,6 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
     UserInfoComponent,
     AddUserComponent,
     ErrorComponent,
-    DeleteUserComponent,
     EditUserComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],

@@ -11,23 +11,8 @@
         <th scope="col">Delete</th>
       </tr>
     </thead>
-    <tbody>
-      <tr *ngFor="let user of users">
-        <td>{{ user.id }}</td>
-        <td>{{ user.name }}</td>
-        <td>{{ user.email }}</td>
-        <td>{{ user.phone }}</td>
-        <td><a routerLink="./{{ user.id }}">Details</a></td>
-        <td><a routerLink="./edit/{{ user.id }}">edit</a></td>
-        <td>
-          <input
-            type="button"
-            value="Delete"
-            class="btn btn-danger"
-            (click)="delete_user(user.id)"
-          />
-        </td>
-      </tr>
+    <tbody *ngFor="let user of users">
+      <tr app-user-info [data]="user"></tr>
     </tbody>
   </table>
 </div>

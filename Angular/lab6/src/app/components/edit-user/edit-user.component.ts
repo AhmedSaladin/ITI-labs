@@ -9,6 +9,9 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class EditUserComponent implements OnInit, OnDestroy {
   id: number;
+  user: any;
+  eve: any;
+
   constructor(
     private api: UsersService,
     current_id: ActivatedRoute,
@@ -16,20 +19,8 @@ export class EditUserComponent implements OnInit, OnDestroy {
   ) {
     this.id = current_id.snapshot.params.id;
   }
-  ngOnDestroy(): void {}
+
   ngOnInit(): void {
-    this.get_user_inforamtion();
-  }
-  user: any;
-
-  save_user_updates(name: string, email: string, phone: string) {
-    let user = { name: name, email: email, phone: phone };
-    this.api.update_user_info(this.id, user).subscribe();
-    console.log(user);
-    this.router.navigateByUrl('users');
-  }
-
-  get_user_inforamtion() {
     this.api.get_user(this.id).subscribe(
       (response) => {
         this.user = response.body;
@@ -38,5 +29,15 @@ export class EditUserComponent implements OnInit, OnDestroy {
         console.log(err);
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.eve.unsubscribe();
+  }
+
+  save_user_updates(name: string, email: string, phone: string) {
+    let user = { name: name, email: email, phone: phone };
+    this.eve = this.api.update_user_info(this.id, user).subscribe();
+    this.router.navigateByUrl('users');
   }
 }

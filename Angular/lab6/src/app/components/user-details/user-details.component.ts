@@ -8,6 +8,10 @@ import { UsersService } from 'src/app/services/users.service';
   styleUrls: ['./user-details.component.css'],
 })
 export class UserDetailsComponent implements OnInit, OnDestroy {
+  id: any;
+  eve: any;
+  user: any;
+  
   constructor(
     private api: UsersService,
     current_id: ActivatedRoute,
@@ -15,25 +19,8 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
   ) {
     this.id = current_id.snapshot.params.id;
   }
-  id: any;
-  ngOnDestroy(): void {
-    this.eve.unsubscribe();
-  }
+
   ngOnInit(): void {
-    this.get_user_inforamtion();
-  }
-  eve: any;
-  user: any;
-
-  delete_user() {
-    const ans = confirm('Are you sure?');
-    if (ans) {
-      this.api.delete_user(this.id).subscribe();
-      this.router.navigateByUrl('users');
-    }
-  }
-
-  get_user_inforamtion() {
     this.eve = this.api.get_user(this.id).subscribe(
       (response) => {
         this.user = response.body;
@@ -42,6 +29,18 @@ export class UserDetailsComponent implements OnInit, OnDestroy {
         console.log(err);
       }
     );
+  }
+
+  ngOnDestroy(): void {
+    this.eve.unsubscribe();
+  }
+
+  delete_user() {
+    const ans = confirm('Are you sure?');
+    if (ans) {
+      this.api.delete_user(this.id).subscribe();
+      this.router.navigateByUrl('users');
+    }
   }
 
   edit_user_info(id: any) {

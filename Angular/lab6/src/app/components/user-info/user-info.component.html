@@ -1,11 +1,14 @@
-<tr>
-  <td>{{ user.id }}</td>
-  <td>{{ user.name }}</td>
-  <td>{{ user.email }}</td>
-  <td>{{ user.phone }}</td>
-  <td><a routerLink="./{{ user.id }}">Details</a></td>
-  <td><a routerLink="./edit/{{ user.id }}">edit</a></td>
-  <td>
-    <input type="button" value="Delete" class="btn btn-danger" />
-  </td>
-</tr>
+<td>{{ user.id }}</td>
+<td>{{ user.name }}</td>
+<td>{{ user.email }}</td>
+<td>{{ user.phone }}</td>
+<td><a routerLink="./{{ user.id }}">Details</a></td>
+<td><a routerLink="./edit/{{ user.id }}">edit</a></td>
+<td>
+  <input
+    type="button"
+    value="Delete"
+    class="btn btn-danger"
+    (click)="delete_user(user.id)"
+  />
+</td>
