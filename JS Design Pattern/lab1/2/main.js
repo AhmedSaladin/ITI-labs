@@ -1,49 +1,87 @@
+class Empolyee {
+  constructor(_name, _type) {
+    this.name = _name;
+    this.type = _type;
+  }
+}
 // Developing, Testing ,Quality Controls and Designers
-class TeamLeader {
-  constructor(name) {
-    if (TeamLeader.instance != null) {
+class DevTeamLeader extends Empolyee {
+  constructor(_name) {
+    if (DevTeamLeader.instance != null) {
       throw "go away";
     }
-    this.name = name;
-    this.type = "Developing Team Leader";
-    TeamLeader.instance = this;
+    super(_name, "Developing Team Leader");
+    DevTeamLeader.instance = this;
   }
 }
 
-class Developing {
-  leader = null;
+class TestTeamLeader extends Empolyee {
   constructor(name) {
-    if (this.leader == null) this.leader = new TeamLeader(name);
-    else {
-      this.name = name;
-      this.type = "Developer";
+    if (TestTeamLeader.instance != null) {
+      throw "go away";
     }
+    super(name, "Testing Team Leader");
+    TestTeamLeader.instance = this;
   }
-
 }
 
-class Testing {
-  leader = null;
+class QCTeamLeader extends Empolyee {
   constructor(name) {
-    if (this.leader == null) this.leader = new TeamLeader(name);
-    else {
-      this.name = name;
-      this.type = "Tester";
+    if (QCTeamLeader.instance != null) {
+      throw "go away";
     }
+    super(name, "Quality Control Team Leader");
+    QCTeamLeader.instance = this;
   }
 }
 
-class QualityControl {
+class DesTeamLeader extends Empolyee {
   constructor(name) {
-    this.name = name;
-    this.type = "Quality Control Engineer";
+    if (DesTeamLeader.instance != null) {
+      throw "go away";
+    }
+    super(name, "Designing Team Leader");
+    DesTeamLeader.instance = this;
   }
 }
 
-class Designing {
+class Developing extends Empolyee {
+  constructor(_name) {
+    super(_name, "Developer");
+  }
+  static leader;
+  static team_leader(name) {
+    this.leader = new DevTeamLeader(name);
+  }
+}
+
+class Testing extends Empolyee {
   constructor(name) {
-    this.name = name;
-    this.type = "Desinger";
+    super(name, "Tester");
+  }
+  static leader;
+  static team_leader(name) {
+    this.leader = new TestTeamLeader(name);
+  }
+}
+
+class QualityControl extends Empolyee {
+  constructor(name) {
+    super(name, "Quality Control Engineer");
+  }
+  static leader;
+  static team_leader(name) {
+    this.leader = new QCTeamLeader(name);
+  }
+}
+
+class Designing extends Empolyee {
+  constructor(name) {
+    super(name, "Desinger");
+  }
+  static leader;
+  static team_leader(name) {
+    this.leader = new DesTeamLeader(name);
   }
 }
 
