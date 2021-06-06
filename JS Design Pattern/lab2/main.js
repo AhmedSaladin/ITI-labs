@@ -2,6 +2,7 @@ class FacebookAccount {
   constructor() {
     this.friends = [];
     this.posts = [];
+    this.notifications = [];
   }
 
   add_friend(user) {
@@ -12,6 +13,9 @@ class FacebookAccount {
   remove_friend(user) {
     this.friends = this.friends.filter((account) => {
       return user != account;
+    });
+    user.friends = user.friends.filter((account) => {
+      return this != account;
     });
   }
 
@@ -29,7 +33,7 @@ class FacebookAccount {
   }
 
   new_post(body) {
-    const post = { post_body: body, owner: this.name, comment: {} };
+    const post = { post_body: body, owner: this.name, comments: [] };
     this.posts.push(post);
     this.friends.forEach((account) => {
       account.post_notification(post);
@@ -38,8 +42,10 @@ class FacebookAccount {
 
   new_comment(body) {
     const comment = { comment_body: body, owner: this.name };
+    const post = this.notifications[0];
+    post.comments.push(comment);
     this.friends.forEach((account) => {
-      account.comment_notification(comment);
+      account.comment_notification(comment, post);
     });
   }
 }
@@ -52,11 +58,16 @@ class Account extends FacebookAccount {
   }
 
   post_notification(post) {
+    this.notifications.push(post);
     console.log(`${post.owner} share new post about ${post.post_body}`);
   }
 
-  comment_notification(comment) {
-    console.log(`${comment.owner} commented on  bla7 post`);
+  comment_notification(comment, post) {
+    console.log(`${comment.owner} commented on ${post.owner} post`);
+    this.friends.forEach((account) => {
+      account.notifications.push(comment);
+      console.log(`${comment.owner} commented on ${post.owner} post`);
+    });
   }
 
   message_notification(msg, owner) {
