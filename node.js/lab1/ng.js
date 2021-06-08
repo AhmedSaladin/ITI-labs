@@ -11,12 +11,12 @@ const interface = () => {
     return !arg.startsWith("-");
   });
 
-  const option = args.filter((arg) => {
+  const options = args.filter((arg) => {
     return arg.startsWith("-");
   });
+
   is_a_valid_command(gen);
-  generate_type(schematic, name, option);
-  // generate_type(args);
+  generate_type(schematic, name, options);
 };
 
 const is_a_valid_command = (arg) => {
@@ -39,40 +39,43 @@ const generate_type = (arg, name, options) => {
   }
 };
 
-const create_components_files = (arg, options) => {
+const create_components_files = (name, options) => {
   let temp = fs.readFileSync("./component.txt", "utf-8");
-  temp = edit_tempelate(temp, arg);
-  make_dir(arg);
+  temp = edit_tempelate(temp, name);
+  make_dir(name);
 
-  fs.writeFileSync(`./${arg}/${arg}-component.ts`, temp);
+  fs.writeFileSync(`./${name}/${name}-component.ts`, temp);
 
+  if (!disable_test_file(options)) {
+    fs.writeFileSync(
+      `./${name}/${name}-component.css`,
+      `/* add your styles here */`
+    );
+  }
   fs.writeFileSync(
-    `./${arg}/${arg}-component.css`,
-    `/* add your styles here */`
+    `./${name}/${name}-component.html`,
+    `<p>${name}-component works<p>`
   );
-
-  fs.writeFileSync(
-    `./${arg}/${arg}-component.html`,
-    `<p>${arg}-component works<p>`
-  );
-
-  fs.writeFileSync(
-    `./${arg}/${arg}-component-spec.ts`,
-    ` // add your test cases here`
-  );
+  if (!disable_css_file(options)) {
+    fs.writeFileSync(
+      `./${name}/${name}-component-spec.ts`,
+      ` // add your test cases here`
+    );
+  }
 };
 
-const create_services_files = (arg, options) => {
+const create_services_files = (name, options) => {
   let temp = fs.readFileSync("./service.txt", "utf-8");
-  temp = edit_tempelate(temp, arg);
-  make_dir(arg);
+  temp = edit_tempelate(temp, name);
+  make_dir(name);
+  fs.writeFileSync(`./${name}/${name}-service.ts`, temp);
 
-  fs.writeFileSync(`./${arg}/${arg}-service.ts`, temp);
-
-  fs.writeFileSync(
-    `./${arg}/${arg}-service-spec.ts`,
-    ` // add your test cases here`
-  );
+  if (!disable_test_file(options)) {
+    fs.writeFileSync(
+      `./${name}/${name}-service-spec.ts`,
+      ` // add your test cases here`
+    );
+  }
 };
 
 function make_dir(arg) {
@@ -84,6 +87,14 @@ function make_dir(arg) {
 
 function edit_tempelate(tempelate, name) {
   return tempelate.replace("Name", name);
+}
+
+function disable_css_file(options) {
+  return options.includes("--inline-style");
+}
+
+function disable_test_file(options) {
+  return options.includes("--skip-tests");
 }
 
 interface();
