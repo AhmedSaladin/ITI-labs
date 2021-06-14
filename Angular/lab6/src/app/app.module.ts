@@ -10,6 +10,7 @@ import { UserInfoComponent } from './components/user-info/user-info.component';
 import { AddUserComponent } from './components/add-user/add-user.component';
 import { ErrorComponent } from './components/error/error.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { CloudinaryModule } from '@cloudinary/angular';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,12 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
     ErrorComponent,
     EditUserComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    CloudinaryModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

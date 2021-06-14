@@ -16,6 +16,7 @@ import { UsersService } from './services/users.service';
 import { ErrorComponent } from './components/error/error.component';
 import { HeaderDirective } from './directives/header.directive';
 import { UpperPipe } from './pipes/upper.pipe';
+import { UcWidgetModule } from 'ngx-uploadcare-widget';
 
 const routes: any = [
   {
@@ -51,6 +52,7 @@ const routes: any = [
     ReactiveFormsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
+    UcWidgetModule
   ],
   providers: [UsersService],
   bootstrap: [AppComponent],

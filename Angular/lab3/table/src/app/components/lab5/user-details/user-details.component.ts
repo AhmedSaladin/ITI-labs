@@ -9,6 +9,8 @@ import { UsersService } from 'src/app/services/users.service';
 })
 export class UserDetailsComponent implements OnInit {
   id: any;
+  img: any =
+    'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/8a8dcf103173247.5f471a30c0f21.png';
   constructor(private user: UsersService, myid: ActivatedRoute) {
     this.id = myid.snapshot.params.id;
   }
@@ -22,5 +24,19 @@ export class UserDetailsComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  compelete(eve: any) {
+    console.log(`on compelete`);
+    console.log(eve);
+    this.img= eve.cdnUrl
+  }
+  prog(eve: any) {
+    console.log(`on progress`);
+    console.log(eve);
+  }
+  change_pic(eve: any) {
+    console.log(`on change`);
+    console.log(eve);
   }
 }

@@ -1,11 +1,7 @@
 <div class="card mb-3" style="max-width: 50rem" *ngIf="current; else no_data">
   <div class="row g-0">
     <div class="col-md-4">
-      <img
-        src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/8a8dcf103173247.5f471a30c0f21.png"
-        alt="..."
-        style="width: 100%"
-      />
+      <img src="{{ img }}" alt="..." style="width: 100%" />
     </div>
     <div class="col-md-8">
       <div class="card-body">
@@ -23,6 +19,18 @@
       </div>
     </div>
   </div>
+  <ngx-uploadcare-widget
+    public-key="d2eaba00baf97d93aeb1"
+    (on-change)="change_pic($event)"
+    (on-progress)="prog($event)"
+    (on-upload-complete)="compelete($event)"
+    #uploadcare
+    crop="free"
+    [images-only]="true"
+    input-accept-types="image/*"
+    tabs="file camera url gphotos instagram facebook"
+  >
+  </ngx-uploadcare-widget>
 </div>
 <ng-template #no_data>
   <div class="spinner-border text-info" role="status">
