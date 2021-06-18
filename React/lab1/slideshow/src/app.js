@@ -1,14 +1,8 @@
-import First from "./components/first/first";
-import Second from "./components/second/second";
-import "./style.css"
+import Navbar from "./components/lab2/navbar";
+import "./style.css";
 
 function App() {
-  return (
-    <div>
-      <First />
-      <Second />
-    </div>
-  );
+  return <Navbar />;
 }
 
 export default App;
