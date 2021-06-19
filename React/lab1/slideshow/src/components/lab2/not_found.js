@@ -1,6 +1,6 @@
 function Not_found(props) {
   const navigateTo = () => {
-    props.history.push("/users");
+    props.history.push("/");
   };
   return (
     <div className="container">

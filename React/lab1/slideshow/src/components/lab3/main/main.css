@@ -1,0 +1,15 @@
+.head {
+  min-height: 660px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+}
+.head h1{
+  color: white;
+  font-size: 70px !important;
+  letter-spacing: 2px;
+  margin: auto;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+}
