@@ -11,12 +11,12 @@ export class AddUserComponent implements OnInit, OnDestroy {
   constructor(private api: UsersService, private router: Router) {}
   eve: any;
   ngOnInit(): void {}
-  ngOnDestroy(): void {
-    this.eve.unsubscribe();
-  }
   add_new_user(name: string, email: string, phone: string) {
     let user: object = { name: name, email: email, phone: phone };
     this.eve = this.api.add_new_user(user).subscribe();
     this.router.navigateByUrl('users');
+  }
+  ngOnDestroy(): void {
+    this.eve.unsubscribe();
   }
 }

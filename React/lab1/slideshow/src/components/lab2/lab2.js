@@ -2,9 +2,9 @@ import { Component } from "react";
 import AddUser from "./add_user";
 import Table from "./table";
 let list = [
-  { name: "ali", age: 15 },
-  { name: "zaki", age: 30 },
-  { name: "loki", age: 32 },
+  // { name: "ali", age: 15 },
+  // { name: "zaki", age: 30 },
+  // { name: "loki", age: 32 },
 ];
 class Lab2 extends Component {
   constructor() {
