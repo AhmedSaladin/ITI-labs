@@ -1,9 +1,6 @@
-import { Redirect } from "react-router-dom";
-
 function Not_found(props) {
   const navigateTo = () => {
     props.history.push("/users");
-    // return <Redirect to="/users" />;
   };
   return (
     <div className="container">
