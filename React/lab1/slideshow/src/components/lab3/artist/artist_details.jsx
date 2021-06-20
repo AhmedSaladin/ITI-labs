@@ -30,7 +30,7 @@ function Artist(props) {
     if (artist !== "") {
       return (
         <div className="container-fluid text-center">
-          <Link to="/" className="link">
+          <Link to="/" className="link ">
             MUSIC-DB
           </Link>
           <hr className="bg-dark"></hr>
@@ -43,7 +43,7 @@ function Artist(props) {
             />
             <h4 className="text-center">{artist.name}</h4>
             <p className="text-center">{artist.bio}</p>
-            <div className="row justfiy-content-center">{album()}</div>
+            <div className="row  box ">{album()}</div>
           </div>
         </div>
       );
