@@ -24,7 +24,7 @@ export default function Nav_bar() {
             </li>
           </ul>
           <form className="d-flex">
-            <input type="button" className="" value="Register" />
+            <input type="button" className="btn btn-primary" value="Register" />
           </form>
         </div>
       </div>

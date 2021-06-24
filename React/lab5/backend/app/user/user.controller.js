@@ -1,5 +1,5 @@
 const User = require("./user.model");
-
+const mongoId = require("mongoose");
 module.exports = {
   get_all_users: (req, res, next) => {
     User.find({})
@@ -12,12 +12,14 @@ module.exports = {
 
   get_user_details: (req, res, next) => {
     const id = req.params.id;
-    User.findOne({ _id: id })
-      .then((user) => {
-        if (!user) res.status(404).json();
-        else res.status(200).json(user);
-      })
-      .catch((err) => console.log(err));
+    if (mongoId.isValidObjectId(id)) {
+      User.findOne({ _id: id })
+        .then((user) => {
+          if (!user) res.status(404).json();
+          else res.status(200).json(user);
+        })
+        .catch((err) => console.log(err));
+    } else res.status(404).json();
   },
 
   get_user_by_name: (req, res, next) => {
@@ -49,9 +51,10 @@ module.exports = {
 
   delete_user: (req, res, next) => {
     const id = req.params.id;
-    User.findOneAndDelete({ _id: id })
-      .then(() => res.status(302).json())
-      .catch((err) => console.log(err));
+    if (mongoId.isValidObjectId(id)) {
+      User.findOneAndDelete({ _id: id })
+        .then(() => res.status(302).json())
+        .catch((err) => console.log(err));
+    } else res.status(404).json();
   },
-  
 };

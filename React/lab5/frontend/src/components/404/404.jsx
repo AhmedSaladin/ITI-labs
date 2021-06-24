@@ -1,7 +1,8 @@
-// import "./404.css";
+import "./404.css";
+import { Link } from "react-router-dom";
 export default function Not_found() {
   return (
-    <header className="top-header">
+    <header className="top-header body">
       {/* dust particel */}
       <div>
         <div className="starsec"></div>
@@ -34,10 +35,7 @@ export default function Not_found() {
             </p>
           </div>
           <div className="error__nav e-nav">
-            <a
-              href="https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&cad=rja&uact=8&ved=2ahUKEwisr8GLiIHsAhXUX3wKHSQ9C944HhAWMAd6BAgIEAE&url=https%3A%2F%2Fwww.enationalelectronics.com%2F&usg=AOvVaw0CoGpfiGKRton9yE4Q8_Hv"
-              className="e-nav__link"
-            ></a>
+            <Link className="e-nav__link" to="/"></Link>
           </div>
         </div>
         {/* END Content  */}
