@@ -33,12 +33,20 @@ module.exports = {
   },
 
   create_new_user: (req, res, next) => {
-    const user = new User(req.body);
-    console.log(user);
+    console.log(req.body);
+    console.log(req.file);
+    console.log(req.headers);
+
+    const user = new User({
+      name: req.body.name,
+      email: req.body.email,
+      image: `/images/${req.file.filename}`,
+    });
     user
       .save()
       .then(() => res.status(201).json())
       .catch((err) => console.log(err));
+    res.status(200).json();
   },
 
   update_user_details: (req, res, next) => {

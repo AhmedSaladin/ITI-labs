@@ -1,9 +1,8 @@
 import { useEffect } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import user_details from "../../actions/user_details";
 import clear_details from "../../actions/clear_details";
 import delete_user from "../../actions/delete_user";
-import { useSelector } from "react-redux";
 
 export default function User_details(props) {
   const id = props.match.params.id;
@@ -24,9 +23,9 @@ export default function User_details(props) {
         <div className="container ">
           <div className="card mt-5">
             <div className="row g-0">
-              <div className="col-md-6">
+              <div className="col-md-6 col-xl-4">
                 <img
-                  src={user.image}
+                  src={`http://localhost:3001${user.image}`}
                   className="img-fluid rounded-start"
                   alt={user.name}
                 />
