@@ -1,5 +1,7 @@
 const User = require("./user.model");
 const mongoId = require("mongoose");
+const fs = require("fs/promises");
+
 module.exports = {
   get_all_users: (req, res, next) => {
     User.find({})
@@ -33,10 +35,6 @@ module.exports = {
   },
 
   create_new_user: (req, res, next) => {
-    console.log(req.body);
-    console.log(req.file);
-    console.log(req.headers);
-
     const user = new User({
       name: req.body.name,
       email: req.body.email,
@@ -60,9 +58,18 @@ module.exports = {
   delete_user: (req, res, next) => {
     const id = req.params.id;
     if (mongoId.isValidObjectId(id)) {
-      User.findOneAndDelete({ _id: id })
-        .then(() => res.status(302).json())
+      User.findOneAndRemove({ _id: id })
+        .then((data) => {
+          console.log(data);
+          delete_images(data.image);
+        })
         .catch((err) => console.log(err));
     } else res.status(404).json();
   },
 };
+
+function delete_images(image) {
+  const current_image = image.split("/images/")[1];
+  console.log(current_image);
+  fs.unlink(`images/${current_image}`).catch((err) => console.error(err));
+}

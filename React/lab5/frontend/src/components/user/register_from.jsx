@@ -1,10 +1,11 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import create_new_user from "../../actions/create_new_user";
 
 export default function Register_model() {
   const [user, setUser] = useState({ name: "", email: "", image: "" });
   const dispatch = useDispatch();
+  const imageRef = useRef();
 
   const handle_changes = (e) => {
     const key = e.currentTarget.name;
@@ -25,6 +26,7 @@ export default function Register_model() {
 
   const clear_form = () => {
     setUser({ name: "", email: "", image: "" });
+    imageRef.current.value = "";
   };
 
   return (
@@ -95,6 +97,7 @@ export default function Register_model() {
                   Picture
                 </label>
                 <input
+                  ref={imageRef}
                   name="image"
                   className="form-control"
                   type="file"
