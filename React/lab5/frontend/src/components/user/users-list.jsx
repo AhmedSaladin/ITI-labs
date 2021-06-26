@@ -9,7 +9,6 @@ import Loading from "../loading";
 export default function Users_list() {
   const dispatch = useDispatch();
   const users = useSelector((state) => state.users.list);
-  console.log(users);
 
   useEffect(() => {
     dispatch(users_list(""));
