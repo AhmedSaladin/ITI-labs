@@ -1,0 +1,41 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin: 0;
+}
+
+.mainScreen {
+  display: flex;
+  border: 5px solid black;
+}
+
+.contant {
+  border: 5px solid blue;
+}
+
+.left,
+.right {
+  border: 5px solid red;
+}
+
+header,
+footer {
+  border: 5px solid green;
+  height: 5vh;
+  text-align: center;
+  font-size: 30px;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+}
+
+.nav {
+  border: 5px solid purple;
+  height: 5vh;
+  display: flex;
+  align-items: flex-end;
+}
