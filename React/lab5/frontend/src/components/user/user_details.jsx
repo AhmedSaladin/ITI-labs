@@ -45,8 +45,11 @@ export default function User_details(props) {
                       value="Delete"
                       className="btn btn-danger m-2"
                       onClick={() => {
-                        dispatch(delete_user(id));
-                        props.history.push("/");
+                        const ans = window.confirm("Are you Sure?");
+                        if (ans) {
+                          dispatch(delete_user(id));
+                          props.history.replace("/");
+                        }
                       }}
                     />
                   </div>

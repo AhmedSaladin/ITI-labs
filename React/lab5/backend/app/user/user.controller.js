@@ -51,7 +51,10 @@ module.exports = {
     const id = req.params.id;
     const user = req.body;
     User.findOneAndUpdate({ _id: id }, user)
-      .then(() => res.status(302).json())
+      .then((data) => {
+        console.log(data);
+        res.status(302).json();
+      })
       .catch((err) => console.log(err));
   },
 
@@ -60,8 +63,7 @@ module.exports = {
     if (mongoId.isValidObjectId(id)) {
       User.findOneAndRemove({ _id: id })
         .then((data) => {
-          console.log(data);
-          delete_images(data.image);
+          if (data.image) delete_images(data.image);
         })
         .catch((err) => console.log(err));
     } else res.status(404).json();
@@ -70,6 +72,5 @@ module.exports = {
 
 function delete_images(image) {
   const current_image = image.split("/images/")[1];
-  console.log(current_image);
   fs.unlink(`images/${current_image}`).catch((err) => console.error(err));
 }

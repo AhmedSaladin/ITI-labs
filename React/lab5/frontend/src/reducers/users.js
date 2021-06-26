@@ -3,7 +3,11 @@ export default function users(state = {}, action) {
     case "CLEAR_USERS_LIST":
     case "USERS_LIST":
       return { ...state, list: action.payload };
+
     case "USER_CREATED":
+      console.log(state);
+      return { ...state, list: state["list"].push(action.payload) };
+
     case "CLEAR_DETAILS":
     case "USER_DETAILS":
     case "USER_DELETED":

@@ -2,7 +2,8 @@ import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
 import create_new_user from "../../actions/create_new_user";
 
-export default function Register_model() {
+export default function Register_model(props) {
+  console.log(props);
   const [user, setUser] = useState({ name: "", email: "", image: "" });
   const dispatch = useDispatch();
   const imageRef = useRef();
@@ -12,7 +13,6 @@ export default function Register_model() {
     let state = { ...user };
     if (key !== "image") state[key] = e.target.value;
     else state[key] = e.target.files[0];
-    console.log(state[key]);
     setUser(state);
   };
   const submit_form = () => {
@@ -30,7 +30,7 @@ export default function Register_model() {
   };
 
   return (
-    <dir>
+    <div>
       <button
         type="button"
         className="btn btn-primary"
@@ -39,7 +39,6 @@ export default function Register_model() {
       >
         Register
       </button>
-
       <div
         className="modal fade"
         id="registerModel"
@@ -56,7 +55,8 @@ export default function Register_model() {
                 Register Form
               </h5>
             </div>
-            <form
+
+            <div
               id="RegisterForm"
               className="modal-body"
               encType="multipart/form-data"
@@ -106,7 +106,7 @@ export default function Register_model() {
                   onChange={handle_changes}
                 />
               </div>
-            </form>
+            </div>
             <div className="modal-footer">
               <button
                 type="button"
@@ -118,7 +118,6 @@ export default function Register_model() {
               </button>
               <button
                 type="submit"
-                form="RegisterForm"
                 className="btn btn-primary"
                 data-bs-dismiss="modal"
                 onClick={submit_form}
@@ -129,6 +128,6 @@ export default function Register_model() {
           </div>
         </div>
       </div>
-    </dir>
+    </div>
   );
 }

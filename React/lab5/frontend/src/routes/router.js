@@ -7,7 +7,7 @@ import NavBar from "../components/navbar";
 export default function Router() {
   return (
     <BrowserRouter>
-          <NavBar />
+      <NavBar />
       <Switch>
         <Route path="/users/:id" component={UserDetails}></Route>
         <Route path="/" component={Home} exact></Route>

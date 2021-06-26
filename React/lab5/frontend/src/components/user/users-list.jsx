@@ -30,6 +30,6 @@ export default function Users_list() {
     );
   };
 
-  if (users) return <div className="container">{users_view(users)}</div>;
+  if (users) return users_view(users);
   else return loading();
 }
