@@ -26,7 +26,7 @@ module.exports = {
 
   get_user_by_name: (req, res, next) => {
     const { name } = req.query;
-    User.findOne({ name: `${name}` })
+    User.find({ name: `${name}` })
       .then((user) => {
         if (!user) res.status(404).json();
         else res.status(200).json(user);
@@ -44,16 +44,20 @@ module.exports = {
       .save()
       .then(() => res.status(201).json())
       .catch((err) => console.log(err));
-    res.status(200).json();
   },
 
   update_user_details: (req, res, next) => {
     const id = req.params.id;
-    const user = req.body;
+    const user = {
+      name: req.body.name,
+      email: req.body.email,
+      image: req.file ? `/images/${req.file.filename}` : req.body.image,
+    };
+    if (user) console.log("image: " + user.image);
     User.findOneAndUpdate({ _id: id }, user)
       .then((data) => {
-        console.log(data);
-        res.status(302).json();
+        if (user.image != data.image) delete_images(data.image);
+        res.status(204).json();
       })
       .catch((err) => console.log(err));
   },

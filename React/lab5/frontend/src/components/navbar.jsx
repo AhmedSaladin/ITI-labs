@@ -1,5 +1,6 @@
 import { NavLink as Link } from "react-router-dom";
 import Register from "./user/register_from";
+
 export default function Nav_bar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -24,10 +25,9 @@ export default function Nav_bar() {
               </Link>
             </li>
           </ul>
-          <form className="d-flex">
-            {/* <input type="button" className="btn btn-primary" value="Register" /> */}
+          <span className="d-flex">
             <Register />
-          </form>
+          </span>
         </div>
       </div>
     </nav>

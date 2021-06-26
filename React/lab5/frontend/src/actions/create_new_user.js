@@ -1,15 +1,17 @@
 import axios from "axios";
-const URL = "http://localhost:3001/users";
+const URL = "http://localhost:3001";
 export default async function create_new_user(user) {
   try {
-    const response = await axios.post(URL, user);
-    if (response.status === 201)
+    let response = await axios.post(`${URL}/users`, user);
+    console.log(response);
+    if (response.status === 201) {
+      response = await axios.get(URL);
       return {
         type: "USER_CREATED",
-        payload: { name: user.name, image: user.image },
+        payload: response.data,
       };
+    } else return { type: "USER_CREATED", payload: [] };
   } catch (err) {
     console.error(err);
   }
-  return { type: "USER_CREATED", payload: [] };
 }

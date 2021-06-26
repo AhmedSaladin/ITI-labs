@@ -1,9 +1,15 @@
 import { useState, useRef } from "react";
 import { useDispatch } from "react-redux";
-import create_new_user from "../../actions/create_new_user";
+import edit_user_details from "../../actions/edit_user_details";
 
-export default function Register_model() {
-  const [user, setUser] = useState({ name: "", email: "", image: "" });
+export default function Edit_model({ info }) {
+  const id = info._id;
+  const [user, setUser] = useState({
+    name: info.name,
+    email: info.email,
+    image: info.image,
+  });
+
   const dispatch = useDispatch();
   const imageRef = useRef();
 
@@ -20,28 +26,31 @@ export default function Register_model() {
     formData.append("image", user.image);
     formData.append("name", user.name);
     formData.append("email", user.email);
-    dispatch(create_new_user(formData));
-    clear_form();
+    if (!no_change(user, info)) dispatch(edit_user_details(id, formData));
+    imageRef.current.value = "";
   };
 
-  const clear_form = () => {
-    setUser({ name: "", email: "", image: "" });
-    imageRef.current.value = "";
+  const no_change = (current, last) => {
+    const name = current.name === last.name;
+    const email = current.email === last.email;
+    const image = current.image === last.image;
+    if (name & email & image) return true;
+    return false;
   };
 
   return (
     <div>
       <button
         type="button"
-        className="btn btn-primary"
+        className="btn btn-primary ml-0 mr-2 mt-2 mb-2"
         data-bs-toggle="modal"
-        data-bs-target="#registerModel"
+        data-bs-target="#editModel"
       >
-        Register
+        Edit
       </button>
       <div
         className="modal fade"
-        id="registerModel"
+        id="editModel"
         tabIndex="-1"
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
@@ -52,7 +61,7 @@ export default function Register_model() {
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">
-                Register Form
+                Edit Form
               </h5>
             </div>
 
@@ -107,13 +116,11 @@ export default function Register_model() {
                 />
               </div>
             </div>
-
             <div className="modal-footer">
               <button
                 type="button"
                 className="btn btn-secondary"
                 data-bs-dismiss="modal"
-                onClick={clear_form}
               >
                 Discard
               </button>
