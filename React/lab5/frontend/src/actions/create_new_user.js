@@ -2,7 +2,7 @@ import axios from "axios";
 import { URL } from "./url";
 export default async function create_new_user(user) {
   try {
-    let response = await axios.post(`${URL}/users`, user);
+    let response = await axios.post(URL, user);
     console.log(response);
     if (response.status === 201) {
       response = await axios.get(URL);
