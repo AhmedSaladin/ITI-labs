@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = "http://localhost:3001/users";
+import { URL } from "./url";
 export default async function edit_user_data(id, user) {
   try {
     let response = await axios.put(`${URL}/${id}`, user);

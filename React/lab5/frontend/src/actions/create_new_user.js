@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = "http://localhost:3001";
+import { URL } from "./url";
 export default async function create_new_user(user) {
   try {
     let response = await axios.post(`${URL}/users`, user);

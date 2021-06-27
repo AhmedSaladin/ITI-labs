@@ -6,7 +6,7 @@ export default function User({ info }) {
         <div className="alert border border-2 d-flex justify-content-between ">
           <h2 className="align-self-center text-dark">{info.name}</h2>
           <img
-            src={`http://localhost:3001${info.image}`}
+            src={`https://react-deploy-task.herokuapp.com${info.image}`}
             alt={info.name}
             className="w-25 rounded"
             style={{ maxHeight: "100px" }}

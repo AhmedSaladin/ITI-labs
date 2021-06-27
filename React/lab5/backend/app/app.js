@@ -9,5 +9,6 @@ module.exports = (app) => {
   app.use("/images", express.static("images"));
   app.use(express.json());
   app.use(cors());
-  app.use(routes);
+  app.use(express.static("build"));
+  app.use("/api", routes);
 };

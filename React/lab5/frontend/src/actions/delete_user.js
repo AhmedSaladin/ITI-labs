@@ -1,5 +1,5 @@
 import axios from "axios";
-const URL = "http://localhost:3001/users";
+import { URL } from "./url";
 export default async function delete_user(id) {
   try {
     await axios.delete(`${URL}/${id}`);

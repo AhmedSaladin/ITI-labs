@@ -23,7 +23,7 @@ export default function User_details(props) {
           <div className="row g-0">
             <div className="col-md-6 col-xl-4">
               <img
-                src={`http://localhost:3001${user.image}`}
+                src={`https://react-deploy-task.herokuapp.com${user.image}`}
                 className="img-fluid rounded-start"
                 alt={user.name}
               />
