@@ -1,0 +1,48 @@
+//@import
+@import "secondstyles";
+// Variables
+$myFonts: Helvetica, sans-serif;
+$myColors: blue;
+$myFontSize: 20px;
+$myWidth: 10px;
+$fontColors: rgb(223, 41, 41);
+
+
+@mixin style-text{
+    font-weight: bold;
+    border: 3px dashed green;
+}
+
+body{
+    // background-color: $myColors;
+    font-size: $myFontSize;
+}
+#container{
+    color: $fontColors;
+
+}
+
+// Variable Scope
+h1{
+    @include style-text;
+    // $fontColors:gray;
+    color:$fontColors;
+}
+
+
+// Nesting
+nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    li {
+      display: inline-block;
+    }
+    a {
+      display: block;
+      padding: 6px 12px;
+      text-decoration: none;
+    }
+  }

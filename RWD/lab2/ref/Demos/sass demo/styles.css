@@ -1,0 +1,52 @@
+h2 {
+  color: #dee054;
+}
+
+#second {
+  color: #dee054;
+}
+
+/* Define mixin with two arguments */
+.myArticle {
+  border: 1px solid blue;
+}
+
+.myNotes {
+  border: 2px solid red;
+}
+
+.testExtend, #second {
+  border: 5px dotted blueviolet;
+  color: brown;
+}
+
+body {
+  font-size: 20px;
+}
+
+#container {
+  color: #df2929;
+}
+
+h1 {
+  font-weight: bold;
+  border: 3px dashed green;
+  color: #df2929;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+nav li {
+  display: inline-block;
+}
+
+nav a {
+  display: block;
+  padding: 6px 12px;
+  text-decoration: none;
+}
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,22 @@
+h2 {
+  color: #dee054;
+}
+
+#second {
+  color: #dee054;
+}
+
+/* Define mixin with two arguments */
+.myArticle {
+  border: 1px solid blue;
+}
+
+.myNotes {
+  border: 2px solid red;
+}
+
+.testExtend, #second {
+  border: 5px dotted blueviolet;
+  color: brown;
+}
+/*# sourceMappingURL=secondstyles.css.map */

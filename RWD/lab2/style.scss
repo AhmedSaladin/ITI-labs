@@ -1,0 +1,122 @@
+$width: 6.25%;
+$color: orange;
+
+.col-1 {
+  width: $width;
+}
+
+.col-2 {
+  width: $width * 2;
+}
+
+.col-3 {
+  width: $width * 3;
+}
+
+.col-4 {
+  width: $width * 4;
+}
+
+.col-5 {
+  width: $width * 5;
+}
+
+.col-6 {
+  width: $width * 6;
+}
+
+.col-7 {
+  width: $width * 7;
+}
+
+.col-8 {
+  width: $width * 8;
+}
+
+.col-9 {
+  width: $width * 9;
+}
+
+.col-11 {
+  width: $width * 11;
+}
+
+.col-12 {
+  width: $width * 12;
+}
+
+.col-13 {
+  width: $width * 13;
+}
+
+.col-14 {
+  width: $width * 14;
+}
+
+.col-15 {
+  width: $width * 15;
+}
+
+.col-16 {
+  width: $width * 16;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.header {
+  background-color: $color;
+  font-size: 1.3em;
+}
+
+.header img {
+  max-width: 200px;
+  max-height:200px ;
+  border-radius: 50%;
+  align-content: center;
+  align-items: center;
+}
+
+h3 {
+  background-color: $color;
+  color: #fff;
+  font-size: 1.3em;
+  padding: 10px;
+  text-align: center;
+}
+.main {
+  font-size: 1.2em;
+  margin:10px ;
+}
+.footer1 {
+  background-color: red;
+}
+.footer2 {
+  background-color: $color;
+}
+.footer3 {
+  background-color: darkcyan;
+}

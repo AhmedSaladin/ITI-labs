@@ -1,0 +1,4 @@
+Circular progress bar:
+
+https://www.cssscript.com/circular-progress-bar-plain-html-css/
+https://www.cssscript.com/pure-css-circular-percentage-bar/

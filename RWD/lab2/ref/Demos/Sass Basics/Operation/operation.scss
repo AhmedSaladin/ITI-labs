@@ -1,0 +1,17 @@
+$size: 25px;
+
+.para1 {
+   font-size: $size * 1.5;
+}
+
+h2{
+   font-size: $size + 5;
+}
+
+h3{
+   font-size: $size / 5;
+}
+
+.para2 {
+   font-size: $size - 10;
+}

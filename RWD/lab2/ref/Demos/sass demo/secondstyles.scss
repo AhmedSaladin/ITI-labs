@@ -1,0 +1,39 @@
+
+$colors: white;
+
+// Using Sass !global :The default behavior for variable scope can be overridden
+
+h2{
+    $colors:rgb(222, 224, 84) !global;
+    color:$colors;
+}
+#second{
+    color:$colors;
+}
+
+
+
+/* Define mixin with two arguments */
+@mixin bordered($color, $width) {
+    border: $width solid $color;
+  }
+  
+  .myArticle {
+
+    @include bordered(blue, 1px);  // Call mixin with two values
+
+  }
+  
+  .myNotes {
+    @include bordered(red, 2px); // Call mixin with two values
+  }
+
+//   @extend
+.testExtend{
+    border: 5px dotted blueviolet;
+    color:brown;
+
+}
+#second{
+    @extend .testExtend;
+}

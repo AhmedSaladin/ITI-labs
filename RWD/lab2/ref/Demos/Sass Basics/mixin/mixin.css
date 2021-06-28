@@ -1,0 +1,20 @@
+.danger {
+  color: red;
+  font-size: 25px;
+  font-weight: bold;
+  border: 1px solid blue;
+  background-color: green;
+}
+
+.myArticle {
+  border: 1px solid blue;
+}
+
+.myNotes {
+  border: 2px solid red;
+}
+
+.myTips {
+  border: 1px solid orange;
+}
+/*# sourceMappingURL=mixin.css.map */

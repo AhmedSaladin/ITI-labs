@@ -1,0 +1,34 @@
+// The @mixin directive lets you create CSS code that is to be reused throughout the website.
+// The @include directive is created to let you use (include) the mixin.
+@mixin important-text {
+    color: red;
+    font-size: 25px;
+    font-weight: bold;
+    border: 1px solid blue;
+  }
+  
+  .danger {
+    @include important-text;
+    background-color: green;
+  }
+
+//   Passing Variables to a Mixin
+@mixin bordered($color, $width) {
+    border: $width solid $color;
+  }
+  
+  .myArticle {
+    @include bordered(blue, 1px);  // Call mixin with two values
+  }
+  
+  .myNotes {
+    @include bordered(red, 2px); // Call mixin with two values
+  }
+
+//   Default values
+  @mixin bordeered($color: blue, $width: 1px) {
+    border: $width solid $color;
+  }
+  .myTips {
+    @include bordeered($color: orange);
+  }

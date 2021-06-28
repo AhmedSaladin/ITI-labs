@@ -1,0 +1,128 @@
+.col-1 {
+  width: 6.25%;
+}
+
+.col-2 {
+  width: 12.5%;
+}
+
+.col-3 {
+  width: 18.75%;
+}
+
+.col-4 {
+  width: 25%;
+}
+
+.col-5 {
+  width: 31.25%;
+}
+
+.col-6 {
+  width: 37.5%;
+}
+
+.col-7 {
+  width: 43.75%;
+}
+
+.col-8 {
+  width: 50%;
+}
+
+.col-9 {
+  width: 56.25%;
+}
+
+.col-11 {
+  width: 68.75%;
+}
+
+.col-12 {
+  width: 75%;
+}
+
+.col-13 {
+  width: 81.25%;
+}
+
+.col-14 {
+  width: 87.5%;
+}
+
+.col-15 {
+  width: 93.75%;
+}
+
+.col-16 {
+  width: 100%;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+.header {
+  background-color: orange;
+  font-size: 1.3em;
+}
+
+.header img {
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+h3 {
+  background-color: orange;
+  color: #fff;
+  font-size: 1.3em;
+  padding: 10px;
+  text-align: center;
+}
+
+.main {
+  font-size: 1.2em;
+  margin: 10px;
+}
+
+.footer1 {
+  background-color: red;
+}
+
+.footer2 {
+  background-color: orange;
+}
+
+.footer3 {
+  background-color: darkcyan;
+}
+/*# sourceMappingURL=style.css.map */
