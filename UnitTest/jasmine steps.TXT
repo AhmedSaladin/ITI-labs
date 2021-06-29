@@ -1,0 +1,18 @@
+1-npm init
+2-npm i jasmine --save-dev
+3-npx jasmine init
+4-change test in package.json to "jasmine"
+5-to turn on watch mode:
+-npm i nodemon
+-change test in package.json to "nodemon --exec jasmine "
+
+
+
+
+
+
+
+
+links:
+
+http://www.r-5.org/files/books/computers/languages/escss/tddev/Evan_Hahn-JavaScript_Testing_with_Jasmine-EN.pdf

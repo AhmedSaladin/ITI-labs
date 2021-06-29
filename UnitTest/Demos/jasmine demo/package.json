@@ -1,0 +1,17 @@
+{
+  "name": "firstDemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "jasmine": "^3.6.4",
+    "nodemon": "^2.0.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "nodemon --exec jasmine"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
