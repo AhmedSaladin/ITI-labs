@@ -1,0 +1,47 @@
+<!-- public/index.html -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Mocha Tests</title>
+
+    <!-- Include Mocha CSS styles -->
+    <link
+      href="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.css"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <div id="mocha"></div>
+
+    <!-- Add the Chai assertion library -->
+    <script src="http://chaijs.com/chai.js"></script>
+
+    <!-- Add the Mocha test library -->
+    <script src="https://cdn.rawgit.com/mochajs/mocha/2.2.5/mocha.js"></script>
+
+    <script>
+      // Set chai global variables
+      let expect = chai.expect;
+      let should = chai.should();
+      let assert = chai.assert;
+
+      // Setup Mocha to use the BDD interface
+      mocha.setup("bdd");
+    </script>
+
+    <!-- Import the functions to test -->
+    <script src="./index.js"></script>
+
+    <!-- Import the tests for the capitalizeText, createArray functions -->
+    <script src="./test/capitalizeText.test.js"></script>
+    <script src="./test/createArray.test.js"></script>
+
+    <script>
+      // Run the tests with Mocha after 5s
+      setTimeout(() => mocha.run(), 5000);
+    </script>
+  </body>
+</html>

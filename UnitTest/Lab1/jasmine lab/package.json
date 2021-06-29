@@ -1,0 +1,29 @@
+{
+  "devDependencies": {
+    "jasmine": "^3.7.0"
+  },
+  "name": "jasmine-lab",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "balanced-match": "^1.0.2",
+    "concat-map": "^0.0.1",
+    "brace-expansion": "^1.1.11",
+    "fs.realpath": "^1.0.0",
+    "glob": "^7.1.7",
+    "inflight": "^1.0.6",
+    "inherits": "^2.0.4",
+    "jasmine-core": "^3.7.1",
+    "minimatch": "^3.0.4",
+    "once": "^1.4.0",
+    "path-is-absolute": "^1.0.1",
+    "wrappy": "^1.0.2"
+  },
+  "scripts": {
+    "test": "jasmine"
+  },
+  "keywords": [],
+  "author": "Ahmed Saladin <ahmed_salahdin@hotmail.com>",
+  "license": "ISC",
+  "description": ""
+}
