@@ -1,0 +1,16 @@
+
+
+services folder =====> UserService 
+
+1-test that getValue function returns 'real value'
+
+
+User folder =======>user component
+
+1-test that when the clicked function in ts file called , the value of (isOn) variable 
+will be true
+
+2-test that when the clicked function in ts file called again , the value of (isOn) variable 
+will be false
+
+3-test that the first <P></p> tag in html file the text content will be 'Nullam quis risus eget urna mollis ornare .'
