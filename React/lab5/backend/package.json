@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "nodemon index"
   },
   "keywords": [],
   "author": "Ahmed Saladin <ahmed_salahdin@hotmail.com>",

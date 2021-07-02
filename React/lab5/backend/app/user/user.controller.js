@@ -26,7 +26,7 @@ module.exports = {
 
   get_user_by_name: (req, res, next) => {
     const { name } = req.query;
-    User.find({ name: `${name}` })
+    User.find({ name: { $regex: `${name}`, $options: "i" } })
       .then((user) => {
         if (!user) res.status(404).json();
         else res.status(200).json(user);
