@@ -1,0 +1,7 @@
+repos
+
+https://github.com/sals1995/gulp-demo
+https://github.com/sals1995/webpack_Demo
+
+slides
+https://docs.google.com/presentation/d/1P8xjUTkxp-UEPqXjmhz8IOYagmKCg3MQkQ-OIaP4los/edit?usp=sharing

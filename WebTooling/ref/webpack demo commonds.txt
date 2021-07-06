@@ -1,0 +1,23 @@
+	adding webapck to an app
+npm install webpack webpack-cli webpack-dev-server -D 
+	loaders to install
+npm i -D html-loader style-loader css-loader sass-loader sass file-loader sass
+	plugins
+npm i -D html-webpack-plugin clean-webpack-plugin mini-css-extract-plugin css-minimizer-webpack-plugin 
+	plugins for img minify
+npm i -D imagemin-mozjpeg imagemin-gifsicle imagemin-jpegtran imagemin-optipng imagemin-svgo image-minimizer-webpack-plugin
+	
+npm init -y 
+
+package.json > scripts:{
+		"start:'webpack serve' or from terminal >npx webpack serve
+		"build":'set NODE_ENV='production' && webpack' or from terminal >npx webpack --mode=production
+		}
+
+	to run in development mode 
+		> npm start
+	to run in production mode
+		>npm run build
+
+
+or for multi config files > npx webpak --config file.js

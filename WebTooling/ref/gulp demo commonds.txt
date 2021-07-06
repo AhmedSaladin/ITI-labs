@@ -1,0 +1,30 @@
+	Installing Gulp globally
+npm install gulp-cli –g
+	Verify Gulp has installed with the following:
+gulp -v
+	You can now install Gulp in your project folder using this command:
+npm install gulp --save-dev
+
+
+	Create a folder that contains src folder that contains folders : 
+Html 
+Js
+Scss
+Images
+	Run command npm init to generate package.json 
+npm init 
+or 
+npm init -y
+
+	for images task
+npm install gulp-imagemin -D
+
+	for html task
+npm install -D gulp-htmlmin
+	for js task
+npm install  gulp-concat  gulp-terser  --save-dev
+	for css task
+npm install gulp-sass gulp-clean-css gulp-concat -D
+	for reload
+npm i -D browser-sync
+
